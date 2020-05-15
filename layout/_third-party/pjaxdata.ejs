@@ -55,7 +55,7 @@ if (page && page.layout == 'post' && page.title) {
 
 <% if (enableCover) { %>
 <script>
-    // 处理封面 - blog    此时 jquery 还没加载，线用原生顶着
+    // 处理封面 此时 jquery 还没加载
     if("<%=frontMatterCover%>" == "none") {  // 移除封面
         document.getElementsByClassName('cover')[0].style.display = "none";  
         document.getElementsByClassName('l_body')[0].classList.add("nocover");

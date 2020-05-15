@@ -23,13 +23,11 @@
   </script>
 <% } %>
 
-<!--无许处理 - 确认兼容-->
 <% if (theme.plugins.instant_page) { %>
   <script async src="<%- theme.plugins.instant_page %>" type="module" defer
           integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
 <% } %>
 
-<!--无许处理 - 确认兼容-->
 <% if (theme.plugins.backstretch && theme.plugins.backstretch.enable && (theme.plugins.backstretch.images || page.images)) { %>
   <% var imgs = theme.plugins.backstretch.images || page.images; %>
   <% var posi = null;
@@ -75,14 +73,13 @@
   <% } %>
 <% } %>
 
-<!--似乎不需要处理-->
 <% if (theme.plugins.aplayer && theme.plugins.aplayer.enable && theme.plugins.aplayer.js) { %>
   <% (theme.plugins.aplayer.js||[]).forEach(function(item){ %>
     <%- js({src:item}) %>
   <% }) %>
 <% } %>
 
-<!--PS：只对 valine 做了 Pjax 兼容测试-->
+<!--PS：只对 valine 做了 Pjax 兼容-->
 <%
   var enableDisqus = false;
   var enableLivere = false;
@@ -182,7 +179,6 @@
     })
   </script>
 <% } %>
-
 <% if (enableValine){ %>
   <% if (theme.comments.valine.js) { %>
     <%- js(theme.comments.valine.js) %>
@@ -288,13 +284,12 @@
   </script>
 <% } %>
 
-<!-- 复制 -fix -->
+<!-- 复制 -->
 <% if (theme.plugins.clipboard && (theme.style.body.highlight.copy_btn == true)) { %>
   <%- partial('_third-party/clipboard') %>
 <% } %>
-<!-- ******************************** -->
 
-<!--scrollreveal -fix -->
+<!--scrollreveal -->
 <% if (theme.plugins.scrollreveal && theme.plugins.scrollreveal.js) { %>
   <script src="<%- theme.plugins.scrollreveal.js %>"></script>
   <script type="text/javascript">
@@ -314,18 +309,16 @@
 <% } %>
 <!-- ******************************** -->
 
-<!-- fancybox -fix -->
+<!-- fancybox -->
 <%- partial('_third-party/fancybox') %>
 <!-- ******************************** -->
 
-<!--主要的 JS 文件-->
 <% if (config.use_cdn && theme.info.cdn && theme.info.cdn.js) { %>
   <%- js(theme.info.cdn.js) %>
 <% } else { %>
   <%- js(['js/app.js']) %>
 <% } %>
 
-<!--fix-->
 <% if (theme.search && theme.search.enable) { %>
   <% if (theme.search.js) { %>
     <%- js(theme.search.js) %>
@@ -334,12 +327,10 @@
   <% } %>
 <% } %>
 
-<!--重新加载即可-->
 <% if (theme.plugins.busuanzi) { %>
-  <!-- <script defer src="<%- theme.plugins.busuanzi %>" data-pjax></script> -->
+  <script defer src="<%- theme.plugins.busuanzi %>" data-pjax></script>
 <% } %>
 
-<!--无需处理-->
 <% if (theme.plugins.nodewaves && theme.plugins.nodewaves.js) { %>
   <%- js({src: theme.plugins.nodewaves.js}) %>
   <script type="text/javascript">
@@ -355,12 +346,10 @@
   </script>
 <% } %>
 
-<!--无需处理-->
 <% if (theme.plugins.comment_typing) { %>
   <%- js(theme.plugins.comment_typing) %>
 <% } %>
 
-<!--无需处理 ？-->
 <% if (config.highlight.enable != true) { %>
   <% if (theme.plugins.highlightjs && theme.plugins.highlightjs.js) { %>
     <%- js(theme.plugins.highlightjs.js) %>
@@ -414,18 +403,14 @@
   document.addEventListener('pjax:send', function () {
     window.stop(); // 相当于点击了浏览器的停止按钮
     window.subData = null; // 移除标题（用于一二级导航栏切换处）
-
-    $.fancybox.close();    // 关闭弹窗，曾经有人提过个BUG，在查看图片时浏览器返回上一页后，弹窗无法关闭了
-
+    $.fancybox.close();    // 关闭弹窗
     $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
     $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
     $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
-
     $(window).unbind('resize');    // 解绑
     $(window).unbind('scroll');    // 解绑
     $(window).unbind('click');     // 解绑
     $(document).unbind('scroll');  // 解绑
-
     NProgress.start();
   });
 
@@ -449,7 +434,6 @@
     } catch (e) {
       console.log(e);
     }
-
     NProgress.done();
   });
 

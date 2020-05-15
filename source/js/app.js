@@ -39,7 +39,7 @@ var customSearch;
 			$postsBtn.click(e => {
 				e.preventDefault();
 				e.stopPropagation();
-				if($postsBtn.attr("href") != "/")       // TODO: 存在封面时，首页的返回有点问题，先这么处理着，无伤大雅。
+				if($postsBtn.attr("href") != "/")       // TODO: fix it
 					scrolltoElement($bodyAnchor);
 				e.stopImmediatePropagation();
 			});
@@ -104,7 +104,7 @@ var customSearch;
 		//==========================================
 	}
 
-	// 设置导航栏  fix √
+	// 设置导航栏
 	function setHeader() {
 		var HEXO_ISPAGE = $.trim($('#pjax-ispage').text());
 		if(HEXO_ISPAGE == 'true')
@@ -118,7 +118,7 @@ var customSearch;
 		const $comment = $('.s-comment', $wrapper);   // 评论按钮  桌面端 移动端
 		const $toc = $('.s-toc', $wrapper);           // 目录按钮  仅移动端
 
-		$comment.show(); // 显示 (某些也没可能关闭了评论，故先行显示)
+		$comment.show(); // 显示 (某些文章可能关闭了评论，故先行显示)
 		$wrapper.find('.nav-sub .title').text(window.subData.title);   // 二级导航文章标题
 
 		// 决定一二级导航栏的切换
@@ -145,7 +145,6 @@ var customSearch;
 				e.stopImmediatePropagation();
 			});
 		} else $comment.hide();   // 关闭了评论，则隐藏
-		// ==============================================
 
 		const $tocTarget = $('.l_body .toc-wrapper');     // 侧边栏的目录列表  PC
 		if ($tocTarget.length && $tocTarget.children().length) {
@@ -315,7 +314,7 @@ var customSearch;
 				scrollListener();
 			} , 100);
 		});
-					
+
 		scrollListener();
 	}
 
@@ -384,7 +383,7 @@ var customSearch;
 		setSearchService();
 		setTabs();
 
-		// 全屏封面底部箭头 无需处理
+		// 全屏封面底部箭头
 		$('.scroll-down').on('click', function () {
 			scrolltoElement('.l_body');
 		});
