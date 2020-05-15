@@ -409,3 +409,14 @@ var customSearch;
 
 
 })(jQuery);
+
+/*Valine Admin*/
+if(window.location.hash){
+	var checkExist = setInterval(function() {
+	   if (typeof jQuery == 'undefined'){return;}
+	   if ($("#"+window.location.hash.split("#")[1]).length) {
+		  $('html, body').animate({scrollTop: $("#"+window.location.hash.split("#")[1]).offset().top-90}, 1000);
+		  clearInterval(checkExist);
+	   }
+	}, 100);
+}
