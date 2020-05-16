@@ -65,14 +65,10 @@
   <title><% if (title) { %><%= title %> - <% } %><%= config.title %></title>
   <% if (keywords){ %>
     <meta name="keywords" content="<%- keywords %>">
-  <% } else { %>
-    <meta name="keywords" content="<%- config.keywords || '' %>">
   <% } %>
 
   <% if (description){ %>
     <meta name="description" content="<%- description %>">
-  <% } else { %>
-    <meta name="description" content="<%- config.description || '' %>">
   <% } %>
 
   <!-- feed -->
