@@ -584,7 +584,7 @@ comments:
 search:
   enable: true
   service: hexo  # hexo, google, algolia, azure, baidu
-  # js: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js
+  # js: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@3.0/js/search.js
   google:
     apiKey:
     engineId:
@@ -604,7 +604,7 @@ search:
 ############################### Theme Information ###############################
 info:
   name: Volantis # This is theme's name.
-  version: '2.6.5' # This is theme's version.
+  version: '3.0-beta' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   cdn:
     js: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/app.js

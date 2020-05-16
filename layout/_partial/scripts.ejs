@@ -254,33 +254,39 @@
   <% var master = theme.comments.minivaline.master || [] %>
   <% var friends = theme.comments.minivaline.friends  || []  %>
   <script>
-  new MiniValine({
-	el: '#minivaline_container',
-	appId: '<%= theme.comments.minivaline.appId %>',
-	appKey: '<%= theme.comments.minivaline.appKey %>',
-	mode: '<%= theme.comments.minivaline.mode %>',
-	placeholder: "<%= (page.valine && page.valine.placeholder) ? page.valine.placeholder : theme.comments.minivaline.placeholder %>",
-	<% if (page.minivaline && page.valine.path) { %>
-      pathname: "<%= page.valine.path %>",
-	<% } else if (theme.comments.minivaline.path) { %>
-      pathname: "<%= theme.comments.minivaline.path %>",
-	<% } else { %>
-	  pathname: location.pathname,
-	<% } %>
-	lang: '<%= theme.comments.minivaline.lang %>',
-	adminEmailMd5: '<%= theme.comments.minivaline.adminEmailMd5 %>',
-	tagMeta: <%- '["' + tagMeta.join('", "') + '"]' %>,
-	master: <%- '["' + master.join('", "') + '"]' %>,
-	friends: <%- '["' + friends.join('", "') + '"]' %>,
-	math: <%= theme.comments.minivaline.math %>,  /*布尔值 字符串无效 下同*/
-	md: <%= theme.comments.minivaline.md %>,
-	enableQQ: <%= theme.comments.minivaline.enableQQ %>,
-	NoRecordIP: <%= theme.comments.minivaline.NoRecordIP %>,
-	visitor: <%= theme.comments.minivaline.visitor %>,
-	maxNest: <%= theme.comments.minivaline.maxNest %>,
-	pageSize: <%= theme.comments.minivaline.pageSize %>,
-	emoticonUrl: <%- '["' + emoticonUrl.join('", "') + '"]' %>
-  });
+  function pjax_minivaline() {
+    var minivalinePath = $.trim($('#minivaline-path').text()) === "none" ?
+        window.location.pathname : $.trim($('#minivaline-path').text());
+    var minivalinePlaceholder = $.trim($('#minivaline-placeholder').text()) === "none" ?
+        "<%= theme.comments.minivaline.placeholder %>" : $.trim($('#minivaline-placeholder').text());
+    var ALLPATH = '<%= theme.comments.minivaline.path %>';
+    if(ALLPATH != '') minivalinePath = ALLPATH;
+	new MiniValine({
+		el: '#minivaline_container',
+		appId: '<%= theme.comments.minivaline.appId %>',
+		appKey: '<%= theme.comments.minivaline.appKey %>',
+		mode: '<%= theme.comments.minivaline.mode %>',
+		placeholder: minivalinePlaceholder,
+		pathname: minivalinePath,
+		lang: '<%= theme.comments.minivaline.lang %>',
+		adminEmailMd5: '<%= theme.comments.minivaline.adminEmailMd5 %>',
+		tagMeta: <%- '["' + tagMeta.join('", "') + '"]' %>,
+		master: <%- '["' + master.join('", "') + '"]' %>,
+		friends: <%- '["' + friends.join('", "') + '"]' %>,
+		math: <%= theme.comments.minivaline.math %>,  /*布尔值 字符串无效 下同*/
+		md: <%= theme.comments.minivaline.md %>,
+		enableQQ: <%= theme.comments.minivaline.enableQQ %>,
+		NoRecordIP: <%= theme.comments.minivaline.NoRecordIP %>,
+		visitor: <%= theme.comments.minivaline.visitor %>,
+		maxNest: <%= theme.comments.minivaline.maxNest %>,
+		pageSize: <%= theme.comments.minivaline.pageSize %>,
+		emoticonUrl: <%- '["' + emoticonUrl.join('", "') + '"]' %>,
+		serverURLs: '<%= theme.comments.minivaline.serverURLs %>'
+	  });
+	}
+    $(function () {
+      pjax_minivaline();
+    });
   </script>
 <% } %>
 
@@ -367,7 +373,7 @@
 <script>
   $(document).ready(function () {
     NProgress.done();
-
+    
     <% if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true) { %>
       if($(window).width() > 500) {
         var isplay = true;
@@ -391,8 +397,6 @@
       elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
       selectors: [
         "title",
-        "meta[name=description]",
-        "meta[name=keywords]",
         "#pjax-container"
       ],
       cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
@@ -404,6 +408,8 @@
     window.stop(); // 相当于点击了浏览器的停止按钮
     window.subData = null; // 移除标题（用于一二级导航栏切换处）
     $.fancybox.close();    // 关闭弹窗
+    $('.nav-main').find('.list-v').not('.menu-phone').css("display","none"); // 移除小尾巴
+    $('.menu-phone.list-v').css("display","none"); // 移除小尾巴
     $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
     $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
     $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
@@ -415,7 +421,8 @@
   });
 
   document.addEventListener('pjax:complete', function () {
-    
+    $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+    $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
     $('script[data-pjax], .pjax-reload script').each(function () {
       $(this).parent().append($(this).remove());
     });
@@ -431,6 +438,9 @@
       <% if (enableValine){ %>
         pjax_valine();
       <% } %>
+      <% if (enableMiniValine){ %>
+        pjax_minivaline();
+      <% } %>
     } catch (e) {
       console.log(e);
     }
@@ -439,7 +449,6 @@
 
   document.addEventListener('pjax:error', function () {
     NProgress.done();
-    $.message({title:'事件通知',message:"链接加载失败，执行强制刷新！",type:'warning'});
     window.location.href = event.triggerElement.href;
   });
 
