@@ -356,6 +356,10 @@
   <%- js(theme.plugins.comment_typing) %>
 <% } %>
 
+<% if (theme.plugins.message) { %>
+  <%- js(theme.plugins.message) %>
+<% } %>
+
 <% if (config.highlight.enable != true) { %>
   <% if (theme.plugins.highlightjs && theme.plugins.highlightjs.js) { %>
     <%- js(theme.plugins.highlightjs.js) %>
@@ -368,7 +372,6 @@
 <%- item %><% }) %>
 <% } %>
 
-<%- js(['js/message.js']) %>
 
 <script>
   $(document).ready(function () {
