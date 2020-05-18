@@ -374,8 +374,27 @@
 
 
 <script>
+  function setBackgroud() {
+    var ispage = $.trim($('#valine-path').text()) === "none" ? false : true;
+    if(!ispage){
+      $('.l_body').addClass('background_hsla');
+    } else {
+      $('.l_body').removeClass('background_hsla');
+    }
+  }
+
+  function setLoading(type) {
+    if(type == "show") {
+      $(".loading").css("display", "block");
+    } else if (type == "hide") {
+      $(".loading").css("display", "none");
+    }
+  }
+
   $(document).ready(function () {
-    NProgress.done();
+    setBackgroud();
+    setLoading("hide");
+    //NProgress.done();
     
     <% if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true) { %>
       if($(window).width() > 500) {
@@ -420,7 +439,9 @@
     $(window).unbind('scroll');    // 解绑
     $(window).unbind('click');     // 解绑
     $(document).unbind('scroll');  // 解绑
-    NProgress.start();
+
+    setLoading("show");
+    //NProgress.start();
   });
 
   document.addEventListener('pjax:complete', function () {
@@ -463,11 +484,15 @@
     } catch (e) {
       console.log(e);
     }
-    NProgress.done();
+
+    setBackgroud();
+    setLoading("hide");
+    //NProgress.done();
   });
 
   document.addEventListener('pjax:error', function () {
-    NProgress.done();
+    setLoading("hide");
+    //NProgress.done();
     window.location.href = event.triggerElement.href;
   });
 
