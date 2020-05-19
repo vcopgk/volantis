@@ -7,6 +7,7 @@ var changeValinePlaceholder = 'none';         // 自定义的 valine 评论描�
 var changeMiniValinePath = 'none';                // 自定义的 Minivaline 评论路径
 var changeMiniValinePlaceholder = 'none';         // 自定义的 Minivaline 评论描述
 var ispage = false;                           // 一二级导航栏切换控制
+var ispost = false;                           // 是否为文章页
 var postTitle = '';                           // 当前文章标题，用于二级导航栏赋值
 var enableCover = false;                      // 封面是否开启
 var frontMatterCover = 'none';                // 封面控制
@@ -56,10 +57,15 @@ if (page && page.layout == 'post' && page.title) {
     postTitle = page.title;
 }
 
+if(is_post()) {
+    ispost = true;
+}
+
 %>
 
 <div id="pjax-data" style="display: none">
     <div id="pjax-ispage"><%=ispage%></div>
+    <div id="pjax-isPost"><%=ispost%></div>
     <div id="pjax-pageTitle"><%=postTitle%></div>
     <div id="pjax-enable-cover"><%=enableCover%></div>
     <% if (enableValine){ %>
