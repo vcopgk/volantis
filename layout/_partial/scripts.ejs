@@ -376,10 +376,15 @@
 <script>
   function setBackgroud() {
     var ispage = $.trim($('#valine-path').text()) === "none" ? false : true;
+    var isFirefox = navigator.userAgent.indexOf("Firefox") > -1;  // 只处理一下火狐兼容性
     if(!ispage){
       $('.l_body').addClass('background_hsla');
+      if(isFirefox)
+        $(".backstretch").addClass('backgroud_filter');
     } else {
       $('.l_body').removeClass('background_hsla');
+      if(isFirefox)
+        $(".backstretch").removeClass('backgroud_filter');
     }
   }
 
