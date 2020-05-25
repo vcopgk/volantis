@@ -374,20 +374,6 @@
 
 
 <script>
-  function setBackgroud() {
-    var ispage = $.trim($('#pjax-isPost').text()) == "true" ? true : false;
-    var isFirefox = navigator.userAgent.indexOf("Firefox") > -1;  // 只处理一下火狐兼容性
-    if(ispage){
-      $('.l_body').addClass('blur');
-      if(isFirefox)
-        $(".backstretch").addClass('backgroud_filter');
-    } else {
-      $('.l_body').removeClass('blur');
-      if(isFirefox)
-        $(".backstretch").removeClass('backgroud_filter');
-    }
-  }
-
   function setLoading(type) {
     if(type == "show") {
       $(".loading").css("display", "block");
@@ -397,10 +383,9 @@
   }
 
   $(document).ready(function () {
-    setBackgroud();
     setLoading("hide");
     //NProgress.done();
-    
+
     <% if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true) { %>
       if($(window).width() > 500) {
         var isplay = true;
@@ -474,6 +459,13 @@
 
     try{
       pjax_fancybox();
+      <% if (theme.plugins.backstretch && theme.plugins.backstretch.enable && theme.plugins.backstretch.images) { %>
+        if ('<%- posi %>') {
+          $('<%- posi %>').backstretch("resize");
+        } else {
+          $.backstretch("resize");
+        }
+      <% } %>
       <% if (theme.plugins.scrollreveal && theme.plugins.scrollreveal.js) { %>
         pjax_scrollrebeal();
       <% } %>
@@ -490,7 +482,6 @@
       console.log(e);
     }
 
-    setBackgroud();
     setLoading("hide");
     //NProgress.done();
   });

@@ -442,20 +442,21 @@ plugins:
   backstretch:
     enable: true
     js: https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js
-    position: fixed       # cover: sticky on the cover.   fixed: Fixed as background for the site.
+    position: cover       # cover: sticky on the cover.   fixed: Fixed as background for the site.
     shuffle: true         # shuffle playlist
     duration: 20000       # Duration (ms)
     fade: 1500            # fade duration (ms) (Not more than 1500)
     images:               # For personal use only. At your own risk if used for commercial purposes !!!
-      - https://img.inkss.cn/inkss_cn/img/bkg/56a474ae130d758e344e6d9ae76c364a2c485aa0.jpg
-      - https://img.inkss.cn/inkss_cn/img/bkg/1b5ebba9c9302efb003656b2339f0a97dbb5214a.jpg
-      - https://img.inkss.cn/inkss_cn/img/bkg/92457e0c09028873328dabc188a2e3585e20affe.jpg
-      - https://img.inkss.cn/inkss_cn/img/bkg/23ab81124bb6c59c87a2758112d3d3a69942fc4a.jpg
-      - https://img.inkss.cn/inkss_cn/img/bkg/c0fe6af5b941ed3cbc7f630c7d4948d540e345fb.jpg
-      - https://img.inkss.cn/inkss_cn/img/bkg/0a9bc710e9566436b17e2c58495a9390a27567a7.jpg
-      - https://img.inkss.cn/inkss_cn/img/bkg/59215b7db60415636d0527ac931a996f9a6d970f.jpg
-      - https://img.inkss.cn/inkss_cn/img/bkg/f66b6ee0d85043db921a1568a932f201d58c12ce.jpg
-      - https://img.inkss.cn/inkss_cn/img/bkg/fb0126be1fb4c7d3aeeedff1fa187087afda711a.jpg
+      - https://img.inkss.cn/inkss_cn/img/bkg/w2evelg.png
+      # - https://img.inkss.cn/inkss_cn/img/bkg/56a474ae130d758e344e6d9ae76c364a2c485aa0.jpg
+      # - https://img.inkss.cn/inkss_cn/img/bkg/1b5ebba9c9302efb003656b2339f0a97dbb5214a.jpg
+      # - https://img.inkss.cn/inkss_cn/img/bkg/92457e0c09028873328dabc188a2e3585e20affe.jpg
+      # - https://img.inkss.cn/inkss_cn/img/bkg/23ab81124bb6c59c87a2758112d3d3a69942fc4a.jpg
+      # - https://img.inkss.cn/inkss_cn/img/bkg/c0fe6af5b941ed3cbc7f630c7d4948d540e345fb.jpg
+      # - https://img.inkss.cn/inkss_cn/img/bkg/0a9bc710e9566436b17e2c58495a9390a27567a7.jpg
+      # - https://img.inkss.cn/inkss_cn/img/bkg/59215b7db60415636d0527ac931a996f9a6d970f.jpg
+      # - https://img.inkss.cn/inkss_cn/img/bkg/f66b6ee0d85043db921a1568a932f201d58c12ce.jpg
+      # - https://img.inkss.cn/inkss_cn/img/bkg/fb0126be1fb4c7d3aeeedff1fa187087afda711a.jpg
       # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/35F12181-F0E9-45BD-B134-37E4B4A660CF.jpeg
       # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg
       # - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/67239FBB-E15D-4F4F-8EE8-0F1C9F3C4E7C.jpeg
