@@ -322,14 +322,14 @@
 <% if (config.use_cdn && theme.info.cdn && theme.info.cdn.js) { %>
   <%- js(theme.info.cdn.js) %>
 <% } else { %>
-  <%- js(['js/min/app.min.js']) %>
+  <%- js(['js/app.js']) %>
 <% } %>
 
 <% if (theme.search && theme.search.enable) { %>
   <% if (theme.search.js) { %>
     <%- js(theme.search.js) %>
   <% } else { %>
-    <%- js(['js/min/search.min.js']) %>
+    <%- js(['js/search.js']) %>
   <% } %>
 <% } %>
 
