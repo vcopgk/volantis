@@ -11,13 +11,13 @@ function postFolding(args, content) {
     title = args[0].trim()
   }
   if (style != undefined) {
-    return `<details ${style}><summary> ${hexo.render.renderSync({text: title, engine: 'markdown'}).split('\n').join('')} </summary>
+    return `<details ${style}><summary class="not-select"> ${hexo.render.renderSync({text: title, engine: 'markdown'}).split('\n').join('')} </summary>
               <div class='content'>
               ${hexo.render.renderSync({text: content, engine: 'markdown'}).split('\n').join('')}
               </div>
             </details>`;
   } else {
-    return `<details><summary> ${hexo.render.renderSync({text: title, engine: 'markdown'}).split('\n').join('')} </summary>
+    return `<details><summary class="not-select"> ${hexo.render.renderSync({text: title, engine: 'markdown'}).split('\n').join('')} </summary>
               <div class='content'>
               ${hexo.render.renderSync({text: content, engine: 'markdown'}).split('\n').join('')}
               </div>

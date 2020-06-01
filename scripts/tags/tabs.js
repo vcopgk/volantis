@@ -48,7 +48,7 @@ function postTabs(args, content) {
     tabContent += `<div class="tab-pane${isActive}" id="${tabHref}">${postContent}</div>`;
   }
 
-  tabNav = `<ul class="nav-tabs">${tabNav}</ul>`;
+  tabNav = `<ul class="nav-tabs not-select">${tabNav}</ul>`;
   tabContent = `<div class="tab-content">${tabContent}</div>`;
 
   return `<div class="tabs" id="${tabName.toLowerCase().split(' ').join('-')}">${tabNav + tabContent}</div>`;

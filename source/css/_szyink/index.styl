@@ -147,6 +147,8 @@ div.dropmenu
 details
   summary
     cursor: $pointer,pointer
+    p
+      cursor: $pointer,pointer
 
 //tabs.styl
 div.tabs
@@ -321,8 +323,6 @@ textarea#veditor
     &:hover
       background-color: #3367d6
 
-
-
 //=============//
 //   隐藏文本   //
 //=============//
@@ -349,3 +349,14 @@ textarea#veditor
 .bb_spoiler:hover .new, .bb_spoiler .new:hover, .new:hover .bb_spoiler,
   .bb_spoiler:active .new, .bb_spoiler .new:active, .new:active .bb_spoiler
   color #BA0000 !important
+
+//=============//
+//   禁止选中   //
+//=============//
+.not-select
+  -webkit-touch-callout none
+  -webkit-user-select none
+  -khtml-user-select none
+  -moz-user-select none
+  -ms-user-select none
+  user-select none
