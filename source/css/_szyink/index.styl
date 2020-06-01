@@ -296,6 +296,7 @@ a.result.search-result-fix
 //=============//
 //    其  它   //
 //=============//
+// 对 valine 评论输入框的样式调整
 textarea#veditor
   resize: none !important
   height: auto !important
@@ -319,3 +320,32 @@ textarea#veditor
     background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,0.2) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.2) 75%,transparent 75%,transparent);
     &:hover
       background-color: #3367d6
+
+
+
+//=============//
+//   隐藏文本   //
+//=============//
+// <span class="bb_spoiler" title="xxx">xxxx</span>
+.bb_spoiler, .bb_spoiler a, a .bb_spoiler, .bb_spoiler a.new
+  background-color #e8fafe
+  color #e8fafe
+  text-shadow none
+  padding 3px
+
+.bb_spoiler:hover, .bb_spoiler:active,
+  .bb_spoiler:hover .bb_spoiler, .bb_spoiler:active .bb_spoiler
+  color #000 !important
+
+.bb_spoiler
+  &:hover
+    opacity 1
+    transition-duration 0.3s
+
+.bb_spoiler:hover a, a:hover .bb_spoiler,
+  .bb_spoiler:active a, a:active .bb_spoiler
+  color lightblue !important
+
+.bb_spoiler:hover .new, .bb_spoiler .new:hover, .new:hover .bb_spoiler,
+  .bb_spoiler:active .new, .bb_spoiler .new:active, .new:active .bb_spoiler
+  color #BA0000 !important
