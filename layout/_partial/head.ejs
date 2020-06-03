@@ -84,8 +84,6 @@
   <% } %>
 
   <!-- link -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/inkss/common@1.2.1/font/fontawesome/css/all.min.css">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css"> -->
   <%- css('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css') %>
 
   <% if (theme.plugins.nodewaves && theme.plugins.nodewaves.css) { %>
@@ -121,7 +119,10 @@
     <%- css('css/style.css') %>
   <% } %>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script> -->
+  <% if (config.import && config.import.script_head){ %>
+  <% (config.import.script_head||[]).forEach(function(item){ %>
+  <%- item %><% }) %>
+  <% } %>
 
   <% if (config.google_analytics_key) { %>
   <script>setTimeout(function() {let script = document.createElement('script');script.src = "https://www.googletagmanager.com/gtag/js?id=<%- config.google_analytics_key %>";script.defer=true;document.body.appendChild(script);window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '<%- config.google_analytics_key %>');}, 5000);</script>
