@@ -386,19 +386,21 @@
     //NProgress.done();
 
     <% if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true) { %>
-      if($(window).width() > 500) {
-        var isplay = true;
-        $.message({title:'音乐播放',message:"即将自动播放，点击<a class='stopMusic fix-cursor-pointer'>停止播放</a>",type:'warning'});
-        setTimeout(function() {
-          if(isplay)
-            document.querySelector('meting-js').aplayer.play();
-        }, 3050)
-        $(".stopMusic").click(function() {
-          $(".c-message--close").click();
-          isplay = false;
-          // document.querySelector('meting-js').aplayer.pause();
-        })
-      }
+      setTimeout(function() {
+        if($(window).width() > 500) {
+          var isplay = true;
+          $.message({title:'音乐播放',message:"即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type:'warning'});
+          setTimeout(function() {
+            if(isplay)
+              document.querySelector('meting-js').aplayer.play();
+          }, 3050);
+          $("#stopMusic").click(function() {
+            isplay = false;
+            $(".c-message--close").click();
+            document.querySelector('meting-js').aplayer.pause();
+          })
+        }
+      }, 1500);
     <% } %>
   });
 
