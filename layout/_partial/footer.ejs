@@ -48,3 +48,97 @@
     <% }) %>
   </footer>
 <% } %>
+
+<div id="menu-div" style="display: none;position:fixed;">
+  <ul class="list-v" style="display: block;width: 120px;">
+    <li>
+      <a class="flat-box waves-effect waves-block" href="/">
+        <i class="fal fa-helmet-battle fa-fw"></i>首页
+      </a>
+    </li>    
+    <li>
+      <a class="flat-box waves-effect waves-block" href="/info/">
+        <i class="fal fa-bell-on fa-fw"></i> 留言
+      </a>
+    </li>
+    <li>
+      <a class="flat-box waves-effect waves-block" href="/friends/">
+        <i class="fal fa-user-friends fa-fw"></i> 友链
+      </a>
+    </li>
+    <hr>
+    <li>
+      <a class="flat-box waves-effect waves-block" id="menu-refresh">
+        <i class="fal fa-redo fa-fw"></i>刷新
+      </a>
+    </li>
+    <li>
+      <a class="flat-box">
+        <i class='fal fa-music fa-fw'></i> 音乐
+      </a>
+      <ul class="list-v" style="margin-left: 110px;">
+        <li>
+          <a class="flat-box waves-effect" id="menu-play">
+            <i class="fal fa-play fa-fw"></i> 播放
+          </a>
+        </li>
+        <li>
+          <a class="flat-box waves-effect" id="menu-pause">
+            <i class="fal fa-pause fa-fw"></i> 暂停
+          </a>
+        </li>
+        <li>
+          <a class="flat-box waves-effect" id="menu-backward">
+            <i class="fal fa-backward fa-fw"></i> 上一首
+          </a>
+        </li>
+        <li>
+          <a class="flat-box waves-effect" id="menu-forward">
+            <i class="fal fa-forward fa-fw"></i> 下一首
+          </a>
+        </li>
+      </ul>
+    <li>
+  </ul>
+</div>
+
+<script>
+  window.document.oncontextmenu = function () {
+    return false;
+  }
+
+  function popMenu(event) {
+    var mymenu = document.getElementById('menu-div');
+    mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+    mymenu.style.top = event.clientY + "px";
+    mymenu.style.display = 'block';
+    return false; // 该行代码确保系统自带的右键菜单不会被调出
+  }
+
+  function hideMenu() {
+    document.getElementById('menu-div').style.display = 'none';
+  }
+  
+  document.addEventListener("click", function (event) {
+    var mymenu = document.getElementById('menu-div');
+    mymenu.style.display = "none";
+  });
+
+  document.getElementById("menu-refresh").addEventListener('click', function(){
+    window.location.reload();
+  });
+
+  document.getElementById("menu-play").addEventListener('click', function(){
+    document.querySelector('meting-js').aplayer.play();
+  });
+  document.getElementById("menu-pause").addEventListener('click', function(){
+    document.querySelector('meting-js').aplayer.pause();
+  });
+  document.getElementById("menu-backward").addEventListener('click', function(){
+    document.querySelector('meting-js').aplayer.skipBack();
+  });
+  document.getElementById("menu-forward").addEventListener('click', function(){
+    document.querySelector('meting-js').aplayer.skipForward();
+  });
+
+</script>
