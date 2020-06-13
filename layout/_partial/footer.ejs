@@ -52,8 +52,24 @@
 <div id="menu-div" style="display: none;position:fixed;">
   <ul class="list-v" style="display: block;width: 120px;">
     <li>
+      <a class="flat-box waves-effect waves-block" style="display: none;" id="menu-copy" onclick="menuCpoy()">
+        <i class="fal fa-copy fa-fw"></i> 复制
+      </a>
+    </li>
+    <li>
+      <a class="flat-box waves-effect waves-block" onclick="history.back()">
+        <i class="fal fa-arrow-left fa-fw"></i> 返回
+      </a>
+    </li> 
+    <li>
+      <a class="flat-box waves-effect waves-block" onclick="window.location.reload()">
+        <i class="fal fa-redo fa-fw"></i> 刷新
+      </a>
+    </li>
+    <hr>
+    <li>
       <a class="flat-box waves-effect waves-block" href="/">
-        <i class="fal fa-helmet-battle fa-fw"></i>首页
+        <i class="fal fa-helmet-battle fa-fw"></i> 首页
       </a>
     </li>    
     <li>
@@ -68,32 +84,27 @@
     </li>
     <hr>
     <li>
-      <a class="flat-box waves-effect waves-block" id="menu-refresh">
-        <i class="fal fa-redo fa-fw"></i>刷新
-      </a>
-    </li>
-    <li>
       <a class="flat-box">
         <i class='fal fa-music fa-fw'></i> 音乐
       </a>
       <ul class="list-v" style="margin-left: 110px;">
         <li>
-          <a class="flat-box waves-effect" id="menu-play">
+          <a class="flat-box waves-effect" onclick="menuPlay()">
             <i class="fal fa-play fa-fw"></i> 播放
           </a>
         </li>
         <li>
-          <a class="flat-box waves-effect" id="menu-pause">
+          <a class="flat-box waves-effect" onclick="menuPause()">
             <i class="fal fa-pause fa-fw"></i> 暂停
           </a>
         </li>
         <li>
-          <a class="flat-box waves-effect" id="menu-backward">
+          <a class="flat-box waves-effect" onclick="menuBackward()">
             <i class="fal fa-backward fa-fw"></i> 上一首
           </a>
         </li>
         <li>
-          <a class="flat-box waves-effect" id="menu-forward">
+          <a class="flat-box waves-effect" onclick="menuForward()">
             <i class="fal fa-forward fa-fw"></i> 下一首
           </a>
         </li>
@@ -102,12 +113,22 @@
   </ul>
 </div>
 
+
 <script>
   window.document.oncontextmenu = function () {
     return false;
-  }
+  };
+
+  document.addEventListener("click", function (event) {
+    var mymenu = document.getElementById('menu-div');
+    mymenu.style.display = "none";
+  });
 
   function popMenu(event) {
+    var copy = document.getElementById('menu-copy');
+    var select = window.getSelection().toString(); // 鼠标选中的文本
+    copy.style.display = select == "" ? "none" : "block";
+
     var mymenu = document.getElementById('menu-div');
     mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
     mymenu.style.top = event.clientY + "px";
@@ -118,27 +139,42 @@
   function hideMenu() {
     document.getElementById('menu-div').style.display = 'none';
   }
-  
-  document.addEventListener("click", function (event) {
-    var mymenu = document.getElementById('menu-div');
-    mymenu.style.display = "none";
-  });
 
-  document.getElementById("menu-refresh").addEventListener('click', function(){
-    window.location.reload();
-  });
-
-  document.getElementById("menu-play").addEventListener('click', function(){
+  function menuPlay() {
     document.querySelector('meting-js').aplayer.play();
-  });
-  document.getElementById("menu-pause").addEventListener('click', function(){
+    var index = document.querySelector('meting-js').aplayer.list.index;
+    var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+    var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+    $.message({title:'播放音乐',message:  title + ' - ' + artist, type:'success'});
+  }
+
+  function menuPause() {
     document.querySelector('meting-js').aplayer.pause();
-  });
-  document.getElementById("menu-backward").addEventListener('click', function(){
+    var index = document.querySelector('meting-js').aplayer.list.index;
+    var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+    var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+    $.message({title:'暂停音乐',message: '暂停播放：' + title + ' - ' + artist, type:'success'});
+  }
+
+  function menuBackward() {
     document.querySelector('meting-js').aplayer.skipBack();
-  });
-  document.getElementById("menu-forward").addEventListener('click', function(){
+    var index = document.querySelector('meting-js').aplayer.list.index;
+    var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+    var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+    $.message({title:'上一首',message: title + ' - ' + artist, type:'success'});
+  }
+
+  function menuForward() {
     document.querySelector('meting-js').aplayer.skipForward();
-  });
+    var index = document.querySelector('meting-js').aplayer.list.index;
+    var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+    var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+    $.message({title:'下一首',message: title + ' - ' + artist, type:'success'});
+  }
+
+  function menuCpoy() {
+    document.execCommand("Copy"); 
+    $.message({title:'复制成功',message: window.getSelection().toString(),type:'success'});
+  }
 
 </script>
