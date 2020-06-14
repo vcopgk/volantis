@@ -390,7 +390,7 @@
       setTimeout(function() {
         if($(window).width() > 500) {
           var isplay = true;
-          $.message({title: "音乐播放",message: "即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type:'warning'});
+          $.message({title: "音乐通知",message: "即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type:'warning'});
           setTimeout(function() {
             if(isplay) {
               var index = document.querySelector('meting-js').aplayer.list.index;
@@ -398,7 +398,7 @@
               var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
               document.querySelector('meting-js').aplayer.play();
               setTimeout(function() {
-                $.message({title:'播放音乐',message:  title + ' - ' + artist, type:'success'});
+                $.message({title:'音乐通知',message: '正在播放：' + title + ' - ' + artist, type:'success'});
               }, 1050);
             }
           }, 3050);
@@ -410,6 +410,17 @@
         }
       }, 1500);
     <% } %>
+  });
+
+  document.querySelector('meting-js').aplayer.on('ended', function (e) {
+    var index = document.querySelector('meting-js').aplayer.list.index;
+    var length = document.querySelector('meting-js').aplayer.list.audios.length;
+    // index = index == length ? 1 : index++;
+    if(index < length) {
+      var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+      var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+      $.message({title:'音乐通知',message: '正在播放：' + title + ' - ' + artist, type:'success'});
+    }
   });
 
   var pjax;
