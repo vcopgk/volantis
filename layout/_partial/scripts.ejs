@@ -232,6 +232,7 @@
         highlight: '<%= theme.comments.valine.highlight %>',
         mathJax: '<%= theme.comments.valine.mathJax %>',
         enableQQ: '<%= theme.comments.valine.enableQQ %>',
+        recordIP: '<%= theme.comments.valine.recordIP %>',
         requiredFields: requiredFields,
         emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
         emojiMaps: emojiMaps
@@ -389,10 +390,17 @@
       setTimeout(function() {
         if($(window).width() > 500) {
           var isplay = true;
-          $.message({title:'音乐播放',message:"即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type:'warning'});
+          $.message({title: "音乐播放",message: "即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type:'warning'});
           setTimeout(function() {
-            if(isplay)
+            if(isplay) {
+              var index = document.querySelector('meting-js').aplayer.list.index;
+              var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+              var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
               document.querySelector('meting-js').aplayer.play();
+              setTimeout(function() {
+                $.message({title:'播放音乐',message:  title + ' - ' + artist, type:'success'});
+              }, 1050);
+            }
           }, 3050);
           $("#stopMusic").click(function() {
             isplay = false;
