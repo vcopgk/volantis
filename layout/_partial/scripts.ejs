@@ -412,16 +412,18 @@
     <% } %>
   });
 
-  document.querySelector('meting-js').aplayer.on('ended', function (e) {
-    var index = document.querySelector('meting-js').aplayer.list.index;
-    var length = document.querySelector('meting-js').aplayer.list.audios.length;
-    // index = index == length ? 1 : index++;
-    if(index < length) {
-      var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
-      var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-      $.message({title:'音乐通知',message: '正在播放：' + title + ' - ' + artist, type:'success'});
-    }
-  });
+  setTimeout(function() {
+    document.querySelector('meting-js').aplayer.on('ended', function (e) {
+      var index = document.querySelector('meting-js').aplayer.list.index;
+      var length = document.querySelector('meting-js').aplayer.list.audios.length;
+      // index = index == length ? 1 : index++;
+      if(index < length) {
+        var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+        var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+        $.message({title:'音乐通知',message: '正在播放：' + title + ' - ' + artist, type:'success'});
+      }
+    });
+  }, 5050);
 
   var pjax;
   document.addEventListener('DOMContentLoaded', function () {
