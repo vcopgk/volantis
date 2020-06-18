@@ -12,6 +12,8 @@ Forked from xaoxuu/hexo-theme-volantis
 # 主题 特定的主题配置
 theme: material
 use_cdn: false                                                 # Info 字段的 CDN 开关：影响 app.js && style.css
+baidu_analytics_key: 64341e907532327289e9de37759e2a21
+google_analytics_key: UA-126183911-1
 avatar:  https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/hexo/img/static/avatar.jpg               # CDN √
 favicon: https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/hexo/img/static/favicon.png              # CDN √
 
@@ -64,7 +66,7 @@ theme_config:
         url: /tags/
   footer:
     layout: [social, license, info, icp, cpy, me]
-    icp: '<div class="fixuse">辽 ICP 备 <a href="https://beian.miit.gov.cn/" target="_blank" style="cursor:wait;">16006560</a> 号 | 辽公网安备 <a href="https://www.beian.gov.cn/" target="_blank" style="cursor:wait;">21021702000331</a> 号</div>'
+    icp: '<div class="fixuse">辽 ICP 备 <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow" style="cursor:wait;">16006560</a> 号 | 辽公网安备 <a href="https://www.beian.gov.cn/" rel="nofollow" target="_blank" style="cursor:wait;">21021702000331</a> 号</div>'
     cpy: '<div class="fixuse">Copyright 2018 - 2020 szyink. All Rights Reserved</div>'
     me: '<a href="/">枋柚梓的猫会发光 <i class="fal fa-spider-black-widow"></i></a> '
     social:
@@ -83,7 +85,8 @@ theme_config:
       appId: gqkw9h3C8yXm4WsJ3S5vBonP-gzGzoHsz
       appKey: 2nwrlSMxijhI9x0v8JETCO9D
       placeholder: 人生在世，错别字在所难免，无需纠正。
-      js: https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/hexo/js/valine.min.js                      # CDN √
+      recordIP: true
+      # js: https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/hexo/js/valine.min.js                      # CDN √
   search:
     enable: true
     service: hexo
@@ -93,7 +96,7 @@ theme_config:
       js: https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/js/app.min.js                        # CDN √
       css: https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/css/style.min.css                   # CDN √
   plugins:
-    busuanzi: false
+    # busuanzi: false
     comment_typing:  https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/static/js/commentTyping.js      # CDN √
     message: https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/hexo/js/message.min.js                  # CDN √
     wordcount: true
@@ -102,7 +105,6 @@ theme_config:
       type: playlist    # song, playlist, album, search, artist
       id: 4215247501    # song id / playlist id / album id / search keyword
       autoplay: true
-      recordIP: false
     backstretch:
       enable: true
       position: cover
@@ -119,16 +121,18 @@ theme_config:
         # - https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/hexo/img/bkg/bkg_8.jpg
         # - https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/hexo/img/bkg/bkg_9.jpg
 import:
+  meta:
+    - <meta name="robots" content="noarchive">
   link:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/inkss/common@1.4.1/static/font/fontawesome/css/all.min.css">  # CDN √
     # - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  script: 
   script_head:
     # - <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-```
+# ======================================================= #
+# ===================== 插件特定配置 ===================== #
+# ======================================================= #      
 
-第三方插件配置：
-
-```yml
 # 第三方插件配置
 # 一、压缩 npm i hexo-html-minifier --save
 html_minifier:  
@@ -187,4 +191,5 @@ feed:
   icon: icon.png
   autodiscovery: true
   template:
+
 ```
