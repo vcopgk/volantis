@@ -318,28 +318,31 @@ textarea#veditor
 //=============//
 // <span class="bb_spoiler" title="xxx">xxxx</span>
 .bb_spoiler, .bb_spoiler a, a .bb_spoiler, .bb_spoiler a.new
-  background-color #555
-  color #555
+  cursor: $pointer,pointer
+  border-bottom 1px solid
+  border-color #666
+  background-color #fff
+  color #fff
   text-shadow none
   padding 0 2px
   margin 0 2px
 
 .bb_spoiler:hover, .bb_spoiler:active,
   .bb_spoiler:hover .bb_spoiler, .bb_spoiler:active .bb_spoiler
-  color #fff !important
+  color #555 !important
 
 .bb_spoiler
   &:hover
     opacity 1
     transition-duration 0.3s
 
-.bb_spoiler:hover a, a:hover .bb_spoiler,
-  .bb_spoiler:active a, a:active .bb_spoiler
-  color lightblue !important
-
-.bb_spoiler:hover .new, .bb_spoiler .new:hover, .new:hover .bb_spoiler,
-  .bb_spoiler:active .new, .bb_spoiler .new:active, .new:active .bb_spoiler
-  color #BA0000 !important
+//.bb_spoiler:hover a, a:hover .bb_spoiler,
+//  .bb_spoiler:active a, a:active .bb_spoiler
+//  color lightblue !important
+//
+//.bb_spoiler:hover .new, .bb_spoiler .new:hover, .new:hover .bb_spoiler,
+//  .bb_spoiler:active .new, .bb_spoiler .new:active, .new:active .bb_spoiler
+//  color #BA0000 !important
 
 //=============//
 //   禁止选中   //
@@ -351,3 +354,7 @@ textarea#veditor
   -moz-user-select none
   -ms-user-select none
   user-select none
+
+
+.gist .blob-num
+  border none
