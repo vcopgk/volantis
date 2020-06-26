@@ -52,7 +52,7 @@
 <div id="menu-div" style="display: none;position:fixed;z-index: 2000;">
   <ul class="list-v" style="display: block;width: 120px;">
     <li>
-      <a class="flat-box waves-effect waves-block" style="display: none;" id="menu-copy" onclick="menuCpoy()">
+      <a class="flat-box waves-effect waves-block" style="display: none;" id="menu-copy" onclick="menuCopy()">
         <i class="fal fa-copy fa-fw"></i> 复制
       </a>
     </li>
@@ -140,41 +140,47 @@
     document.getElementById('menu-div').style.display = 'none';
   }
 
+  // 此处无需处理 js 加载异常
   function menuPlay() {
-    document.querySelector('meting-js').aplayer.play();
-    var index = document.querySelector('meting-js').aplayer.list.index;
-    var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
-    var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-    $.message({title:'音乐通知',message: '正在播放：' + title + ' - ' + artist, type:'success'});
+    var canplay = getCookie('canplay');
+    if( canplay != null && canplay == 'true') {
+      document.querySelector('meting-js').aplayer.play();
+    } else {
+      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    }
   }
-
   function menuPause() {
-    document.querySelector('meting-js').aplayer.pause();
-    var index = document.querySelector('meting-js').aplayer.list.index;
-    var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
-    var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-    $.message({title:'音乐通知',message: '暂停播放：' + title + ' - ' + artist, type:'success'});
+    var canplay = getCookie('canplay');
+    if( canplay != null && canplay == 'true') {
+      document.querySelector('meting-js').aplayer.pause();
+      var index = document.querySelector('meting-js').aplayer.list.index;
+      var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+      var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+      $.message({title:'音乐通知',message: '暂停播放：' + title + ' - ' + artist, type:'success'});
+    } else {
+      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    }
   }
-
   function menuBackward() {
-    document.querySelector('meting-js').aplayer.skipBack();
-    var index = document.querySelector('meting-js').aplayer.list.index;
-    var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
-    var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-    $.message({title:'音乐通知',message: '即将播放：' + title + ' - ' + artist, type:'success'});
-    document.querySelector('meting-js').aplayer.play();
+    var canplay = getCookie('canplay');
+    if( canplay != null && canplay == 'true') {
+      document.querySelector('meting-js').aplayer.skipBack();
+      document.querySelector('meting-js').aplayer.play();
+    } else {
+      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    }
   }
-
   function menuForward() {
-    document.querySelector('meting-js').aplayer.skipForward();
-    var index = document.querySelector('meting-js').aplayer.list.index;
-    var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
-    var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-    $.message({title:'音乐通知',message: '即将播放：' + title + ' - ' + artist, type:'success'});
-    document.querySelector('meting-js').aplayer.play();
+    var canplay = getCookie('canplay');
+    if( canplay != null && canplay == 'true') {
+      document.querySelector('meting-js').aplayer.skipForward();
+      document.querySelector('meting-js').aplayer.play();
+    } else {
+      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    }
   }
 
-  function menuCpoy() {
+  function menuCopy() {
     document.execCommand("Copy"); 
     $.message({title:'复制成功',message: window.getSelection().toString(),type:'success'});
   }
