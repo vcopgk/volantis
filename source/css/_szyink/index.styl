@@ -18,272 +18,6 @@
 #valine_container .vcards .vh
   border: 1px dashed #fff !important
 
-//=============//
-//    粗 细    //
-//=============//
-.widget header
-  font-weight: initial
-
-//=============//
-//   代码块    //
-//=============//
-.highlight >table
-  max-height: 500px
-
-.highlight:hover .btn-copy
-  margin-top: -28px
-  border: 1px solid #f1f1f1
-  border-radius: 6px 6px 0 0
-
-//=============//
-//   鼠标样式   //
-//=============//
-$text = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/text.png")
-$pointer = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png")
-$default = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png")
-$not-allowed = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png")
-$zoom-out = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-out.png")
-$zoom-in = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png")
-$grab = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/openhand.png")
-
-html
-  cursor $default,default
-
-p,
-input,
-textarea,
-pre > span
-  cursor $text,text
-
-//index.styl
-a
-  cursor $pointer,pointer
-  p
-    cursor $pointer,pointer
-  &:not([href]) 
-    cursor $default,default
-    p
-      cursor $default,default
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"]
-  cursor: $pointer,pointer
-button[disabled],html input[disabled]
-  cursor: $default,default
-
-//func.styl
-scrollbar
-  &::-webkit-scrollbar-thumb
-    cursor: $pointer,pointer
-
-//article.styl
-.article
-  kbd
-    &:hover
-      cursor: $default,default
-  .widget
-    cursor: $default,default
-
-//cover.styl
-.cover-wrapper .cover
-  .scroll-down
-    cursor: $pointer,pointer
-
-//main.styl
-.l_body
-  .post
-    section.meta
-      .new-meta-box
-        .new-meta-item
-          .notlink
-            cursor: $default,default
-
-//search.styl
-#u-search
-  .modal
-    .modal-header
-      .btn-close
-        cursor: $pointer,pointer
-    .modal-footer
-      .nav
-        cursor: $pointer,pointer
-
-//btns.styl
-span.btn
-  >a
-    &:not([href])
-      &:hover
-        cursor: $not-allowed,not-allowed
-  a
-    &:not([href])
-      cursor: $default,default
-
-//checkbox.styl
-article .checkbox
-  input
-    cursor: $pointer,pointer
-
-//dropmenu.styl
-div.dropmenu
-  cursor: $default,default
-
-//folding.styl
-details
-  summary
-    cursor: $pointer,pointer
-    p
-      cursor: $pointer,pointer
-
-//tabs.styl
-div.tabs
-  ul.nav-tabs
-    li.tab
-      a
-        cursor: $pointer,pointer
-      &.active a
-        cursor: $default,default
-
-//clipboard.styl
-if hexo-config('style.body.highlight.copy_btn') == true
-  .btn-copy
-    cursor: $pointer,pointer
-
-//fancybox.styl
-.fancybox-container
-  .fancybox-stage
-    cursor: $zoom-out,zoom-out
-.fancybox
-  a
-    cursor: $zoom-in,zoom-in
-
-//valine.styl
-.l_main
-  #comments
-    #valine_container
-      .vcards
-        .vhead
-          span
-            &.vnick
-              cursor: $default,default
-
-.fancybox-can-zoomIn .fancybox-content
-  cursor: $zoom-in,zoom-in
-
-.fancybox-can-pan .fancybox-content, .fancybox-can-swipe .fancybox-content
-  cursor: $grab,grab
-
-.waves-effect,
-a.result.search-result-fix
-  cursor $pointer,pointer
-
-.v[data-class=v] a,
-.v[data-class=v] .vbtn,
-.v[data-class=v] .vicon,
-.v[data-class=v] .vcards .vcard .vhead .vnick,
-.v[data-class=v] .vcards .vcard .vh .vmeta .vat,
-.v[data-class=v] .vwrap .vemojis i,
-.v[data-class=v] .vcards .vcard .vcontent.expand,
-.aplayer .aplayer-pic,
-.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon,
-.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap,
-.aplayer .aplayer-list ol li,
-.aplayer .aplayer-list ol li .aplayer-list-author,
-.aplayer .aplayer-list ol li .aplayer-list-index,
-.fancybox-button,
-.waves-button, .waves-button-input, .waves-button:hover, .waves-button:visited
-  cursor $pointer,pointer !important
-
-.aplayer .aplayer-info .aplayer-music
-  cursor: $default,default !important
-
-.fancybox-button[disabled], .fancybox-button[disabled]:hover
-  cursor: $not-allowed,not-allowed !important
-
-.fix-cursor-pointer
-  cursor $pointer,pointer !important
-
-//=============//
-//   加载动画   //
-//=============//
-.loading
-  display none
-  height 100%
-  width 100%
-  position fixed
-  top 0
-  left 0
-  z-index 999999
-  background-color rgba(250,250,250,.9)
-  img
-    width 280px
-    height 210px
-    position relative
-    top 45%
-    left 50%
-    margin-left -140px
-    margin-top -105px
-
-#loader
-  display block
-  position relative
-  left 50%
-  top 50%
-  width 150px
-  height 150px
-  margin -75px 0 0 -75px
-  border-radius 50%
-  border 3px solid transparent
-  border-top-color #ff5a5a
-  -webkit-animation spin 1s linear infinite
-  animation spin 1s linear infinite
-  &:before
-    content ""
-    position absolute
-    top 5px
-    left 5px
-    right 5px
-    bottom 5px
-    border-radius 50%
-    border 3px solid transparent
-    border-top-color #5af33f
-    -webkit-animation spin 3s linear infinite
-    animation spin 3s linear infinite
-  &:after
-    content ""
-    position absolute
-    top 15px
-    left 15px
-    right 15px
-    bottom 15px
-    border-radius 50%
-    border 3px solid transparent
-    border-top-color #6dc9ff
-    -webkit-animation spin 2s linear infinite
-    animation spin 2s linear infinite
-
-@-webkit-keyframes spin
-  0%
-    -webkit-transform: rotate(0deg)
-    -ms-transform: rotate(0deg)
-    transform: rotate(0deg)
-  100%
-    -webkit-transform: rotate(360deg)
-    -ms-transform: rotate(360deg)
-    transform: rotate(360deg)
-@keyframes spin
-  0%
-    -webkit-transform: rotate(0deg)
-    -ms-transform: rotate(0deg)
-    transform: rotate(0deg)
-  100%
-    -webkit-transform: rotate(360deg)
-    -ms-transform: rotate(360deg)
-    transform: rotate(360deg)
-
-//=============//
-//    其  它   //
-//=============//
 // 对 valine 评论输入框的样式调整
 textarea#veditor
   resize: none !important
@@ -309,6 +43,26 @@ textarea#veditor
     &:hover
       background-color: #3367d6
 
+//=============//
+//    粗 细    //
+//=============//
+.widget header
+  font-weight: initial
+
+//=============//
+//   代码块    //
+//=============//
+.highlight >table
+  max-height: 500px
+
+.highlight:hover .btn-copy
+  margin-top: -28px
+  border: 1px solid #f1f1f1
+  border-radius: 6px 6px 0 0
+
+//=============//
+//   右键层级   //
+//=============//
 .waves-button, .waves-button-input, .waves-button:hover, .waves-button:visited,
 .l_side .toc-wrapper
   z-index: auto
@@ -336,14 +90,6 @@ textarea#veditor
     opacity 1
     transition-duration 0.3s
 
-//.bb_spoiler:hover a, a:hover .bb_spoiler,
-//  .bb_spoiler:active a, a:active .bb_spoiler
-//  color lightblue !important
-//
-//.bb_spoiler:hover .new, .bb_spoiler .new:hover, .new:hover .bb_spoiler,
-//  .bb_spoiler:active .new, .bb_spoiler .new:active, .new:active .bb_spoiler
-//  color #BA0000 !important
-
 //=============//
 //   禁止选中   //
 //=============//
@@ -355,6 +101,6 @@ textarea#veditor
   -ms-user-select none
   user-select none
 
-
+//gist
 .gist .blob-num
   border none

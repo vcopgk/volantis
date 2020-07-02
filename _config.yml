@@ -477,6 +477,11 @@ plugins:
     volume: 0.7       # default volume, notice that player will remember user setting, default volume will not work after user set volume themselves
     list_max_height: 340px # list max height
     list_folded: true
+  pjax:
+    enable: true
+    timeout: 5000        # The timeout in milliseconds for the XHR requests. Set to 0 to disable the timeout.
+    cacheBust: false     # When set to true, Pjax appends a timestamp  to skip the browser cache.
+    animation: nprogress    # nprogress, circle
 
 
 
@@ -601,5 +606,5 @@ info:
   version: '3.0-beta' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   cdn:
-    js: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/app.js
+    js: 
     css:
