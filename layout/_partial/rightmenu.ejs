@@ -1,0 +1,137 @@
+<div id="menu-div" style="display: none;position:fixed;z-index: 2000;">
+  <ul class="list-v" style="display: block;width: 120px;">
+    <li>
+      <a class="flat-box waves-effect waves-block" style="display: none;" id="menu-copy" onclick="menuCopy()">
+        <i class="fal fa-copy fa-fw"></i> 复制
+      </a>
+    </li>
+    <li>
+      <a class="flat-box waves-effect waves-block" onclick="history.back()">
+        <i class="fal fa-arrow-left fa-fw"></i> 返回
+      </a>
+    </li> 
+    <li>
+      <a class="flat-box waves-effect waves-block" onclick="window.location.reload()">
+        <i class="fal fa-redo fa-fw"></i> 刷新
+      </a>
+    </li>
+    <hr>
+    <li>
+      <a class="flat-box waves-effect waves-block" href="/">
+        <i class="fal fa-helmet-battle fa-fw"></i> 首页
+      </a>
+    </li>    
+    <li>
+      <a class="flat-box waves-effect waves-block" href="/info/">
+        <i class="fal fa-bell-on fa-fw"></i> 留言
+      </a>
+    </li>
+    <li>
+      <a class="flat-box waves-effect waves-block" href="/friends/">
+        <i class="fal fa-user-friends fa-fw"></i> 友链
+      </a>
+    </li>
+    <hr>
+    <li>
+      <a class="flat-box">
+        <i class='fal fa-music fa-fw'></i> 音乐
+      </a>
+      <ul class="list-v" style="margin-left: 110px;">
+        <li>
+          <a class="flat-box waves-effect" onclick="menuPlay()">
+            <i class="fal fa-play fa-fw"></i> 播放
+          </a>
+        </li>
+        <li>
+          <a class="flat-box waves-effect" onclick="menuPause()">
+            <i class="fal fa-pause fa-fw"></i> 暂停
+          </a>
+        </li>
+        <li>
+          <a class="flat-box waves-effect" onclick="menuBackward()">
+            <i class="fal fa-backward fa-fw"></i> 上一首
+          </a>
+        </li>
+        <li>
+          <a class="flat-box waves-effect" onclick="menuForward()">
+            <i class="fal fa-forward fa-fw"></i> 下一首
+          </a>
+        </li>
+      </ul>
+    <li>
+  </ul>
+</div>
+
+<script>
+  window.document.oncontextmenu = function () {
+    return false;
+  };
+
+  document.addEventListener("click", function (event) {
+    var mymenu = document.getElementById('menu-div');
+    mymenu.style.display = "none";
+  });
+
+  function popMenu(event) {
+    var copy = document.getElementById('menu-copy');
+    var select = window.getSelection().toString(); // 鼠标选中的文本
+    copy.style.display = select == "" ? "none" : "block";
+
+    var mymenu = document.getElementById('menu-div');
+    mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+    mymenu.style.top = event.clientY + "px";
+    mymenu.style.display = 'block';
+    return false; // 该行代码确保系统自带的右键菜单不会被调出
+  }
+
+  function hideMenu() {
+    document.getElementById('menu-div').style.display = 'none';
+  }
+
+  // 此处无需处理 js 加载异常
+  function menuPlay() {
+    var canplay = getCookie('canplay');
+    if( canplay != null && canplay == 'true') {
+      document.querySelector('meting-js').aplayer.play();
+    } else {
+      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    }
+  }
+  function menuPause() {
+    var canplay = getCookie('canplay');
+    if( canplay != null && canplay == 'true') {
+      document.querySelector('meting-js').aplayer.pause();
+      var index = document.querySelector('meting-js').aplayer.list.index;
+      var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+      var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+      $.message({title:'音乐通知',message: '暂停播放：' + title + ' - ' + artist, type:'success'});
+    } else {
+      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    }
+  }
+  function menuBackward() {
+    var canplay = getCookie('canplay');
+    if( canplay != null && canplay == 'true') {
+      document.querySelector('meting-js').aplayer.skipBack();
+      document.querySelector('meting-js').aplayer.play();
+    } else {
+      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    }
+  }
+  function menuForward() {
+    var canplay = getCookie('canplay');
+    if( canplay != null && canplay == 'true') {
+      document.querySelector('meting-js').aplayer.skipForward();
+      document.querySelector('meting-js').aplayer.play();
+    } else {
+      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    }
+  }
+
+  function menuCopy() {
+    document.execCommand("Copy"); 
+    $.message({title:'复制成功',message: window.getSelection().toString(),type:'success'});
+  }
+
+</script>
+  
