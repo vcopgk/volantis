@@ -62,7 +62,81 @@
       requiredFields: requiredFields,
       emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
       emojiMaps: emojiMaps
-    })
+    });
+    if (window.AV == undefined) {
+      setTimeout(() => {
+        pv_count();
+      }, 3000);
+    } else {
+      pv_count();
+    }
+
+  }
+
+  const utils = {
+    findAll(el, selector) {
+        return el.querySelectorAll(selector)
+    },
+    removeAttr(el, names) {
+        let name,
+            i = 0,
+            attrNames = names && names.match(/[^\x20\t\r\n\f\*\/\\]+/g);
+        if (attrNames && el.nodeType === 1) {
+            while ((name = attrNames[i++])) {
+                el.removeAttribute(name);
+            }
+        }
+        return el
+    },
+    attr(el, name, value) {
+        if (typeof el.getAttribute === "undefined") return utils.prop(el, name, value)
+        if (value !== undefined) {
+            if (value === null) utils.removeAttr(el, name)
+            else el.setAttribute(name, value)
+        } else if (({}).toString.call(name) === '[object Object]') {
+            utils.each(name, (k, v) => {
+                el.setAttribute(k, v)
+            })
+        } else return el.getAttribute(name)
+    },
+  }
+
+  function pv_count() {
+    var AV = window.AV;
+    if (AV == undefined) {return;}
+    let root = this;
+    let lpv = utils.findAll(document, '.leancloud_visitors_pv,.leancloud-visitors-pv');
+    if(lpv.length) {
+      let lv = lpv[0];
+      let url = utils.attr(lv, 'id');
+      let title = utils.attr(lv, 'data-flag-title');
+      let xid = encodeURI(url);
+      let o = {
+        el: lv,
+        url: url,
+        xid: xid,
+        title: title
+      }
+      if(url == '/site_pv/') {
+        let query = new AV.Query('Counter');
+        query.equalTo('url', url);
+        query.find().then(ret => {
+          if (ret.length > 0) {
+            let v = ret[0];
+            v.increment("time");
+            v.save().then(rt => {
+                $('.leancloud-visitors-count-pv').text(rt.get('time'));
+            }).catch(ex => {
+                console.log(ex)
+            });
+          } else {
+            createCounter('Counter', o)
+          }
+        }).catch(ex => {
+          ex.code == 101 && createCounter('Counter', o)
+        })
+      }
+    }
   }
 
   $(function () {
