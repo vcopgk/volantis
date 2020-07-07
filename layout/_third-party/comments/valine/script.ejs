@@ -123,7 +123,9 @@
         query.find().then(ret => {
           if (ret.length > 0) {
             let v = ret[0];
-            v.increment("time");
+            // 恶趣味一下，同步计数，嘿嘿嘿~
+            const busuanzi = $('.leancloud-visitors-count-pv').text();
+            if (busuanzi != '') v.set('time', parseInt(busuanzi)); else v.increment("time");
             v.save().then(rt => {
                 $('.leancloud-visitors-count-pv').text(rt.get('time'));
             }).catch(ex => {
