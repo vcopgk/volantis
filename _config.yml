@@ -116,7 +116,7 @@ cover:
       url: https://volantis.js.org/examples/
     - name: 源码
       icon: fal fa-file-code
-      url: https://github.com/xaoxuu/hexo-theme-volantis/
+      url: https://github.com/theme-volantis/hexo-theme-volantis/
       rel: external nofollow noopener noreferrer
       target: _blank
     - name: 鸣谢
@@ -159,7 +159,7 @@ layout:
   # 文章列表（主页、自定义的列表）布局
   on_list:
     # 列表中每一篇文章的meta信息
-    meta: [title, author, category, date, wordcount, top]
+    meta: [title, author, category, date, wordcount, counter, valinecount, pin]
     # 列表类页面的侧边栏
     sidebar: [blogger, category, tagcloud, qrcode]
     # read more button
@@ -172,7 +172,7 @@ layout:
     # 其中，title只在header中有效，music和thumbnail无需在这里设置，文章中有则显示
     # 如果tags放置在meta.header中，那么在post列表中不显示（因为卡片下方已经有了）
     meta:
-      header: [title, author, category, date, top]
+      header: [title, author, category, date, pin]
       footer: [updated, tags, btns, share]
     # 文章页面的侧边栏
     sidebar: [qrcode, toc]
@@ -206,7 +206,7 @@ meta:
   category:
     icon: fal fa-folder-open
   # 文章置顶
-  top:
+  pin:
     icon: fal fa-angle-double-up
   # 文章浏览计数
   counter:
@@ -411,9 +411,9 @@ plugins:
   # https://scrollrevealjs.org/api/reveal.html
   scrollreveal:
     js: https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js
-    distance: 8px
+    distance: 32px
     duration: 800 # ms
-    interval: 100 # ms
+    interval: 20 # ms
     scale: 1 # 0.1~1
 
   # Codeblock Copy Button
@@ -481,7 +481,27 @@ plugins:
     enable: true
     timeout: 5000        # The timeout in milliseconds for the XHR requests. Set to 0 to disable the timeout.
     cacheBust: false     # When set to true, Pjax appends a timestamp  to skip the browser cache.
-    animation: nprogress    # nprogress, circle
+    animation: nprogress # nprogress, circle
+    banUrl:              # 被屏蔽的 url 地址将不启用 pjax 跳转，可以在控制台下使用 window.location.pathname 获取
+      # - '/about/index.html'
+
+  # Artitalk https://artitalk.js.org
+  # 配置过程请参考：https://artitalk.js.org/doc.html
+  # 除appID和appKEY外均为选填项
+  Artitalk:
+    enable: false # true为开启，false为关闭
+    appID: ogP8qj3veMh0LFpFWMPOyF0X-MdYXbMMI # your appID
+    appKEY: nHXLd3N3Jgh460t2iRQKWAtr # your appKEY
+    # severurl:  #leancloud绑定的安全域名，使用国际版的话不需要填写
+    # slanguage: # 语言设置，zh为汉语，en为英语，es为西班牙语。默认为汉语
+    # per: #每页说说的显示数量
+    # placeholder1: #在编辑说说的输入框中的占位符
+    # placeholder2: #自定义头像url的输入框的占位符
+    # lazy: #加载动画的开关，1为开，0为关，默认为开
+    # bgimg: #说说输入框背景图片url
+    # color1: #说说背景颜色1&按钮颜色1
+    # color2: #说说背景颜色2&按钮颜色2
+    # color3: #说说字体颜色
 
 
 
@@ -490,10 +510,10 @@ plugins:
 comments:
   title: <i class='fal fa-comments'></i> 评论
   subtitle:
-  service: valine # valine, minivaline, disqus, gitalk, livere
+  service: valine # valine, minivaline, disqus, gitalk, vssue, livere
   # Valine
   # https://valine.js.org/
-  valine:
+  valine: # 请将 appId appKey 修改为自己的，否则评论数据是共享的。
     appId: dogUA2FSKGTo029M1SEwGROT-MdYXbMMI # your appId
     appKey: u0NdtQ8nvHoMdJPSYqm1LRxE # your appKey
     # js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
