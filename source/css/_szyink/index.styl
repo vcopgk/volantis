@@ -61,13 +61,6 @@ textarea#veditor
   border-radius: 6px 6px 0 0
 
 //=============//
-//   右键层级   //
-//=============//
-.waves-button, .waves-button-input, .waves-button:hover, .waves-button:visited,
-.l_side .toc-wrapper
-  z-index: auto
-
-//=============//
 //   隐藏文本   //
 //=============//
 // <span class="bb_spoiler" title="xxx">xxxx</span>
@@ -104,3 +97,16 @@ textarea#veditor
 //gist
 .gist .blob-num
   border none
+
+// 扒来的样式
+.webinfo 
+  padding 0.2rem 1rem
+  .webinfo-item 
+    display block
+    padding 4px 0 0
+    div 
+      &:first-child 
+        display inline-block
+      &:last-child 
+        display inline-block
+        float right
