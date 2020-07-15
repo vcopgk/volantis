@@ -32,8 +32,12 @@
       </div>
       <div class="webinfo-item">
         <div>最后活动日期 :</div>
-        <div><%= date(Date.now()) %></div>
+        <div id="last-update"><%= new Date() %></div>
       </div>
+      <script>
+        var lastUpDate = document.getElementById('last-update').innerHTML;
+        document.getElementById('last-update').innerHTML = moment(new Date(lastUpDate)).fromNow();
+      </script>
     </div>
   </div>
 </section>
