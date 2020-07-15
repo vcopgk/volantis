@@ -12,14 +12,11 @@
         <div class="webinfo-runtime-count" id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
       </div>
       <script>
-        const showDateTime = function () {
-          const BirthDay = new Date(new Date('2018/03/15'));
-          const today = new Date();
-          const timeold = (today.getTime() - BirthDay.getTime());
-          const daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        }
-        showDateTime();
+        var BirthDay = new Date(new Date('2018/03/15'));
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
+        document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
       </script>
       <div class="webinfo-item">
         <div class="webinfo-site-wordcount-name">本站总字数 :</div>
