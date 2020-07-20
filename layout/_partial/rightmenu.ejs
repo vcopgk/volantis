@@ -94,12 +94,12 @@
     mymenu.style.display = 'block';
 
     // 音乐控制弹出层位置
-    if (mouseClientY + menuHeight > screenHeight) {
+    if (mouseClientY + menuHeight  + 100 > screenHeight) {
       menuMusicCard.style.marginTop = '-150px';
     } else {
       menuMusicCard.style.marginTop = '';
     }
-    if (mouseClientX + menuWidth > screenWidth) {
+    if (mouseClientX + menuWidth  + 110 > screenWidth) {
       menuMusicCard.style.marginLeft = '-100px';
     } else {
       menuMusicCard.style.marginLeft = '110px';
