@@ -97,11 +97,12 @@ style:
 ############################### Layout ###############################
 cover:
   scheme: blog # docs, blog
+  layout: featured # search (搜索), featured (精选)
   display:
     home: true
     archive: true
     others: false # can be written in front-matter 'cover: true'
-  logo: https://i.loli.net/2020/07/21/EgR2tSTQ7daoFYL.png
+  logo: https://i.loli.net/2020/07/22/2OYbPxZjhdFce3L.png
   title: ''
   subtitle: ''
   search: A Wonderful Theme for Hexo # search bar placeholder
@@ -128,7 +129,7 @@ cover:
 # Navigation Bar
 navbar:
   logo: # choose [img] or [icon + title]
-    img: https://i.loli.net/2020/07/21/MGLxUtBNnrFQTbZ.png
+    img: https://i.loli.net/2020/07/22/Xw9pZTkyhSPOY8M.png
     icon:
     title:
   menu:
