@@ -273,9 +273,10 @@
 <script>
   $(document).ready(function () {
     setCookie("canplay", 'true', '', '/');  // 用以控制音乐播放
+    var autoPlayMusic = getCookie('autoPlayMusic') == null ? true : false;
     <% if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true) { %>
     setTimeout(function() {
-      if($(window).width() > 500) {
+      if($(window).width() > 500 && autoPlayMusic) {
         var isplay = true;
         $.message({title: "音乐通知",message: "即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type:'warning'});
         setTimeout(function() {
@@ -297,6 +298,17 @@
         $("#stopMusic").click(function() {
           isplay = false;
           $(".c-message--close").click();
+          setTimeout(() => {
+            $.message({title: "音乐通知",time: 999999,message: "是否永久关闭音乐自动播放?  <a id='dontPlayMusic' class='stopMusic fix-cursor-pointer'><b>确认</b></a>",type:'warning'});
+            $("#dontPlayMusic").click(function() {
+              var expires = 7 * 24 * 60 * 60 * 1000;
+              setCookie("autoPlayMusic", 'false', expires, '/');
+              $(".c-message--close").click();
+              setTimeout(() => {
+                $.message({title:'音乐通知',time: 6000,message: '关闭成功，未来一周内将不再提醒~', type:'success'});
+              }, 1000);
+            });
+          }, 1000);
         })
       }
     }, 1500);
