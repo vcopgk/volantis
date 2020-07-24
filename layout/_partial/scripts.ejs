@@ -286,7 +286,9 @@
             var title = aplayer.list.audios[index].title;
             var artist = aplayer.list.audios[index].artist;
             var canplay = getCookie('canplay') == null ? false : getCookie('canplay');
-            aplayerOn(); // 执行事件监听
+            if (window.aplayerLinster == undefined) { // 避免重复监听
+              aplayerOn();
+            }
             if(isplay && canplay == 'true') {
               document.querySelector('meting-js').aplayer.play();
             }
@@ -310,6 +312,13 @@
             });
           }, 1000);
         })
+      } else {
+        setTimeout(() => {
+          if (window.aplayerLinster == undefined) { // 避免重复监听
+            deleteCookie('canplay', '/'); // 删除
+            aplayerOn();
+          }
+        }, 1500);
       }
     }, 1500);
     <% } %>
@@ -317,28 +326,25 @@
 
   <% if (theme.plugins.aplayer.enable == true) { %>
   function aplayerOn() {
+    window.aplayerLinster = true;
     try {
       document.querySelector('meting-js').aplayer.on('canplay', function (e) { // 近似于 play 事件，重置 cookie 状态
         setCookie("canplay", 'true', '', '/');
       });
       document.querySelector('meting-js').aplayer.on('error', function (e) { // 音乐加载失败
-        var canplay = getCookie('canplay') == null ? false : getCookie('canplay');
-        if(canplay == 'true'){
-          $.message({title: "音乐通知",message: "音乐加载失败~ 潜在网络问题",type:'warning'});
-          setCookie("canplay", false, '', '/');
-        }
+        $.message({title: "音乐通知",message: "音乐加载失败~ 潜在网络问题",type:'warning'});
+        setCookie("canplay", false, '', '/');
       });
       document.querySelector('meting-js').aplayer.on('play', function (e) {
         var index = document.querySelector('meting-js').aplayer.list.index;
         var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
         var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-        var canplay = getCookie('canplay') == null ? false : getCookie('canplay');
-        if(canplay == 'true'){  // 主力播放通知
-          $.message({title:'音乐通知',message: '正在播放：' + title + ' - ' + artist, type:'success'});
-        }
+        $.message({title:'音乐通知',message: '正在播放：' + title + ' - ' + artist, type:'success'});
+        setCookie("canplay", 'true', '', '/');
       });
     } catch (error) {
       setCookie("canplay", 'false', '', '/');
+      delete window.aplayerLinster;
       $.message({title:'音乐通知',message: '事件监听失败~', type:'warning'});
     }
   }
