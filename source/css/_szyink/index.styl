@@ -94,6 +94,33 @@ textarea#veditor
   -ms-user-select none
   user-select none
 
+//=============//
+//   样式覆盖   //
+//=============//
+// 恢复下划线设置
+.article
+  a:not([class])
+    text-decoration: none
+  underline()
+    &:hover
+      text-decoration: underline
+  .article-entry
+    >a,>p>a,blockquote a,div.note a
+      underline()
+    >ul>li,>ol>li,tbody tr td
+      >a,>p>a
+        underline()
+    div.tab-pane
+      >p,li
+        >a
+          underline()
+// 恢复code样式          
+  code
+    &:not([class])
+      padding: 3px 4px 1px 4px
+      vertical-align: middle
+      background: $color-inlinecode
+
 //gist 样式修复
 .gist .blob-num
   border none
