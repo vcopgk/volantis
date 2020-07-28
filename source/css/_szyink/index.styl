@@ -101,23 +101,11 @@ textarea#veditor
 .article
   a:not([class])
     text-decoration: none
-  underline()
-    &:hover
-      text-decoration: underline
-  .article-entry
-    >a,>p>a,blockquote a,div.note a
-      underline()
-    >ul>li,>ol>li,tbody tr td
-      >a,>p>a
-        underline()
-    div.tab-pane
-      >p,li
-        >a
-          underline()
+    border-bottom: none
 // 恢复code样式          
   code
     &:not([class])
-      padding: 3px 4px 1px 4px
+      padding: 4px 4px 3px 4px
       vertical-align: middle
       background: $color-inlinecode
 

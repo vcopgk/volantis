@@ -32,7 +32,7 @@
         <%- __('footer.use') %>
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
         <%- __('footer.theme') %>
-        <% if (theme.comments.valine) { %>
+        <% if (theme.comments.service == 'valine') { %>
           <%- __('symbol.comma') %><%- __('footer.total_views') %>
           <span id="/site_pv/" class="leancloud_visitors_pv" data-flag-title="INKSS">
             <span class="leancloud-visitors-count-pv"><i class="fad fa-fan fa-spin fa-spin fa-fw" aria-hidden="true"></i></span>
