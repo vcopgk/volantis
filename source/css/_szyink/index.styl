@@ -97,17 +97,27 @@ textarea#veditor
 //=============//
 //   样式覆盖   //
 //=============//
-// 恢复下划线设置
+// 取消下划线设置
 .article
   a:not([class])
     text-decoration: none
     border-bottom: none
-// 恢复code样式          
+// 设置code样式          
   code
     &:not([class])
       padding: 4px 4px 3px 4px
       vertical-align: middle
       background: $color-inlinecode
+// 导航栏样式
+.l_header
+  max-width: 65vw
+  left: "calc((100% - %s) * 0.5)" % @max-width
+  border-bottom-left-radius: $border-card
+  border-bottom-right-radius: $border-card
+  @media screen and (max-width: $device-2k)
+    left: 0
+    border-radius: 0
+    max-width: 100%
 
 //=============//
 //   其   它   //
