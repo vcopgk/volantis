@@ -615,7 +615,7 @@ comments:
     pageSize: 6 # Pagination size.
     barrager: 0
     role: admin
-    cloudflag: true
+    cloudflag: false
     adminEmailMd5: de8a7aa53d07e6b6bceb45c64027763d # The MD5 of Admin Email to show Admin Flag.[ Just Only DesertsP Style mode]
     tagMeta: # The String Array of Words to show Flag.[ Just Only xCss Style mode]
       - 管理员
@@ -675,6 +675,38 @@ comments:
   hashover:
     src: https://example.com/(path/)comments.php
 
+# 自定义右键菜单
+rightmenu:
+  enable: true
+  # hr: 分割线, navigation: 导航按钮
+  layout: [copy, navigation, hr, home, help, examples, contributors, hr, source_docs, source_theme]
+  # 复制
+  copy:
+    name: 复制
+    icon: fa fa-copy
+    id: menu-copy
+    onclick: menuCopy()
+  # 自定义菜单的格式如下
+  help:
+    name: 常见问题
+    icon: fa fa-question
+    url: https://volantis.js.org/faqs/
+  examples:
+    name: 示例博客
+    icon: fa fa-rss
+    url: https://volantis.js.org/examples/
+  contributors:
+    name: 加入社区
+    icon: fa fa-fan fa-spin
+    url: https://volantis.js.org/contributors/
+  source_docs:
+    name: 本站源码
+    icon: fa fa-code-branch
+    url: https://github.com/volantis-x/volantis-docs/
+  source_theme:
+    name: 主题源码
+    icon: fa fa-code-branch
+    url: https://github.com/volantis-x/hexo-theme-volantis/
 
 
 ############################### Search ###############################
