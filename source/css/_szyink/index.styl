@@ -101,14 +101,14 @@ textarea#veditor
 .article
   a:not([class])
     text-decoration: none
-    border-bottom: none
-// 设置code样式          
+// 设置code样式
   code
     &:not([class])
       padding: 4px 4px 3px 4px
       vertical-align: middle
       background: $color-inlinecode
-// 导航栏样式
+      color: unset !important
+// 导航栏样式  取消半屏
 .l_header
   max-width: 65vw
   left: "calc((100% - %s) * 0.5)" % @max-width
@@ -118,6 +118,14 @@ textarea#veditor
     left: 0
     border-radius: 0
     max-width: 100%
+// 样式修订
+.article
+  h1,h2
+    font-weight: 700
+    background: linear-gradient(to bottom,transparent 60%,rgba(189,202,219,.3) 0) no-repeat
+    display: initial
+    width: auto
+    border-bottom: none
 
 //=============//
 //   其   它   //
