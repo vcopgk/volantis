@@ -1,10 +1,10 @@
-$text = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/text.png")
-$pointer = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png")
-$default = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png")
-$not-allowed = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png")
-$zoom-out = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-out.png")
-$zoom-in = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png")
-$grab = url("https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/openhand.png")
+$text = url(hexo-config('style.cursor.text'))
+$pointer = url(hexo-config('style.cursor.pointer'))
+$default = url(hexo-config('style.cursor.default'))
+$not-allowed = url(hexo-config('style.cursor.not-allowed'))
+$zoom-out = url(hexo-config('style.cursor.zoom-out'))
+$zoom-in = url(hexo-config('style.cursor.zoom-in'))
+$grab = url(hexo-config('style.cursor.grab'))
 
 html
   cursor $default,default
