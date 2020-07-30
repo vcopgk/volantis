@@ -100,7 +100,20 @@ textarea#veditor
 // 取消下划线设置
 .article
   a:not([class])
+    position: relative
     text-decoration: none
+    &:before
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px
+      height: 1px
+      width: 100%
+      background: #ff5722
+      transform: scale(0)
+      transition: all 0.3s
+    &:hover:before
+      transform: scale(1)
 // 设置code样式
   code
     &:not([class])
