@@ -56,6 +56,8 @@
       mymenu.style.display = "none";
     });
     function popMenu(event) {
+      if($(window).width() <= 500) return true;
+
       var copy = document.getElementById('menu-copy');
       var select = window.getSelection().toString(); // 鼠标选中的文本
       copy.style.display = select == "" ? "none" : "block";
@@ -73,7 +75,7 @@
       mymenu.style.left = showLeft + "px"; // 获取鼠标位置
       mymenu.style.top = showTop + "px";
       mymenu.style.display = 'block';
-      return false; // 该行代码确保系统自带的右键菜单不会被调出
+      return false;
     }
     function hideMenu() {
       document.getElementById('rightmenu-wrapper').style.display = 'none';

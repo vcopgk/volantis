@@ -17,6 +17,34 @@
 ```yml
 # 覆盖主题内配置
 theme_config:
+  rightmenu:
+    enable: true
+    layout: [copy, music, navigation, hr, info, foreverblog, friends, hr, text, about]
+    copy:
+      name: 复制 (Ctrl + V)
+      icon: fal fa-copy
+      id: menu-copy
+      onclick: menuCopy()
+    foreverblog:
+      name: 十年之约
+      icon: fal fa-glass-cheers
+      url: /foreverblog/index.html
+    friends:
+      name: 我的朋友们
+      icon: fal fa-flower-daffodil
+      url: /friends/index.html
+    info:
+      name: 留言版
+      icon: fal fa-fish
+      url: /info/index.html
+    text:
+      name: 文章归档
+      icon: fal fa-globe-asia
+      url: /archives/
+    about:
+      name: 关于我
+      icon: fal fa-gingerbread-man
+      url: /about/
   style:
     fontfamily:
       bodyfont:
@@ -68,8 +96,8 @@ theme_config:
         url: https://info.inkss.cn/
   navbar:
     logo:
-      img: 
-      title: <i class="fal fa-dragon"></i> INKSS
+      img:
+      title: <i class="fad fa-cannabis mainColor"></i> INKSS
     search: 想找些什么~
   meta:
     author:
@@ -91,6 +119,7 @@ theme_config:
     icp: '<div class="fixuse">辽 ICP 备 <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow" style="cursor:wait;">16006560</a> 号 | 辽公网安备 <a href="https://www.beian.gov.cn/" rel="nofollow" target="_blank" style="cursor:wait;">21021702000331</a> 号</div>'
     cpy: '<div class="fixuse">Copyright 2018 - 2020 szyink. All Rights Reserved</div>'
     me: '<a href="/">枋柚梓的猫会发光 <i class="fal fa-spider-black-widow"></i></a> '
+    icon: '<i class="fad fa-cannabis footStyle"></i>'
     social:
       - icon: fal fa-code-branch
         url: https://github.com/inkss
@@ -107,16 +136,18 @@ theme_config:
         url: https://info.inkss.cn/
         rel: external nofollow noopener noreferrer
   comments:
-    service: valine
+    service: disqus
+    disqus:
+      shortname: inkss
     valine:
-      appId: gqkw9h3C8yXm4WsJ3S5vBonP-gzGzoHsz
-      appKey: 2nwrlSMxijhI9x0v8JETCO9D
+      appId:
+      appKey:
       placeholder: 人生在世，错别字在所难免，无需纠正。
       recordIP: true
       js: https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js
     gitalk:
-      clientID: 587a00d69c1e5ccf7c71
-      clientSecret: 972a5d43d5d29dd0522c5f0cd79e46f8c4b985a3
+      clientID:
+      clientSecret:
       repo: test
       owner: inkss
       admin: inkss
@@ -148,13 +179,12 @@ import:
   meta:
   link:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/static/font/fontawesome/css/all.min.css">  # CDN √
-  script: 
+  script:
     - <script src="https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/js/cookie.min.js"></script>                           # CDN √
   script_head:
 ```
 
 </details>
-
 
 #### 二、插件配置
 
