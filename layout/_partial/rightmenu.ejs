@@ -64,7 +64,22 @@
     window.document.oncontextmenu = function (event) {
       if (event.ctrlKey) return true;
       if ($(window).width() <= 500) return true;
+      setMenylocation();
+      setMenuCopy();
+      if (<%= theme.plugins.aplayer.enable %> == true) {
+      	try {
+          checkAPlayer();
+          updateTitle();
+      	} catch (error) {console.log(error);}
+      }
+      return false;
+    };
 
+    document.addEventListener("click", function (event) {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    });
+
+    function setMenylocation() {
       var mymenu = document.getElementById('rightmenu-wrapper');
       var menuContent = document.getElementById('rightmenu-content');
       var mouseClientX = event.clientX;
@@ -75,29 +90,18 @@
       var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
       var showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
       var showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
-      mymenu.style.left = showLeft + "px"; // 获取鼠标位置
+      mymenu.style.left = showLeft + "px";
       mymenu.style.top = showTop + "px";
       mymenu.style.display = 'block';
+    }
 
+    function setMenuCopy() {
       if (window.getSelection().toString()) {
         document.getElementById('menu-copy').style.display = 'block';
       } else {
         document.getElementById('menu-copy').style.display = 'none';
       }
-      
-      if (<%= theme.plugins.aplayer.enable %> == true) {
-      	try {
-          checkAPlayer();
-          updateTitle();
-      	} catch (error) {console.log(error);}
-      }
-
-      return false;
-    };
-
-    document.addEventListener("click", function (event) {
-      document.getElementById('rightmenu-wrapper').style.display = 'none';
-    });
+    }
 
     function menuCopy() {
       document.execCommand("Copy");
