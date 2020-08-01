@@ -34,17 +34,21 @@
             <a class='nav fix-cursor-default' href='/'><i class='fal fa-home fa-fw'></i></a>
           </li>
         <% } else if (item == 'music-ctrl' && theme.plugins.aplayer.enable == true) { %>
+          <li class='music name'>
+            <p class='nav music-title'></p>
+          </li>
           <li class='music ctrl'>
             <a class='nav backward fix-cursor-pointer' onclick='aplayerBackward()'><i class='fal fa-step-backward fa-fw'></i></a>
             <a class='nav toggle fix-cursor-pointer' onclick='aplayerToggle()'><i class='fal fa-play fa-fw'></i></a>
             <a class='nav forward fix-cursor-pointer' onclick='aplayerForward()'><i class='fal fa-step-forward fa-fw'></i></a>
           </li>
-        <% } else if (item == 'music-volume' && theme.plugins.aplayer.enable == true) { %>
           <li class='music volume'>
             <a class='nav volume'>
               <div class="aplayer-volume-bar-wrap">
                 <div class="aplayer-volume-bar fix-cursor-pointer">
                   <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
                 </div>
               </div>
             </a>
@@ -88,6 +92,7 @@
         // 如果有aplayer，初始化一下
       	try {
       		checkAPlayer();
+          updateTitle();
       	} catch (error) {
       		console.log(error);
       	}
