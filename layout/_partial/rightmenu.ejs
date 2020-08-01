@@ -62,13 +62,7 @@
 
   <script>
     window.document.oncontextmenu = function () {
-      return false;
-    };
-    document.addEventListener("click", function (event) {
-      var mymenu = document.getElementById('rightmenu-wrapper');
-      mymenu.style.display = "none";
-    });
-    function popMenu(event) {
+      if (event.ctrlKey) return true;
       if($(window).width() <= 500) return true;
 
       var copy = document.getElementById('menu-copy');
@@ -97,8 +91,13 @@
       		console.log(error);
       	}
       }
-      return false; // 该行代码确保系统自带的右键菜单不会被调出
-    }
+      return false;
+    };
+
+    document.addEventListener("click", function (event) {
+      hideMenu();
+    });
+
     function hideMenu() {
       document.getElementById('rightmenu-wrapper').style.display = 'none';
     }
@@ -107,42 +106,42 @@
       $.message({title:'复制成功',message: window.getSelection().toString(),type:'success'});
     }
     function menuPlay() {
-    var canplay = getCookie('canplay');
-    if( canplay == null || canplay == 'true') {
-      document.querySelector('meting-js').aplayer.play();
-    } else {
-      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+      var canplay = getCookie('canplay');
+      if( canplay == null || canplay == 'true') {
+        document.querySelector('meting-js').aplayer.play();
+      } else {
+        $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+      }
     }
-  }
-  function menuPause() {
-    var canplay = getCookie('canplay');
-    if( canplay == null || canplay == 'true') {
-      document.querySelector('meting-js').aplayer.pause();
-      var index = document.querySelector('meting-js').aplayer.list.index;
-      var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
-      var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-      $.message({title:'音乐通知',message: '暂停播放：' + title + ' - ' + artist, type:'success'});
-    } else {
-      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    function menuPause() {
+      var canplay = getCookie('canplay');
+      if( canplay == null || canplay == 'true') {
+        document.querySelector('meting-js').aplayer.pause();
+        var index = document.querySelector('meting-js').aplayer.list.index;
+        var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
+        var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
+        $.message({title:'音乐通知',message: '暂停播放：' + title + ' - ' + artist, type:'success'});
+      } else {
+        $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+      }
     }
-  }
-  function menuBackward() {
-    var canplay = getCookie('canplay');
-    if( canplay == null || canplay == 'true') {
-      document.querySelector('meting-js').aplayer.skipBack();
-      document.querySelector('meting-js').aplayer.play();
-    } else {
-      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    function menuBackward() {
+      var canplay = getCookie('canplay');
+      if( canplay == null || canplay == 'true') {
+        document.querySelector('meting-js').aplayer.skipBack();
+        document.querySelector('meting-js').aplayer.play();
+      } else {
+        $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+      }
     }
-  }
-  function menuForward() {
-    var canplay = getCookie('canplay');
-    if( canplay == null || canplay == 'true') {
-      document.querySelector('meting-js').aplayer.skipForward();
-      document.querySelector('meting-js').aplayer.play();
-    } else {
-      $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+    function menuForward() {
+      var canplay = getCookie('canplay');
+      if( canplay == null || canplay == 'true') {
+        document.querySelector('meting-js').aplayer.skipForward();
+        document.querySelector('meting-js').aplayer.play();
+      } else {
+        $.message({title: "音乐通知",message: "音乐加载失败，建议刷新~",type:'warning'});
+      }
     }
-  }
   </script>
 <% } %>

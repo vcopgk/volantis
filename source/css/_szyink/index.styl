@@ -158,3 +158,31 @@ textarea#veditor
   color: #a6d5fa !important
   &:hover
     color: #2196f3 !important
+
+//=============//
+//   文字滚动   //
+//=============//
+.text-animate
+  padding-left 20px
+  font-size 12px
+  color #000
+  white-space nowrap
+  animation 4s wordsLoop linear infinite alternate
+  display inline-block
+
+@keyframes wordsLoop
+  0% 
+    transform: translateX(0px)
+    -webkit-transform: translateX(0px)
+  100% 
+    transform: translateX(-100% + 60px)
+    -webkit-transform: translateX(-100% + 60px)
+    
+@-webkit-keyframes wordsLoops
+  0% 
+    transform: translateX(0px)
+    -webkit-transform: translateX(0px)
+  100% 
+    transform: translateX(-100%)
+    -webkit-transform: translateX(-100%)
+    
