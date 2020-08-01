@@ -79,7 +79,6 @@
       mymenu.style.top = showTop + "px";
       mymenu.style.display = 'block';
 
-      // 选中文本
       if (window.getSelection().toString()) {
         document.getElementById('menu-copy').style.display = 'block';
       } else {
@@ -87,7 +86,6 @@
       }
       
       if (<%= theme.plugins.aplayer.enable %> == true) {
-        // 如果有aplayer，初始化一下
       	try {
       		checkAPlayer();
           updateTitle();
@@ -95,15 +93,14 @@
       		console.log(error);
       	}
       }
+
       return false;
     };
 
     document.addEventListener("click", function (event) {
-      hideMenu();
-    });
-    function hideMenu() {
       document.getElementById('rightmenu-wrapper').style.display = 'none';
-    }
+    });
+
     function menuCopy() {
       document.execCommand("Copy");
       $.message({title:'复制成功',message: window.getSelection().toString(),type:'success'});

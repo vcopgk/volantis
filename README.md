@@ -19,9 +19,9 @@
 theme_config:
   rightmenu:
     enable: true
-    layout: [copy, music, navigation, hr, info, foreverblog, friends, hr, text, about]
+    layout: [copy, navigation, hr, info, foreverblog, friends, hr, text, about, hr, music]
     copy:
-      name: 复制 (Ctrl + V)
+      name: 复制选中内容
       icon: fal fa-copy
       id: menu-copy
       onclick: menuCopy()
