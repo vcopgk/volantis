@@ -42,6 +42,10 @@ function setAPlayerObserver() {
         APlayerController.player.on('volumechange', function (e) {
 			onUpdateAPlayerVolume();
 		});
+		APlayerController.player.on('loadstart', function (e) {
+			// 跳到下一曲时更新标题
+			updateTitle();
+		});
 		APlayerController.player.on('error', function (e) { // 音乐加载失败
 			var index = document.querySelector('meting-js').aplayer.list.index;
 			var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
