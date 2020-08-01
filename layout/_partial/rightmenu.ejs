@@ -28,19 +28,19 @@
           <hr>
         <% } else if (item == 'navigation') { %>
           <li class='navigation'>
-            <a class='nav' onclick='history.back()'><i class='fal fa-arrow-left fa-fw'></i></a>
-            <a class='nav' onclick='history.forward()'><i class='fal fa-arrow-right fa-fw'></i></a>
-            <a class='nav' onclick='window.location.reload()'><i class='fal fa-redo fa-fw'></i></a>
-            <a class='nav fix-cursor-default' href='/'><i class='fal fa-home fa-fw'></i></a>
+            <a class='nav icon-only' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+            <a class='nav icon-only' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+            <a class='nav icon-only' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
           </li>
-        <% } else if (item == 'music-ctrl' && theme.plugins.aplayer.enable == true) { %>
+        <% } else if (item == 'music' && theme.plugins.aplayer.enable == true) { %>
           <li class='music name'>
             <p class='nav music-title'></p>
           </li>
           <li class='music ctrl'>
-            <a class='nav backward fix-cursor-pointer' onclick='aplayerBackward()'><i class='fal fa-step-backward fa-fw'></i></a>
-            <a class='nav toggle fix-cursor-pointer' onclick='aplayerToggle()'><i class='fal fa-play fa-fw'></i></a>
-            <a class='nav forward fix-cursor-pointer' onclick='aplayerForward()'><i class='fal fa-step-forward fa-fw'></i></a>
+            <a class='nav icon-only backward' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
           </li>
           <li class='music volume'>
             <a class='nav volume'>
@@ -77,11 +77,38 @@
       var menuHeight = menuContent.offsetHeight == 0 ? 340 : menuContent.offsetHeight;
       var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
       var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
-      var showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
-      var showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
-      mymenu.style.left = showLeft + "px"; // 获取鼠标位置
-      mymenu.style.top = showTop + "px";
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
       mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      // 选中文本
+      if (window.getSelection().toString()) {
+        document.getElementById('menu-copy').style.display = 'block';
+      } else {
+        document.getElementById('menu-copy').style.display = 'none';
+      }
+
+      // 选中图片
+      if (event.toElement.currentSrc) {
+        document.getElementById('menu-copy-img').style.display = 'block';
+        document.getElementById('menu-copy-img').addEventListener("click", function (e) {
+          copyString(event.toElement.currentSrc);
+        });
+      } else {
+        document.getElementById('menu-copy-img').style.display = 'none';
+      }
+
+      // 有音乐播放器
       if (<%= theme.plugins.aplayer.enable %> == true) {
         // 如果有aplayer，初始化一下
       	try {
