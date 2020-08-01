@@ -64,7 +64,7 @@
     window.document.oncontextmenu = function (event) {
       if (event.ctrlKey) return true;
       if ($(window).width() <= 500) return true;
-      setMenylocation();
+      setMenulocation();
       setMenuCopy();
       if (<%= theme.plugins.aplayer.enable %> == true) {
       	try {
@@ -79,7 +79,7 @@
       document.getElementById('rightmenu-wrapper').style.display = 'none';
     });
 
-    function setMenylocation() {
+    function setMenulocation() {
       var mymenu = document.getElementById('rightmenu-wrapper');
       var menuContent = document.getElementById('rightmenu-content');
       var mouseClientX = event.clientX;
