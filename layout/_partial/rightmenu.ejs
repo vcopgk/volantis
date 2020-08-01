@@ -87,11 +87,9 @@
       
       if (<%= theme.plugins.aplayer.enable %> == true) {
       	try {
-      		checkAPlayer();
+          checkAPlayer();
           updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+      	} catch (error) {console.log(error);}
       }
 
       return false;
