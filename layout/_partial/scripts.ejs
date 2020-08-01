@@ -1,4 +1,5 @@
 <%- js('https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js') %>
+<%- js('https://cdn.jsdelivr.net/gh/inkss/common@master/static/js/cookie.min.js') %>
 
 <% if (theme.search && theme.search.enable) { %>
   <script>
@@ -76,6 +77,7 @@
     let APlayerController = new Object();
     APlayerController.id = '<%= theme.plugins.aplayer.id %>';  // 设定全局音乐播放ID
     APlayerController.volume = '<%= theme.plugins.aplayer.volume %>';
+    APlayerController.autoPlay = '<%= theme.plugins.aplayer.autoplay %>';
   </script>
   <% (theme.plugins.aplayer.js||[]).forEach(function(item){ %>
     <%- js({src:item}) %>
@@ -244,84 +246,3 @@
 <% (config.import.script||[]).forEach(function(item){ %>
 <%- item %><% }) %>
 <% } %>
-
-<script>
-  $(document).ready(function () {
-    setCookie("canplay", 'true', '', '/');  // 用以控制音乐播放
-    var autoPlayMusic = getCookie('autoPlayMusic') == null ? true : false;
-    <% if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true) { %>
-    setTimeout(function() {
-      if($(window).width() > 500 && autoPlayMusic) {
-        var isplay = true;
-        $.message({title: "音乐通知",message: "即将自动播放，点击<a id='stopMusic' class='stopMusic fix-cursor-pointer'>停止播放</a>",type:'warning'});
-        setTimeout(function() {
-          try{
-            var aplayer = document.querySelector('meting-js').aplayer;
-            var index = aplayer.list.index;
-            var title = aplayer.list.audios[index].title;
-            var artist = aplayer.list.audios[index].artist;
-            var canplay = getCookie('canplay') == null ? false : getCookie('canplay');
-            if (window.aplayerLinster == undefined) { // 避免重复监听
-              aplayerOn();
-            }
-            if(isplay && canplay == 'true') {
-              document.querySelector('meting-js').aplayer.play();
-            }
-          } catch (error) { // 主要用于捕捉 js 加载失败
-            setCookie("canplay", 'false', '', '/');
-            $.message({title:'音乐通知',message: '加载失败，已取消播放操作~', type:'warning'});
-          }
-        }, 3500);
-        $("#stopMusic").click(function() {
-          isplay = false;
-          $(".c-message--close").click();
-          setTimeout(() => {
-            $.message({title: "音乐通知",time: 999999,message: "是否永久关闭音乐自动播放?  <a id='dontPlayMusic' class='stopMusic fix-cursor-pointer'><b>确认</b></a>",type:'warning'});
-            $("#dontPlayMusic").click(function() {
-              var expires = 7 * 24 * 60 * 60 * 1000;
-              setCookie("autoPlayMusic", 'false', expires, '/');
-              $(".c-message--close").click();
-              setTimeout(() => {
-                $.message({title:'音乐通知',time: 6000,message: '关闭成功，未来一周内将不再提醒~', type:'success'});
-              }, 1000);
-            });
-          }, 1000);
-        })
-      } else {
-        setTimeout(() => {
-          if (window.aplayerLinster == undefined) { // 避免重复监听
-            deleteCookie('canplay', '/'); // 删除
-            aplayerOn();
-          }
-        }, 1500);
-      }
-    }, 1500);
-    <% } %>
-  });
-
-  <% if (theme.plugins.aplayer.enable == true) { %>
-  function aplayerOn() {
-    window.aplayerLinster = true;
-    try {
-      document.querySelector('meting-js').aplayer.on('canplay', function (e) { // 近似于 play 事件，重置 cookie 状态
-        setCookie("canplay", 'true', '', '/');
-      });
-      document.querySelector('meting-js').aplayer.on('error', function (e) { // 音乐加载失败
-        $.message({title: "音乐通知",message: "音乐加载失败~ 潜在网络问题",type:'warning'});
-        setCookie("canplay", false, '', '/');
-      });
-      document.querySelector('meting-js').aplayer.on('play', function (e) {
-        var index = document.querySelector('meting-js').aplayer.list.index;
-        var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
-        var artist = document.querySelector('meting-js').aplayer.list.audios[index].artist;
-        $.message({title:'音乐通知',message: '正在播放：' + title + ' - ' + artist, type:'success'});
-        setCookie("canplay", 'true', '', '/');
-      });
-    } catch (error) {
-      setCookie("canplay", 'false', '', '/');
-      delete window.aplayerLinster;
-      $.message({title:'音乐通知',message: '事件监听失败~', type:'warning'});
-    }
-  }
-  <% } %>
-</script>

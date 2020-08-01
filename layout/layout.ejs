@@ -18,10 +18,10 @@
     <a class="s-top fad fa-arrow-up fa-fw" href='javascript:void(0)'></a>
   </div>
   <div>
+    <%- partial('_partial/scripts') %>
     <% if (theme.rightmenu && theme.rightmenu.enable == true) { %>
       <%- partial('_partial/rightmenu') %>
     <% } %>
-    <%- partial('_partial/scripts') %>
     <% if (theme.plugins.pjax.enable) { %>
       <%- partial('_third-party/pjax/index') %>
     <% } %>
