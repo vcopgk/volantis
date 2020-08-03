@@ -79,6 +79,14 @@
 
       try{
         pjax_fancybox();
+        <% if (theme.rightmenu && theme.rightmenu.enable == true) { %>
+          document.querySelectorAll('img').forEach((item) => {  // IMG 放出菜单
+            item.oncontextmenu  = function (event) {
+              event.stopPropagation();
+              return true;
+            }
+          })
+        <% } %>
         <% if (theme.plugins.backstretch && theme.plugins.backstretch.enable && theme.plugins.backstretch.images) { %>
           <% var posi = null;
             if (theme.plugins.backstretch.position == 'cover') {

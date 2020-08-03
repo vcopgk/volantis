@@ -62,8 +62,10 @@
 
   <script>
     window.document.oncontextmenu = function (event) {
-      if (event.ctrlKey) return true;
-      if ($(window).width() <= 500) return true;
+      if (event.ctrlKey || $(window).width() <= 500) {
+        hideMenu();
+        return true;
+      }
       setMenulocation();
       setMenuCopy();
       if (<%= theme.plugins.aplayer.enable %> == true) {
@@ -75,9 +77,25 @@
       return false;
     };
 
+    document.getElementById('rightmenu-wrapper').oncontextmenu  = function (event) {
+      event.stopPropagation();
+      return false;
+    }
+
+    document.querySelectorAll('img').forEach((item) => {  // IMG 放出菜单
+      item.oncontextmenu  = function (event) {
+        event.stopPropagation();
+        return true;
+      }
+    })
+
     document.addEventListener("click", function (event) {
-      document.getElementById('rightmenu-wrapper').style.display = 'none';
+      hideMenu();
     });
+
+    function hideMenu(  ) {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
 
     function setMenulocation() {
       var mymenu = document.getElementById('rightmenu-wrapper');
