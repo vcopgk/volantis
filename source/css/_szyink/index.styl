@@ -52,12 +52,26 @@ textarea#veditor
 //=============//
 //   代码块    //
 //=============//
-.highlight >table
-  max-height: 500px
+.highlight
+  background: $color-codeblock
+  figcaption
+    background: darken($color-codeblock, 5%)
+  .gutter
+    background: darken($color-codeblock, 5)
+  > table
+    max-height: 500px
+    .gutter
+      background: darken($color-codeblock, 5)
+    & tr
+      background-color: transparent
+  & .btn-copy
+    border: 1px solid #f1f1f1
+    border-radius: 6px
 
-.highlight:hover .btn-copy
-  border: 1px solid #f1f1f1
-  border-radius: 6px
+// 特定修改
+details > summary,
+div.tabs ul.nav-tabs
+  background: $color-codeblock
 
 //=============//
 //   隐藏文本   //

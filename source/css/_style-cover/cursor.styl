@@ -142,9 +142,12 @@ if hexo-config('style.body.highlight.copy_btn') == true
 a.result.search-result-fix
   cursor $pointer,pointer
 
+.tag > p,
 .prev > p,
 .next > p,
+.author > p,
 .list-h > a > p,
+.category > a > p,
 .v[data-class=v] a,
 .v[data-class=v] .vbtn,
 .v[data-class=v] .vicon,
@@ -163,6 +166,7 @@ a.result.search-result-fix
   cursor: $pointer,pointer !important
 
 kbd,
+.a > p,
 .not-select,
 .not-select p,
 .aplayer .aplayer-info .aplayer-music
