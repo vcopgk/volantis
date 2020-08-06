@@ -41,10 +41,8 @@
       $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
       $($('.u-search-input')[0]).val(''); // 移除搜索框输入内容
       $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
-      
+
       // 解绑事件 避免重复监听
-      $('.m-pc li').unbind('click');
-      $('.m-phone li').unbind('click');
       $('.s-top').unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
