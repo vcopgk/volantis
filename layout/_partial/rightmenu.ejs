@@ -23,25 +23,17 @@
 
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
-      <li class='option'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i><%- __('rightmenu.copy_text') %></a>
-        <hr id='hr-text'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i><%- __('rightmenu.copy_link') %></a>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i><%- __('rightmenu.open_in_new_tab') %></a>
-        <hr id='hr-href'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i><%- __('rightmenu.copy_image_src') %></a>
-        <hr id='hr-src'>
-      </li>
-      <li class='navigation'>
-        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
-        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
-        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
-        <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
-      </li>
-      <hr>
+      
       <% theme.rightmenu.layout.forEach(function(item){ %>
         <% if (item == 'hr') { %>
           <hr>
+        <% } else if (item == 'navigation') { %>
+          <li class='navigation'>
+            <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fal fa-arrow-left fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fal fa-arrow-right fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fal fa-redo fa-fw'></i></a>
+            <a class='nav icon-only fix-cursor-default' href='/'><i class='fal fa-home fa-fw'></i></a>
+          </li>
         <% } else if (item == 'music' && theme.plugins.aplayer.enable == true) { %>
           <li class='music name'>
             <p class='nav music-title fix-cursor-default'></p>
@@ -87,7 +79,7 @@
     };
 
     document.getElementById('rightmenu-wrapper').oncontextmenu  = function (event) {
-      event.stopPropagation();
+      event.stopPropagation();  // 阻止右键上的右键
       return false;
     }
 
