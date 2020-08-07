@@ -586,7 +586,7 @@ plugins:
 comments:
   path:                    # 全局评论地址 仅支持 valine , miniValine , disqus , gitalk
   placeholder: 快来评论吧~  # 评论占位提示 仅支持 valine & miniValine
-  title: <i class='fas fa-comments'></i> 评论
+  title: <i class='fal fa-comments'></i> 评论
   subtitle:
   service: valine # valine, minivaline, disqus, gitalk, vssue, livere, isso, hashover
   # Valine
