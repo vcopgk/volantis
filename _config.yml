@@ -478,7 +478,7 @@ plugins:
     js: https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js
 
   # Typing Effects
-  comment_typing: https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js
+  comment_typing: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js
 
   # Message
   message: https://cdn.jsdelivr.net/gh/inkss/common@1.3/hexo/js/message.min.js
@@ -586,7 +586,7 @@ plugins:
 comments:
   path:                    # 全局评论地址 仅支持 valine , miniValine , disqus , gitalk
   placeholder: 快来评论吧~  # 评论占位提示 仅支持 valine & miniValine
-  title: <i class='fal fa-comments'></i> 评论
+  title: <i class='fas fa-comments'></i> 评论
   subtitle:
   service: valine # valine, minivaline, disqus, gitalk, vssue, livere, isso, hashover
   # Valine
@@ -654,6 +654,8 @@ comments:
   # https://disqus.com
   disqus:
     shortname:
+    # optional
+    autoload: false
   # Gitalk
   # https://gitalk.github.io/
   gitalk:
