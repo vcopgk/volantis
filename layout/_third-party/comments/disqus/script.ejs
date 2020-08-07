@@ -73,6 +73,7 @@
   }
 
   function pjax_disqus() {
+    if ($('#disqus_thread').length == 0) {return}
     if (window.DISQUS) {
       $('#load-btns').hide();
       $('#notShowDisqus').hide();
