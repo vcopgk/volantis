@@ -19,11 +19,11 @@
 theme_config:
   rightmenu:
     enable: true
-    layout: [copy, navigation, hr, info, foreverblog, friends, hr, text, about, hr, music]
+    layout: [copy, navigation, hr, info, foreverblog, friends, text, about, hr, music]
     copy:
       name: 复制选中内容
       icon: fal fa-copy
-      id: menu-copy
+      id: menu-copy-text
       onclick: menuCopy()
     foreverblog:
       name: 十年之约
@@ -47,6 +47,8 @@ theme_config:
       url: /about/
   style:
     fontfamily:
+      logofont:
+        url: /fonts/VarelaRound-Regular.ttf
       bodyfont:
         fontfamily: '-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei'
       codefont:
@@ -66,9 +68,7 @@ theme_config:
   cover:
     scheme: blog
     layout: featured   # search (搜索), dock (坞), featured (精选), focus (焦点)
-    logo: 
-    title: 'SZYINK'
-    subtitle: '繁星永存，记忆亘古不变 <i class="fal fa-spider-black-widow"></i>'
+    logo: /img/logo.png
     display:
       home: true
       archive: true
@@ -76,27 +76,32 @@ theme_config:
     search: '想找些什么~'
     features:
       - name: Github
-        icon: fal fa-code-branch
+        icon: fad fa-code-branch
         url: https://github.com/inkss  
         rel: external nofollow noopener noreferrer
+        color: 20c997
       - name: Steam
-        icon: fal fa-ghost
+        icon: fad fa-ghost
         url: https://steamcommunity.com/id/szyink/
         rel: external nofollow noopener noreferrer
+        color: 2196f3
       - name: Email
-        icon: fal fa-envelope
+        icon: fad fa-envelope
         url: mailto:me@szyink.com
+        color: E91E63
       - name: Blog
-        icon: fal fa-blog
+        icon: fad fa-blog
         url: https://szyink.com/
         rel: external nofollow noopener noreferrer
         target: _blank
-      - name: Info
-        icon: fal fa-paper-plane
-        url: https://info.inkss.cn/
+        color: ff9800
+      - name: About
+        icon: fad fa-gingerbread-man
+        url: /about/
+        color: 734ae6
   navbar:
     logo:
-      img:
+      img: 
       title: <i class="fad fa-cannabis mainColor"></i> INKSS
     search: 想找些什么~
   meta:
@@ -132,36 +137,19 @@ theme_config:
       - icon: fal fa-blog
         url: https://szyink.com/
         rel: external nofollow noopener noreferrer
-      - icon: fal fa-paper-plane
-        url: https://info.inkss.cn/
-        rel: external nofollow noopener noreferrer
+      - icon: fal fa-gingerbread-man
+        url: /about/
   comments:
     service: disqus
     disqus:
       shortname: inkss
-    valine:
-      appId:
-      appKey:
-      placeholder: 人生在世，错别字在所难免，无需纠正。
-      recordIP: true
-      js: https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js
-    gitalk:
-      clientID:
-      clientSecret:
-      repo: test
-      owner: inkss
-      admin: inkss
   search:
     enable: true
     service: hexo
-    js: https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/js/search.min.js                       # CDN √
-  info:
-    cdn:
-      js: https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/js/app.min.js                        # CDN √
-      css: https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/css/style.min.css                   # CDN √
+    js: https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/js/search.min.js
   plugins:
-    comment_typing: https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/static/js/commentTyping.js      # CDN √
-    message: https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/js/message.min.js                 # CDN √
+    fontawesome: https://cdn.jsdelivr.net/gh/inkss/common@master/static/font/fontawesome/css/all.min.css
+    fontawesomeanimation:
     wordcount: true
     aplayer:
       server: tencent   # netease, tencent, kugou, xiami, baidu
@@ -175,13 +163,6 @@ theme_config:
         - /img/bkg/bkg.png
     darkmodejs:
       enable: false
-import:
-  meta:
-  link:
-    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/static/font/fontawesome/css/all.min.css">  # CDN √
-  script:
-    - <script src="https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/js/cookie.min.js"></script>                           # CDN √
-  script_head:
 ```
 
 </details>
