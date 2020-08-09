@@ -440,13 +440,21 @@ seo:
 
 ############################### Plugins ###############################
 plugins:
-  # required plugins
-  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css
-  fontawesomeanimation: https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css
-  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
+  ################ required plugins ################
+
+  # jquery
   jquery: https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js
 
-  # optional plugins
+  ################ optional plugins ################
+
+  # fontawesome
+  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css
+  # fontawesome animation
+  fontawesome_animation: https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css
+  # fancybox
+  fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
+
+
   ######## Plugins to improve loading speed:
   # Preload (The menu's url must end with ‘/’)
   instant_page: https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js
@@ -745,7 +753,7 @@ search:
 ############################### Theme Information ###############################
 info:
   name: Volantis # This is theme's name.
-  version: '3.0-beta6' # This is theme's version.
+  version: '3.0.0-rc.1' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   repo: https://github.com/volantis-x/hexo-theme-volantis
   cdn:
