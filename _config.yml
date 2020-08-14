@@ -418,6 +418,9 @@ footer:
       url: https://github.com/volantis-x/
     - icon: fas fa-headphones-alt
       url: https://music.163.com/#/user/home?id=63035382
+  # site source
+  source: https://github.com/volantis-x/volantis-docs/
+  # site copyright
   copyright: '[Copyright © 2017-2020 XXX](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
@@ -753,7 +756,7 @@ search:
 ############################### Theme Information ###############################
 info:
   name: Volantis # This is theme's name.
-  version: '3.0.0-rc.1' # This is theme's version.
+  version: '3.0.0-rc.2' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   repo: https://github.com/volantis-x/hexo-theme-volantis
   cdn:
