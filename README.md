@@ -15,6 +15,10 @@
 ```yml
 # 覆盖主题内配置
 theme_config:
+  info:
+    cdn:
+      js: /js/app.min.js
+      css: /css/style.css
   rightmenu:
     enable: true
     layout: [copy, navigation, hr, info, foreverblog, friends, text, about, hr, music]
@@ -104,7 +108,7 @@ theme_config:
     search: 想找些什么~
   meta:
     author:
-      avatar: https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/img/static/avatar.jpg              # CDN √
+      avatar: https://img.inkss.cn/inkss_cn/static/img/avatar.jpg
       name: 枋柚梓
       url: https://inkss.cn
   widget:
@@ -144,7 +148,7 @@ theme_config:
   search:
     enable: true
     service: hexo
-    js: https://cdn.jsdelivr.net/gh/inkss/common@1.4.2/hexo/js/search.min.js
+    js: /js/search.min.js
   plugins:
     fontawesome: https://cdn.jsdelivr.net/gh/inkss/common@master/static/font/fontawesome/css/all.min.css
     fontawesomeanimation:
@@ -172,16 +176,16 @@ theme_config:
 ```yml
 # 第三方插件配置
 # 一、压缩 npm i hexo-html-minifier --save
-html_minifier:  
-  collapseBooleanAttributes: false
-  collapseWhitespace: true
-  ignoreCustomComments: [ !!js/regexp /^\s*more/]
-  removeComments: true
-  removeEmptyAttributes: true
-  removeScriptTypeAttributes: true
-  removeStyleLinkTypeAttributes: true
-  minifyJS: true
-  minifyCSS: true
+# html_minifier:  
+#   collapseBooleanAttributes: false
+#   collapseWhitespace: true
+#   ignoreCustomComments: [ !!js/regexp /^\s*more/]
+#   removeComments: true
+#   removeEmptyAttributes: true
+#   removeScriptTypeAttributes: true
+#   removeStyleLinkTypeAttributes: true
+#   minifyJS: true
+#   minifyCSS: true
 
 # 二、离线增强 npm i hexo-offline --save
 # offline:
@@ -201,7 +205,7 @@ abbrlink:
 lazyload:
   enable: true
   onlypost: false
-  loadingImg: https://cdn.jsdelivr.net/gh/inkss/common@master/static/img/loading.gif
+  loadingImg: https://img.inkss.cn/inkss_cn/static/img/loading.gif
   isSPA: true # optional
 
 # 五、SEO 优化 npm install hexo-autonofollow --save
@@ -224,6 +228,26 @@ feed:
   order_by: -date
   icon: favicon.png
   autodiscovery: false
+
+# 八、npm install hexo-neat --save
+neat_enable: true
+neat_html:
+  enable: true
+  logger: false
+  exclude:
+neat_css:
+  enable: true
+  logger: false
+  exclude:
+    - '*.min.css'
+neat_js:
+  enable: true
+  mangle: true
+  logger: false
+  output:
+  compress:
+  exclude:
+    - '*.min.js'
 ```  
 
 </details>
