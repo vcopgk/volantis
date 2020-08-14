@@ -5,13 +5,13 @@
       <%- partial('meta', {post: post, position: 'header'}) %>
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
-          <% if (page.layout=='artitalk') { %>
-              <div id="artitalk_main"></div>
-          <% } %>
           <% (post.photos||[]).forEach(function(photo){ %>
             <div class='fancybox'><img src='<%- url_for(photo) %>'/></div>
           <% }) %>
           <%- post.content %>
+          <% if (page.layout=='artitalk') { %>
+            <div id="artitalk_main"></div>
+          <% } %>
           <% if ((page.meta && page.meta.article_footer && page.meta.article_footer.length > 0) || (theme.layout.on_post.article_footer && (page.layout == 'post'))) { %>
             <div class='article_footer'>
               <% if (page.meta && page.meta.article_footer && page.meta.article_footer.length > 0) { %>
