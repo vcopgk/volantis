@@ -420,21 +420,24 @@ var customSearch;
 		});
 
 		try {
-			document.addEventListener('pjax:complete', function () {
-				if(window.location.hash){
+			document.addEventListener('pjax:complete', function (e) {
+				if (e.target.URL.indexOf('article') == -1) {
+					if(window.location.hash){
 						var checkExist = setInterval(function() {
-						if (typeof jQuery == 'undefined'){return;}
-						if ($("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")).length) {
-							scrolltoElement( $("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")));
-							clearInterval(checkExist);
+							if (typeof jQuery == 'undefined'){return;}
+							if ($("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")).length) {
+								scrolltoElement( $("#"+decodeURI(window.location.hash.split("#")[1]).replace(/\ /g,"-")));
+								clearInterval(checkExist);
+							}
+						}, 100);
+					} else {
+						let $bodyAnchor = $('.safearea');
+						if ($bodyAnchor) {
+							scrolltoElement($bodyAnchor);
 						}
-					}, 100);
-				} else {
-					let $bodyAnchor = $('.l_body');
-					if ($bodyAnchor) {
-						scrolltoElement($bodyAnchor);
 					}
 				}
+				
 				$(function () {
 					restData();
 					setHeader();
