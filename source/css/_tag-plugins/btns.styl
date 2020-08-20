@@ -1,5 +1,5 @@
 // inline btn
-.article span.btn
+.article span.btn, .md span.btn
   display: inline
   a
     text-decoration: none
@@ -18,7 +18,7 @@
         cursor: $not-allowed,not-allowed
 
   & a, &.regular a
-    color: $color-link
+    color: $color-button
     border: 1px solid @color
     &:hover
       color: $color-hover
@@ -30,7 +30,8 @@
     padding: 8px 12px
 
   &.solid a
-    background: $color-link
+    border: none
+    background: $color-button
     color: $color-inner
     &:hover
       color: $color-inner
@@ -48,7 +49,7 @@
 
 
 // btns
-.article div.btns
+.article div.btns, .md div.btns
   margin: 0 -0.5 * $gap
   &,p,a
     font-size: $fontsize-code

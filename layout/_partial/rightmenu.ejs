@@ -69,7 +69,7 @@
       }
       setMenulocation();
       setMenuCopy();
-      if (<%= theme.plugins.aplayer.enable %> == true) {
+      if (<%= theme.plugins.aplayer.enable %> == true && ('theme.rightmenu.layout'||[]).includes('music')) {
       	try {
           checkAPlayer();
           updateTitle();

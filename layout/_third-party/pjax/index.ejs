@@ -75,7 +75,6 @@
       $('script[data-pjax], .pjax-reload script').each(function () {
         $(this).parent().append($(this).remove());
       });
-
       try{
         pjax_fancybox();
         <% if (theme.rightmenu && theme.rightmenu.enable == true) { %>
