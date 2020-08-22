@@ -147,3 +147,17 @@
 			border-top: 1px solid var(--color-card)
 		.aplayer.aplayer-withlist .aplayer-info
 			border-bottom: 1px solid var(--color-block)
+	// 页脚修复		
+	.clearfix,
+	footer a
+		color: #999 !important
+	.menu.navigation i
+		color: unset !important	
+	// valine 修复		
+	if hexo-config('comments.service')=='valine'
+		#valine_container button
+			background-color: var(--color-block) !important
+		#valine_container .vcards .vcontent.expand:before
+			background: none !important
+		#valine_container .vcards .vcontent.expand:after
+			background:	#393c40 !important
