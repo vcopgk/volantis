@@ -162,6 +162,8 @@ color:
     p: '#bbb'
     list: '#aaa'
     meta: '#888'
+    # 图片亮度
+    brightness: 70%
 
 # Navigation Bar
 navbar:
@@ -507,6 +509,14 @@ footer:
       url: https://github.com/volantis-x/
     - icon: fas fa-headphones-alt
       url: https://music.163.com/#/user/home?id=63035382
+    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qq.png
+    #   url: /
+    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qzone.png
+    #   url: /
+    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/weibo.png
+    #   url: /
+    # - avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/wechat.png
+    #   url: /
   # site source
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using leancloud
@@ -678,17 +688,15 @@ plugins:
   # https://darkmodejs.learn.uno
   # 暗黑模式样式：https://github.com/volantis-x/hexo-theme-volantis/blob/master/source/css/_third-party/darkmode.styl
   darkmodejs:
-    enable: true
+    enable: false
     js: https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js
-    bottom: 32px
-    right: unset
-    left: 16px
-    time: 0s
-    label: 🌓
-    compatible: false # 卡片兼容性处理，如果未发现卡片出现兼容问题设置为false
-    buttonDark: '#bbb'
-    buttonLight: '#444'
-    # 现存问题： 1. div的背景图片没有变暗（例如封面、头图） 2. 圆圈缩放动画要去掉，只留渐变动画，time对应渐变动画的时间，现在time对应的是圆圈缩放动画时间，开了 time 在动画过程中切换按钮无法再次点击，
+    button: # button 使用默认或自行开发
+      enable: true
+      label: 🌓
+      buttonDark: '#bbb'
+      buttonLight: '#444'
+    compatible: true # 卡片兼容性处理，如果未发现卡片出现兼容问题设置为false
+
 
 
 ############################### Comments ###############################
