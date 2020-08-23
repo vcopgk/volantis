@@ -1,17 +1,19 @@
 .l_header
-  $iconW = 32px
+  $iconW = 36px
   $iconMargin = 4px
   position: fixed
   z-index: 1000
   top: 0
   width: 100%
   height: $navbar-height
-  background: $color-card
+  background: var(--color-card)
   box-shadow: $boxshadow-card
-  &.hide
-    transform: translateY(100px) scale(0)
-  &.show
-    transform: translateY(0) scale(1)
+  &.auto
+    transition: opacity .4s ease
+    visibility: hidden
+    &.show
+      opacity: 1 !important
+      visibility: visible
   .container
     margin-left: $gap
     margin-right: $gap
@@ -41,7 +43,7 @@
       opacity: 1
     .title
       position: relative
-      color: $color-text
+      color: var(--color-text)
       padding-left: $gap * 1.5
       max-height: $navbar-height
 
@@ -60,6 +62,7 @@
     margin: auto
     .title
       font-size: $fontsize-body
+      font-weight: bold
       font-family: $fontfamily
       line-height: 1.2
       max-height: $navbar-height
@@ -95,7 +98,7 @@
         border-radius: 100px
         border: none
         trans()
-        color: $color-theme
+        color: var(--color-theme)
         &:hover
           border: none
         &.active,&:active
@@ -154,7 +157,7 @@
       padding-bottom: $gap * 0.5
       line-height: 1.3
       width: 100%
-      color: $color-text
+      color: var(--color-text)
       background: darken($color-card, 2)
       box-shadow: none
       box-sizing: border-box
@@ -167,7 +170,7 @@
         &:focus
           box-shadow: $boxshadow-float
       @media screen and (max-width: $device-mobile)
-        background: $color-block
+        background: var(--color-block)
         padding-left: $gap * 0.5
         border: none
         &:hover,&:focus
@@ -206,6 +209,9 @@ ul.nav-list-h
     justify-content: center
     >a
       height: 100%
+      -webkit-font-smoothing: antialiased
+      -moz-osx-font-smoothing: grayscale
+      font-weight: 600
       line-height: $navbar-height
       border-bottom: $border-line solid transparent
 
@@ -215,7 +221,7 @@ ul.list-v
   &.show
     display: block
   position: absolute
-  background: $color-card
+  background: var(--color-card)
   box-shadow: $boxshadow-dropmenu
   margin-top: -2px - $border-card * 0.5
   border-radius: $border-card * 0.5
@@ -230,7 +236,7 @@ ul.list-v
       font-size: $fontsize-footnote
       font-weight: bold
       line-height: 2em
-      color: $color-meta
+      color: var(--color-meta)
       margin: $gap * 0.5 $gap $gap * 0.25
       i
         margin-right: 8px
@@ -253,21 +259,17 @@ ul.list-v
     text-overflow: ellipsis
     margin: 0 4px
     border-radius: 4px
-    &:hover,&.active,&:active
-      color: $color-theme
     >i
       margin-right: 8px
     &.current
       border-left-color: alpha($color-theme, 80%)
       border-bottom-color: alpha($color-theme, 80%)
-    &:hover
-      color: mix($color-theme, $color-text, 70)
-      background: bgcolor($color-theme)
-
     &:active,&.active
-      color: $color-theme
-      border-left-color: $color-theme
-      border-bottom-color: $color-theme
+      border-left-color: var(--color-theme)
+      border-bottom-color: var(--color-theme)
+      list_active()
+    &:hover
+      list_hover()
 
 .l_header
   .menu
@@ -283,13 +285,13 @@ ul.list-v
     border-left-color: alpha($color-theme, 80%)
     border-bottom-color: alpha($color-theme, 80%)
   &:active,&.active
-    color: $color-theme
-    border-left-color: $color-theme
-    border-bottom-color: $color-theme
+    color: var(--color-theme)
+    border-left-color: var(--color-theme)
+    border-bottom-color: var(--color-theme)
   &:hover
     color: mix($color-theme, $color-text, 70)
-    border-left-color: $color-theme
-    border-bottom-color: $color-theme
+    border-left-color: var(--color-theme)
+    border-bottom-color: var(--color-theme)
     background: bgcolor($color-theme)
   i.music
     animation: rotate-effect 1.5s linear infinite
@@ -354,17 +356,18 @@ ul.list-v
 
 
 .l_header
-  max-width: 65vw
-  left: "calc((100% - %s) * 0.5)" % @max-width
-  border-bottom-left-radius: $border-card
-  border-bottom-right-radius: $border-card
-  @media screen and (max-width: $device-2k)
-    max-width: $layout-width + 2 * $gap
+  if hexo-config('style.navbar.width') == 'auto'
+    max-width: 65vw
     left: "calc((100% - %s) * 0.5)" % @max-width
-  @media screen and (max-width: $layout-width + 2 * $gap)
-    left: 0
-    border-radius: 0
-    max-width: 100%
+    border-bottom-left-radius: $border-card
+    border-bottom-right-radius: $border-card
+    @media screen and (max-width: $device-2k)
+      max-width: $layout-width + 2 * $gap
+      left: "calc((100% - %s) * 0.5)" % @max-width
+    @media screen and (max-width: $layout-width + 2 * $gap)
+      left: 0
+      border-radius: 0
+      max-width: 100%
   @media screen and (max-width: $device-mobile)
     .container
       margin-left: 0

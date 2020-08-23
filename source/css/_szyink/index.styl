@@ -13,17 +13,16 @@
 //   评论框    //
 //=============//
 #valine_container .vwrap
-  border: 1px dashed #fff !important
+  border: none !important
 
 #valine_container .vcards .vh
-  border: 1px dashed #fff !important
+  border: none !important
 
 // 对 valine 评论输入框的样式调整
 textarea#veditor
   resize: none !important
   height: auto !important
   background-image: url("https://cdn.jsdelivr.net/gh/inkss/common@master/static/img/plbj.gif")
-  background-color: #ffffff
   transition: all 0.25s ease-in-out 0s
   background-size: contain
   background-repeat: no-repeat
@@ -38,7 +37,6 @@ textarea#veditor
     background: transparent !important
   &::-webkit-scrollbar-thumb
     border-radius: 5px;
-    background-color: rgba(51,103,214,.3);
     background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,0.2) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0.2) 75%,transparent 75%,transparent);
     &:hover
       background-color: #3367d6
@@ -46,14 +44,14 @@ textarea#veditor
 //=============//
 //    粗 细    //
 //=============//
-.widget header
+.widget header,
+ul.nav-list-h>li>a
   font-weight: initial
 
 //=============//
 //   代码块    //
 //=============//
 .highlight
-  background: $color-codeblock
   figcaption
     background: darken($color-codeblock, 5%)
   .gutter
@@ -71,7 +69,20 @@ textarea#veditor
 // 特定修改
 details > summary,
 div.tabs ul.nav-tabs
-  background: $color-codeblock
+  background: var(--color-codeblock)
+
+//=============//
+//  深色模式   //
+//=============//
+// 站内导航卡片修改
+.widget.grid .content .grid a
+  color: var(--color-list)
+//文章分类的数字颜色
+.widget>.content ul.entry a .badge, .widget>.content ul.popular-posts a .badge
+  color: var(--color-meta)
+// 导航栏搜索图标的颜色
+.l_header .m_search .icon
+  color: var(--color-meta)
 
 //=============//
 //   隐藏文本   //
@@ -80,16 +91,16 @@ div.tabs ul.nav-tabs
 .bb_spoiler, .bb_spoiler a, a .bb_spoiler, .bb_spoiler a.new
   cursor: $pointer,pointer
   border-bottom 1px solid
-  border-color #666
-  background-color #fff
-  color #fff
+  border-color var(--color-p)
+  background-color var(--color-card)
+  color var(--color-card)
   text-shadow none
   padding 0 2px
   margin 0 2px
 
 .bb_spoiler:hover, .bb_spoiler:active,
   .bb_spoiler:hover .bb_spoiler, .bb_spoiler:active .bb_spoiler
-  color #555 !important
+  color var(--color-p) !important
 
 .bb_spoiler
   &:hover
@@ -133,7 +144,6 @@ div.tabs ul.nav-tabs
     &:not([class])
       padding: 4px 4px 3px 4px
       vertical-align: middle
-      background: $color-inlinecode
       color: unset !important
 
 // 导航栏样式  取消半屏
@@ -148,7 +158,7 @@ div.tabs ul.nav-tabs
     max-width: 100%
 
 // 样式修订 HandSome
-.article
+.article-entry
   h1,h2
     font-weight: 700
     background: linear-gradient(to bottom,transparent 60%,rgba(189,202,219,.3) 0) no-repeat
@@ -181,7 +191,6 @@ kbd
   padding: 3px 5px
   font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace
   line-height: 10px
-  color: #444d56
   vertical-align: middle
   background-color: #fafbfc
   border: 1px solid #d1d5da
@@ -191,6 +200,9 @@ kbd
  // 导航栏文字潜在修复
 .l_header ul.nav-list-h>li>a
   overflow: hidden
+
+.cover-wrapper#half
+  height: auto
 
 //=============//
 //   文字滚动   //
@@ -219,6 +231,3 @@ kbd
     transform: translateX(-100%)
     -webkit-transform: translateX(-100%)
     
-// Logo 覆盖
-.cover-wrapper .cover .cover-body .logo
-  max-height: 110px

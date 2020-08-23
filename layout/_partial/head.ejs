@@ -1,4 +1,4 @@
-<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/releases/tag/<%- theme.info.version %>'>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/<%- theme.info.version %>'>
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <% if (page.robots) { %>
@@ -133,7 +133,18 @@
   <% } %>
 
   <% if (config.google_analytics_key) { %>
-  <script>setTimeout(function() {let script = document.createElement('script');script.src = "https://www.googletagmanager.com/gtag/js?id=<%- config.google_analytics_key %>";script.defer=true;document.body.appendChild(script);window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '<%- config.google_analytics_key %>');}, 5000);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+  	  window.ga_tid = '<%- config.google_analytics_key %>';
+ 	   (function() {
+ 	     var dga = document.createElement("script");
+ 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	      var s = document.getElementsByTagName("script")[0];
+	      s.parentNode.insertBefore(dga, s);
+	  })();
+	}, 5000);
+    </script>
   <% } %>
   <% if (config.baidu_analytics_key) { %>
     <script>var _hmt = _hmt || [];(function() {setTimeout(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?<%= config.baidu_analytics_key %>";hm.defer=true;var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);}, 5000);})();</script>

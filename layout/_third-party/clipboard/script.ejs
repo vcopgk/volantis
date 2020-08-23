@@ -10,13 +10,13 @@ function wait(callback, seconds) {
     timelag = window.setTimeout(callback, seconds)
 }
 function pjax_initCopyCode() {
+    if($(".highlight .code pre").length+$(".article pre code").length==0)return;
     var copyHtml = '';
     copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
     copyHtml += '<i class="fal fa-copy"></i><span>COPY</span>';
     copyHtml += '</button>';
     $(".highlight .code pre").before(copyHtml);
     $(".article pre code").before(copyHtml);
-    
     clipboard.off('success').on('success',function(e) {
         $.message({
             title: '复制成功',
