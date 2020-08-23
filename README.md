@@ -15,6 +15,11 @@
 ```yml
 # 覆盖主题内配置
 theme_config:
+  article:
+    body:
+      footer_widget:
+        copyright:
+          enable: false
   info:
     cdn:
       js: /js/app.min.js
@@ -55,6 +60,8 @@ theme_config:
         fontfamily: '-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei'
       codefont:
         fontfamily: 'SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier'
+      iconfont:
+        fontfamily: 'Font Awesome 5 Pro'
     sidebar:
       effect: [shadow, floatable]
     body:
@@ -68,9 +75,10 @@ theme_config:
       theme: '#2196f3'
       link: '#2196f3'
   cover:
-    scheme: blog
-    layout: featured   # search (搜索), dock (坞), featured (精选), focus (焦点)
+    use_for: blog
+    scheme: featured   # search (搜索), dock (坞), featured (精选), focus (焦点)
     logo: /img/logo.png
+    title:
     display:
       home: true
       archive: true
@@ -104,7 +112,7 @@ theme_config:
   navbar:
     logo:
       img: 
-      title: <i class="fad fa-cannabis mainColor"></i> INKSS
+      title: <i class="fad fa-cannabis logoColor"></i> INKSS
     search: 想找些什么~
   meta:
     author:
@@ -142,15 +150,20 @@ theme_config:
       - icon: fal fa-gingerbread-man
         url: /about/
   comments:
-    service: disqus
+    service: valine
     disqus:
       shortname: inkss
+    valine:
+      appId: gqkw9h3C8yXm4WsJ3S5vBonP-gzGzoHsz
+      appKey: 2nwrlSMxijhI9x0v8JETCO9D
+      placeholder: 人生在世，错别字在所难免，无需纠正。
+      js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
   search:
     enable: true
     service: hexo
     js: /js/search.min.js
   plugins:
-    fontawesome: https://cdn.jsdelivr.net/gh/inkss/common@master/static/font/fontawesome/css/all.min.css
+    fontawesome: /fontawesome/css/all.min.css
     fontawesomeanimation:
     wordcount: true
     aplayer:
@@ -163,8 +176,12 @@ theme_config:
       position: fixed   # cover: sticky on the cover.   fixed: Fixed as background for the site.
       images:
         - /img/bkg/bkg.png
-    darkmodejs:
-      enable: false
+    Artitalk:
+      appID: 7VOM4jBwPrtyjKQsCgvpjad7-gzGzoHsz
+      appKEY: VrwcfwPaNIzOVDshSBKY9UDq
+      severurl: https://artitalk.inkss.cn
+      per: 10
+
 ```
 
 </details>
@@ -202,11 +219,11 @@ abbrlink:
   rep: hex
 
 # 四、图片懒加载 npm install hexo-fs hexo-lazyload-image --save
-lazyload:
-  enable: true
-  onlypost: false
-  loadingImg: https://img.inkss.cn/inkss_cn/static/img/loading.gif
-  isSPA: true # optional
+# lazyload:
+#   enable: true
+#   onlypost: false
+#   loadingImg: https://cdn.jsdelivr.net/gh/inkss/common@master/static/img/loading.gif
+#   isSPA: true # optional
 
 # 五、SEO 优化 npm install hexo-autonofollow --save
 nofollow:
@@ -216,8 +233,8 @@ nofollow:
 # 六、SEO 优化二网站地图 npm install hexo-generator-seo-friendly-sitemap --save
 sitemap:
   path: sitemap.xml
-  tag: true
-  category: true
+  tag: false
+  category: false
 
 # 七、RSS npm install hexo-generator-feed --save
 feed:
