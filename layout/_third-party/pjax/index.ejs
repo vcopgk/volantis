@@ -93,14 +93,14 @@
           %>
           if ('<%- posi %>') {
             $('<%- posi %>').backstretch("resize");
-            if(('.cover-wrapper').is(':hidden')){
+            if($('.cover-wrapper').is(':hidden')){
               $('.cover-backstretch').backstretch("pause");
             }else{
               $('.cover-backstretch').backstretch("next");
             }
           } else {
             $.backstretch("resize");
-            if(('.cover-wrapper').is(':hidden')){
+            if($('.cover-wrapper').is(':hidden')){
               $.backstretch("pause");
             }else{
               $.backstretch("next");
