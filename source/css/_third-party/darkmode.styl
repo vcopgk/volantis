@@ -3,16 +3,12 @@
 .darkmode-background
 	z-index: -9999999 !important
 .darkmode--activated
-	--color-site: convert(hexo-config('color.dark.site'))
+	--color-site-bg: convert(hexo-config('color.dark.site_bg'))
 	--color-site-inner: convert(hexo-config('color.dark.site_inner'))
 	--color-site-footer: convert(hexo-config('color.dark.site_footer'))
 	--color-card: convert(hexo-config('color.dark.card'))
 	--color-text: convert(hexo-config('color.dark.text'))
-	--color-theme: convert(hexo-config('color.dark.theme'))
-	--color-link: convert(hexo-config('color.dark.link'))
-	--color-button: convert(hexo-config('color.dark.button'))
-	--color-hover: convert(hexo-config('color.dark.hover'))
-	--color-inner: convert(hexo-config('color.dark.inner'))
+
 	--color-block: convert(hexo-config('color.dark.block'))
 	--color-codeblock: convert(hexo-config('color.dark.codeblock'))
 	--color-inlinecode: convert(hexo-config('color.dark.inlinecode'))
@@ -32,7 +28,7 @@
 			mix-blend-mode: difference  !important
 	else
 		.l_body
-			background-color: var(--color-site) !important
+			background-color: var(--color-site-bg) !important
 	img
 		filter: brightness(convert(hexo-config('color.dark.brightness'))) !important
 	.lazyload
@@ -42,14 +38,10 @@
 	//header
 	.l_header .wrapper .title
 		color: var(--color-meta)
-	.l_header ul>li>a:hover
-		background: rgba($color-theme,.2)
 	.l_header ul.nav-list-h>li>a, ul.list-v >li>a
-		color: var(--color-meta)
-		&:hover
-			background: var(--color-site) !important
+		color: var(--color-list)
 	.blur
-		background: var(--color-site) !important
+		background: var(--color-site-bg) !important
 	.nav-main
 		.u-search-input
 			background: var(--color-card) !important
@@ -57,21 +49,16 @@
 		background: var(--color-block)
 		&:hover
 			background: var(--color-card)
-	//archive-page
-	#archive-page .archive .archive-post a:hover
-		background: rgba($color-theme,.2)
-	#archive-page .archive .all-tags ul li:hover
-		background: rgba($color-theme,.2)
 	.article blockquote
 		background: var(--color-block)
 	.article-title a
 		color: var(--color-h1)
 	details>summary
 		color: var(--color-p)
-		background: var(--color-site)
+		background: var(--color-site-bg)
 	details
-		border: 1px solid var(--color-site)
-		background: var(--color-site)
+		border: 1px solid var(--color-site-bg)
+		background: var(--color-site-bg)
 	//search
 	#u-search .modal
 		background: var(--color-card) !important
@@ -84,16 +71,12 @@
 	//phone search
 	.l_header .m_search
 		@media screen and (max-width: $device-mobile)
-			background: var(--color-site) !important
+			background: var(--color-site-bg) !important
 	//side
-	.widget>.content ul.entry a:hover, .widget>.content ul.popular-posts a:hover
-		background: rgba($color-theme,.2)
 	.widget.blogger .content .social-wrapper a.social:hover
 		background: var(--color-card)
 	.content
 		color: var(--color-p)
-	.l_side .toc-wrapper .content a:hover
-		background: rgba($color-theme,.2)
 	.note
 		background: var(--color-block) !important
 	div.tabs ul.nav-tabs li.tab.active a
@@ -120,7 +103,7 @@
 		background: var(--color-codeblock)
 	blockquote p
 		color: var(--color-p)
-	// tags	
+	// tags
 	#archive-page .archive .all-tags ul li span
 		color: var(--color-text)
 		background: #6f6f72
@@ -137,14 +120,14 @@
 			background-color: var(--color-card)
 	if hexo-config('comments.service')=='minivaline'
 		.MiniValine .vpage .more
-			background: var(--color-site)
+			background: var(--color-site-bg)
 		.MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment.expand:before
 			background: linear-gradient(180deg, rgba(246,246,246,0), rgba(0,0,0,0.9))
 		.MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment.expand:after
 			background: rgba(0,0,0,0.9)
 		.MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment pre
-			background: var(--color-site)
-			border: 1px solid var(--color-site)
+			background: var(--color-site-bg)
+			border: 1px solid var(--color-site-bg)
 		.MiniValine .vinputs-area .vextra-area .vsmile-icons
 			background: transparent
 		.MiniValine .vlist .vcard .vcomment-body .vhead
@@ -157,13 +140,11 @@
 			background: var(--color-card)
 	if hexo-config('plugins.aplayer.enable')
 		.aplayer
-			background: var(--color-site)
-		.aplayer .aplayer-list ol li:hover
-			background: rgba($color-theme,.2)
+			background: var(--color-site-bg)
 		.aplayer .aplayer-list ol li.aplayer-list-light
 			background: var(--color-block)
 		.aplayer-info
-			background: var(--color-site) !important
+			background: var(--color-site-bg) !important
 		.aplayer .aplayer-lrc:before
 			background: linear-gradient(180deg,#282c34 0,hsla(0,0%,100%,0))
 		.aplayer .aplayer-lrc:after

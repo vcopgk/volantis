@@ -19,23 +19,23 @@
       a
         color: var(--color-list)
         &:hover
-          color: var(--color-hover)
+          color: $color-hover
         i
-          color: var(--color-hover)
+          color: $color-hover
           &.red
-            color: var(--color-mac-red)
+            color: $color-mac-red
           &.green
-            color: var(--color-mac-green)
+            color: $color-mac-green
           &.yellow
-            color: var(--color-mac-yellow)
+            color: $color-mac-yellow
           &.blue
-            color: var(--color-mac-cyan)
+            color: $color-mac-cyan
           &.theme
-            color: var(--color-theme)
+            color: $color-theme
           &.accent
-            color: var(--color-hover)
+            color: $color-hover
           &.orange
-            color: var(--color-md-deep-orange)
+            color: $color-md-deep-orange
 
   .archive
 
@@ -71,11 +71,11 @@
         trans()
         &:hover
           background: bgcolor($color-theme)
-          border-left: $border-line solid var(--color-theme)
+          border-left: $border-line solid $color-theme
           // padding-top: 8px
           // padding-bottom: 8px
         &:active
-          border-left: $border-line * 2 solid var(--color-theme)
+          border-left: $border-line * 2 solid $color-theme
 
       time
         flex: none
@@ -90,21 +90,21 @@
         flex: auto
         padding: .4em
         i
-          color: var(--color-hover)
+          color: $color-hover
           &.red
-            color: var(--color-mac-red)
+            color: $color-mac-red
           &.green
-            color: var(--color-mac-green)
+            color: $color-mac-green
           &.yellow
-            color: var(--color-mac-yellow)
+            color: $color-mac-yellow
           &.blue
-            color: var(--color-mac-cyan)
+            color: $color-mac-cyan
           &.theme
-            color: var(--color-theme)
+            color: $color-theme
           &.accent
-            color: var(--color-hover)
+            color: $color-hover
           &.orange
-            color: var(--color-md-deep-orange)
+            color: $color-md-deep-orange
     .all-categories
       time
         color: var(--color-text)
@@ -136,7 +136,7 @@
             color: var(--color-text)
             padding: 4px 8px 4px 12px
             &:hover
-              color: var(--color-hover) !important
+              color: $color-hover !important
           span
             padding: 4px 8px
             color: alpha($color-meta, .5)
