@@ -42,8 +42,8 @@ style:
     h2: 48px # Spacing above H2 (only px unit)
     h3: 24px # Spacing above H3 (only px unit)
     h4: 16px # Spacing above H4 (only px unit)
-    paragraph: .6rem # Paragraph spacing between paragraphs
-    row: .4rem # Paragraph spacing between other elements
+    paragraph: 1rem # Paragraph spacing between paragraphs
+    row: .5rem # Paragraph spacing between other elements
     line_height: 1.65 # normal, 1.5, 1.75, 2 ...
   border_radius:
     card: 8px
@@ -220,27 +220,33 @@ cover:
     archive: true
     others: false # can be written in front-matter 'cover: true'
   background: https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg
-  logo: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
+  logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
   title: 'Volantis'
   subtitle: ''
   search: A Wonderful Theme for Hexo # search bar placeholder
   features:
     - name: 文档
+      icon: #
       img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
       url: /v4/getting-started/
     - name: 帮助
+      icon: #
       img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
       url: faqs/
     - name: 示例
+      icon: #
       img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
       url: /examples/
     - name: 社区
+      icon: #
       img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
       url: /contributors/
     - name: 博客
+      icon: #
       img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
       url: /archives/
     - name: 源码
+      icon: #
       img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
       url: https://github.com/volantis-x/hexo-theme-volantis/
 
@@ -264,9 +270,9 @@ article:
   # 文章详情页面的文章卡片本体布局方案
   body:
     # 文章顶部信息
-    top_meta:
+    top_meta: [title, author, category, date, counter]
     # ----------------
-    # 页脚组件
+    # 文章页脚组件
     footer_widget:
       # ----------------
       # 参考资料、相关资料等 (for layout: post/docs)
@@ -304,7 +310,7 @@ article:
           - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
           - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
     # 文章底部信息
-    bottom_meta:
+    bottom_meta: [updated, tags, btns, share]
 
 
 
@@ -319,12 +325,6 @@ layout:
   on_page:
     # 文章页面主体元素，你也可以在页面的Front-matter中设置
     body: [article, comments]
-    # 默认的meta信息，文章中没有配置则按照这里的配置来显示，设置为false则不显示
-    # 其中，title只在header中有效，music和thumbnail无需在这里设置，文章中有则显示
-    # 如果tags放置在meta.header中，那么在post列表中不显示（因为卡片下方已经有了）
-    meta:
-      header: [title, author, category, date, counter]
-      footer: [updated, tags, btns, share]
     # 文章页面的侧边栏
     sidebar: [qrcode, toc]
 
@@ -340,7 +340,7 @@ tag_plugins:
 meta:
   # 文章标题
   title: # 暂无配置
-  # 默认文章作者（可在front-matter中覆盖）
+  # 默认文章作者（可在 front-matter 中覆盖）
   author:
     avatar:
     name: 请设置文章作者
@@ -879,15 +879,15 @@ search:
 
 analytics:
   busuanzi: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
-  leancloud:
-    app_id: # u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI
-    app_key: # jfHtEKVE24j0IVCGHbvuFClp
+  leancloud: # 请使用自己的 id & key 以防止数据丢失
+    app_id: u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI
+    app_key: jfHtEKVE24j0IVCGHbvuFClp
     custom_api_server: # 一般不需要写，除非自定义了 API Server
 
 ############################### Theme Information ###############################
 info:
   name: Volantis # This is theme's name.
-  version: '3.0.0' # This is theme's version.
+  version: '4.0.0-beta.2' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   repo: https://github.com/volantis-x/hexo-theme-volantis
   cdn:
