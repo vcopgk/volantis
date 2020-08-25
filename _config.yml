@@ -1,185 +1,19 @@
-############################### Style ###############################
-style:
-  cursor:
-    enable: true
-    text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFISURBVFiF7dWxTlRREAbgb84uF5I1EhoSG4wFiYGnoESfQCt6X8BOfAlrteAR1hIrn0CICYXRmJhIgWuysi7sHQsRQmV1Fos73Znm/yYnmYntYS6ejtzps5KhD5HOy5nv05mv+zsmKlZ/NrLa47G0VbgNGX60jbdNeh18SbIaAIKSYYD7kOl9qRh6DTCdOO439vR8lJ76I3oRxbveLd9qTg9lf8dkZcGnLI4wxjiLo2U+D7f9qhkOBTYPZbRXk0YrNw/n8wVlHiEdoAN0gH8CDjZEFvG3mUUcbFy9qwIevLE4Yi1a6xhgEK31kzN3t15aqg3oz0ZWk0d4iDWQnijuNUtezeUaZojgZ6QPF4BxhrZW6DXAdOK46dlrFwzbuDzP5zNOmuX61zAyUxCei92L5i48k7XDLwE3Wf/HHugAHaADdIAOcJP1G0/tcEwL0f5fAAAAAElFTkSuQmCC
-    pointer: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPRSURBVFiF7ZZNa11VFIafd59z7kebD/NVQhtIKS21VYsS6MiUSNsEaxWLpIIgCIL+CcF26k9woELRlGQgtNbixAYshmKDipIOTEOpVWraJDdfvefee85eDm4iTUggN00m0jXaB9Y++9nv2vvdS2bG43Ee3I8XyJdTIiAefo+SwcqkLQw9DvDKMGHuPh0Vx4vO0+6N22HK7w1ZJgf7SbcDIFzx9YDWBN7H87rBDjmmUsdXc/AlML0dAG55IKHA0wC8LNgjmJHRKegupTRIaFsBAAKPA/KIeS9+MFgwT0M2WKXUFsZaPzaMRFAAUgnnK9uze1ilwH8AYOZITcig3kfs7b5A+9khMmJrYVYoUAYCMFXJUjNC4JDznMsEXJ81rvQOMHksZfbRIR6OdpE86RVdr7beUooSD03kzNjjxDvecxKxkAkYyY7z9fFxpvuMYnaOqcsfUNwMjMD03CBR8wKNUR0vOM8nZuQwPgJ2S2RNSMabwG4gh0gxJkyYPOMOLjaGjAz2U6xZgVe/JRPP8azL0aeUYwYdgnGJexXjejbAW0hoFW74hL04Dss4A+yTkSL2eyNcrHBb4q5ZbSqEySwtzngXOI0QnjHgknLcHT7DlFXPhPqHKNw1fqsL+FnGnFKcF7EZHzrHkWJKa/8g96A2xwxDka/AQSAj4/NEXKWOO21FZpZramD0U5aodN3kj10TfEYMPk+HE2+Z0eg8OyZmcDUDeIdIiICiAn7JlLj13WkW10pekrdCFw8kdPwiTeYpS6CQYF9T7VfUlUpgwiO8h3I53fgOXIrJVfMFwcL9TQC4CJOqUvvKmsa0/uQIwy8Bi6BYvxmAtGq9CJzIzLduHCIp4kzVfBM+P1+7DzgiEqs+tc5Ee31CZiMTe64RuAwNTjRjJImnUJyuvWdwLiYW3JHhcLyULdH5xjfs0Pm1lRDo1FWy7h86DboxGhF/ZQMKw+dqBwinmlh4ZpFRjD4ZJ1Jw5UWunDzA2IkB5tI8pfqQMn9DspOwN6DRO/YLXsPoNRGb+L6UUKjVhADC0VHiU4e5WU4YQLwN9HjjKAG3MCaimD+LYpI6UhwtEke856igRVDwxpU04VJblplaF4elnvDsEMFsTEsS8rwTvQbdQKOseqolbNkRDQLgEXDDhVy2hF8r7Uxe6yHZNABUa9vzBdkoR7M3Ok0cdNApo8NEmwlzxqx57uD4yVUYm89xf6Sf+EmeZK1uywXq+pRw107yqSdHRNZ7IgAiEhcTz+eYHxmjZB/jN7vwugBrJi01pJs5ZFsCsJ1Rk/U+BXgK8L8E+BehbK1QiZJKywAAAABJRU5ErkJggg==
-    default: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVFiF7dVNaF1FFMDx/5mZe997aZJGWpMgiLioNOlCBCO2RdqoVAxYcfHQ1IJ10W5EFKnFXcleRBREN9qCbUIDVfwKBbURBBGKBKxF0qKmJHHRJBby8d69d2aOi26sNovyXgJCznYGzm+G8yFHLmhy5Tc6E0ts3878mV5y1jHMH9N0S+SVkDN0/SJ9A+9SWldAsUxnUqbPpjynyhuhm90DY+uHMChlBAHaUB6LgdezBR699wTldQGIYDWiKswDU2LY4VJe27aJfQ9+QcuaA6wgxmBsiV9VeD8q51DuFzjascRA/yitawoQRWMkEQhO+ckoH8TI5zHQI3DMBfYPnKJ9zQDe4BUShTS3rBTdTFjPO0b5BLhHhGPB8Ez/p3SsCcBZMjypRlLjKc7vxZ8rcTGHtwRGVemKwlFXp7p/mK1NBxDJNJIQKSWOTATRKmF8kMmizpsinEK4QwyvrgjPPj5MV1MBUlBXxWmgnCd4VRRAIY5PcbVY5G0RToqhYiwviWFw3wh3NQ1QlKgZMLGg7AriPw/1OHF8htkgvKeBE8birOOwKM8/McLdQ0OYhgGtHh8UNOKiRQTk34hvqsy6RT70no+wREk4hOHgeC+d0iDCZAEjEARiKrhV7unYYWbqkZOhYATojMohE3lg7x7ShgBBSQQKBe9zUuVGDfxHoCgrLEpkLioFUDZQufPazT922wAvpGrJgEJ19fm/6wcqm9rZg6GqNwCf+cilHVWyhgBiKRlLhiHD3HoLCkj7Ve4TeFGEHo18G5SPp+f4/Tg3F+7thrNCipCLIeLZMjBG+8IV2NxBmK+RXzhC8eQYbQF2A70a+QXldHmOicsvN/Z6AKeCU/BEulQ4WCzzSFsXNsLs1oQfnx5msnB0itKnAUfku9Qx8VUTkgM4C7WYMQVsV9glnoeBBMFFYammfI1nEss2Iyyp4VIrLDQjOYDLa0wnCafV8DOWClCXQAL0IjyE5SkRxDgSUb7P68ycOUBoFkBQlZ2jlFtqtIQEoYKvLRMrBcaW6DHwgknZaRL+DBlnc8/Z84PMNQ2gesu2B6B/HGf/YjOLbCmVQALXvjzA9dVmRdMB6xENL5MNwAZgA/C/B/wNXhNae2xh8dMAAAAASUVORK5CYII=
-    not-allowed: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAO9SURBVFiF7dVZbxzlEsbxX3W3Z+yxx85i+yT4xBiIQFhcEEDiIFYJxMX5qnwCJBBhCTvBBEgQAsVshmA7trFjTzwz78tFDyQQkGZY7lJSS93qVte/nrfqqcg5uyUiSlRbjGfaFRM9xko6h+zPsYcOkpzTrT8YPuL3AKsR43PM9PhvZrHHfDAblEGnx0bJd/h2j7VF9uTc/UcA1iOmgoWShzMPYQmTiVRQBGnw9W7mk4LzmQvHWJfz9b8FsB4xVXF38GzBmcRCn2vBWrCJfUzjROZk0Cy4lHnzkHPzfCPnw1EBKvgionmEhYrn8Bgmgw9xIfgys5XoT9Dss9DlGTydeKbkyDj9DfZnI9bl3BsNIKI4wUyXMzgTtPFG5twul5bYvkhaJmFys27M6yUFWpnlPlf6fL/B3mzEnj/s7D8BWKUxxWJZy34iuFBwLlhZYkfOaRnfR7SaLASPBQ/kego+xjjur/iyYhXXMDRAcYTx4FTmnsR+l5Xg0swguUHyBndmnsWTmEm8lXgh8WZBVNwfzBkc69AATSYL5kpaWEusTrJ9c/ImdwXP4ylMB+9UvNTn9bIG3i2Yzcys0xgJoMtEYm4wapslV9EHERPtQeWZp3Es817BywUfFvzYZTO41qeROHbAmIhiWIBqYDANRJ/riR6yiNZVlgayPxFMZ94Lzu7z0Ro7MxTH6WUO1T4xdpRyFAWqA3pFLWERtComtplK3JF4PngyatnfLjlbsHKM7ZM590RM7tQ9NFHSz+y16Y1izxX2CjYLusF84lRiDP8reBxHgncTZzusnKz7oyei+IHWeG1K7cReya5ajeEV+ImDeX7A1YJTeBSRuQ/t4O3Mqw1Wjt9IHt/SHOfOxL1oBZ/12LpIb3kUgNN0drnc53KuF9D/M110M69nXmmw0r6p8kHyxaI2rgexlbnYY235lwYeFkDOhyniCl7LLA6W0cke7xdc7nK5Q+cK5X5Ec55Wu6784cxzmbHM+YLzs2zJeUQAzLBzwOeHvFgy3eO+gqMlCwWPYH2Gw7nahhf6nI7auhuZi5mzJV9j5I0YOWcREZ8ytlAfwYO5XkpLRW2zO7mekoRmqg1rGpupTv5an4/n2Ri1+l8B6rsIVOscb7KUas8/nflPZgIp6quT+Cr4DB8UfDPNT6NuwVsBboqNiHbF8cQdwdHMVKYZHJRsd9lq8V2LbXRG2X5DAdRvolqlWqpHtTFN7JA6HG7SXab/VyQfHuAGSPzm+W9U+9cA/uUYemvdBrgNcBvgNsC/FT8DHHmcMO2n8EcAAAAASUVORK5CYII=
-    zoom-out: data:image/png;base64,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
-    zoom-in: data:image/png;base64,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
-    grab: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPRSURBVFiF7ZZNa11VFIafd59z7kebD/NVQhtIKS21VYsS6MiUSNsEaxWLpIIgCIL+CcF26k9woELRlGQgtNbixAYshmKDipIOTEOpVWraJDdfvefee85eDm4iTUggN00m0jXaB9Y++9nv2vvdS2bG43Ee3I8XyJdTIiAefo+SwcqkLQw9DvDKMGHuPh0Vx4vO0+6N22HK7w1ZJgf7SbcDIFzx9YDWBN7H87rBDjmmUsdXc/AlML0dAG55IKHA0wC8LNgjmJHRKegupTRIaFsBAAKPA/KIeS9+MFgwT0M2WKXUFsZaPzaMRFAAUgnnK9uze1ilwH8AYOZITcig3kfs7b5A+9khMmJrYVYoUAYCMFXJUjNC4JDznMsEXJ81rvQOMHksZfbRIR6OdpE86RVdr7beUooSD03kzNjjxDvecxKxkAkYyY7z9fFxpvuMYnaOqcsfUNwMjMD03CBR8wKNUR0vOM8nZuQwPgJ2S2RNSMabwG4gh0gxJkyYPOMOLjaGjAz2U6xZgVe/JRPP8azL0aeUYwYdgnGJexXjejbAW0hoFW74hL04Dss4A+yTkSL2eyNcrHBb4q5ZbSqEySwtzngXOI0QnjHgknLcHT7DlFXPhPqHKNw1fqsL+FnGnFKcF7EZHzrHkWJKa/8g96A2xwxDka/AQSAj4/NEXKWOO21FZpZramD0U5aodN3kj10TfEYMPk+HE2+Z0eg8OyZmcDUDeIdIiICiAn7JlLj13WkW10pekrdCFw8kdPwiTeYpS6CQYF9T7VfUlUpgwiO8h3I53fgOXIrJVfMFwcL9TQC4CJOqUvvKmsa0/uQIwy8Bi6BYvxmAtGq9CJzIzLduHCIp4kzVfBM+P1+7DzgiEqs+tc5Ee31CZiMTe64RuAwNTjRjJImnUJyuvWdwLiYW3JHhcLyULdH5xjfs0Pm1lRDo1FWy7h86DboxGhF/ZQMKw+dqBwinmlh4ZpFRjD4ZJ1Jw5UWunDzA2IkB5tI8pfqQMn9DspOwN6DRO/YLXsPoNRGb+L6UUKjVhADC0VHiU4e5WU4YQLwN9HjjKAG3MCaimD+LYpI6UhwtEke856igRVDwxpU04VJblplaF4elnvDsEMFsTEsS8rwTvQbdQKOseqolbNkRDQLgEXDDhVy2hF8r7Uxe6yHZNABUa9vzBdkoR7M3Ok0cdNApo8NEmwlzxqx57uD4yVUYm89xf6Sf+EmeZK1uywXq+pRw107yqSdHRNZ7IgAiEhcTz+eYHxmjZB/jN7vwugBrJi01pJs5ZFsCsJ1Rk/U+BXgK8L8E+BehbK1QiZJKywAAAABJRU5ErkJggg==
-  font_smoothing: false # font-smoothing for webkit
-  max_width: 1080px # Sum of body width and sidebar width (This limit will be exceeded when the device width is greater than 2000px, reaching 75% of the total width)
-  scrollbar:
-    size: 4px
-    border: 2px
-  navbar:
-    height: 64px
-    width: auto # auto, max
-    effect: [shadow, blur] # [shadow, floatable, blur]
-  sidebar:
-    effect: [shadow] # [shadow, floatable, blur]
-  body:
-    effect: [shadow] # [shadow, floatable, blur]
-    highlight:
-      language: true # show language of codeblock
-      copy_btn: true
-      grayscale: false # Enable grayscale effect
-    text_align: # left, right, justify, center
-      h1: left
-      h2: left
-      h3: left
-      h4: left
-      p: justify
-    note: # style for default note: {% note text %}
-      icon: '\f054'
-      color: ''
-    checkbox:
-      enable: true # enable for user
-      color: '' # color for default checkbox
-  gap:
-    h2: 48px # Spacing above H2 (only px unit)
-    h3: 24px # Spacing above H3 (only px unit)
-    h4: 16px # Spacing above H4 (only px unit)
-    paragraph: 1rem # Paragraph spacing between paragraphs
-    row: .5rem # Paragraph spacing between other elements
-    line_height: 1.65 # normal, 1.5, 1.75, 2 ...
-  border_radius:
-    card: 8px
-    codeblock: 4px
-    searchbar: 8px
-    button: 4px
-  fontsize:
-    root: 16px
-    h1: 1.625rem
-    h2: 1.5rem
-    h3: 1.25rem
-    h4: 1.125rem
-    h5: 1rem
-    h6: 1rem
-    body: .9375rem
-    list: .9375rem
-    meta: .875rem
-    code: .8125rem
-    footnote: .75rem
-  fontfamily:
-    logofont:
-      fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
-      name: 'Varela Round'
-      url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf
-      weight: normal
-      style: normal
-    bodyfont:
-      fontfamily: 'UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
-      name: 'UbuntuMono'
-      url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf
-      weight: normal
-      style: normal
-    codefont:
-      fontfamily: 'Menlo, UbuntuMono, Monaco'
-      # name: 'Monaco'
-      # url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/Monaco/Monaco.ttf
-      # weight: normal
-      # style: normal
-    iconfont:
-      fontfamily: 'Font Awesome 5 Pro'
+############################### Volantis ###############################
+info:
+  theme: Volantis # This is theme's name.
+  version: '4.0.0-beta.2' # This is theme's version.
+  docs: https://volantis.js.org/ # This is theme's URL.
+  repo: https://github.com/volantis-x/hexo-theme-volantis
+  cdn:
+    js:
+    css:
+#
+# 从 v4 开始不再支持数据文件，全部的自定义设置请写在 _config.volantis.yml 中
+#
+########################################################################
 
 
-# 配色方案
-color:
-  # ----
-  # 通用颜色
-  common:
-    # 主题色
-    theme: '#44D7B6'
-    # 链接色
-    link: '#2196f3'
-    # 按钮色
-    button: '#44D7B6'
-    # 鼠标放到交互元素上时的色
-    hover: '#ff5722'
-    # 主题色块内部的文字颜色
-    inner: '#fff'
-    # 选中区域文字的背景颜色
-    selection: 'alpha(#2196f3, 0.2)'
-  # ----
-  # 亮色主题（默认）
-  light:
-    # 网站背景色
-    site_bg: '#f4f4f4'
-    # 网站背景上的文字
-    site_inner: '#fff'
-    # 网站页脚文字
-    site_footer: '#666'
-
-    # 卡片背景色
-    card: '#fff'
-    # 卡片上的普通文字
-    text: '#444'
-
-    # 区块和代码块背景色
-    block: '#f6f6f6'
-    # 代码块高亮时的背景色
-    codeblock: '#FFF7EA'
-    # 行内代码颜色
-    inlinecode: '#D56D28'
-
-    # 文章部分
-    h1: '#444'
-    h2: '#444'
-    h3: '#444'
-    h4: '#444'
-    h5: '#444'
-    h6: '#444'
-    p: '#444'
-
-    # 列表文字
-    list: '#666'
-    # 列表 hover 时的文字
-    list_hl: 'mix($color-theme, #000, 80)'
-    # 辅助性文字
-    meta: '#888'
-  # ----
-  # 暗色主题
-  dark:
-    # 网站背景色
-    site_bg: '#222'
-    # 网站背景上的文字
-    site_inner: '#eee'
-    # 网站页脚文字
-    site_footer: '#eee'
-    # 卡片背景色
-    card: '#444'
-    # 卡片上的普通文字
-    text: '#eee'
-
-    # 区块和代码块背景色
-    block: '#3a3a3a'
-    # 代码块高亮时的背景色
-    codeblock: '#343a3c'
-    # 行内代码颜色
-    inlinecode: '#D56D28'
-
-    # 文章部分
-    h1: '#eee'
-    h2: '#eee'
-    h3: '#ddd'
-    h4: '#ddd'
-    h5: '#ddd'
-    h6: '#ddd'
-    p: '#bbb'
-
-    # 列表文字
-    list: '#aaa'
-    # 列表 hover 时的文字
-    list_hl: 'mix($color-theme, #fff, 80)'
-    # 辅助性文字
-    meta: '#888'
-    # 夜间图片亮度
-    brightness: 70%
-
-# Navigation Bar
+############################### Navigation Bar ############################### > start
 navbar:
   visiable: auto # always, auto
   logo: # choose [img] or [icon + title]
@@ -207,11 +41,10 @@ navbar:
       icon: fal fa-info-circle
       url: about/
   search: Search...   # Search bar placeholder
+############################### Navigation Bar ############################### > end
 
 
-
-
-############################### Layout ###############################
+############################### Cover ############################### > start
 cover:
   use_for: blog # docs, blog
   scheme: dock # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
@@ -249,9 +82,10 @@ cover:
       icon: #
       img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
       url: https://github.com/volantis-x/hexo-theme-volantis/
+############################### Cover ############################### > end
 
 
-
+############################### Article Layout ############################### > start
 # 文章布局
 article:
   # 文章列表页面的文章卡片布局方案
@@ -270,6 +104,7 @@ article:
   # 文章详情页面的文章卡片本体布局方案
   body:
     # 文章顶部信息
+    # 从 meta_library 中取
     top_meta: [title, author, category, date, counter]
     # ----------------
     # 文章页脚组件
@@ -310,214 +145,288 @@ article:
           - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
           - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
     # 文章底部信息
-    bottom_meta: [updated, tags, btns, share]
+    # 从 meta_library 中取
+    bottom_meta: [updated, tags, share]
+    # meta library
+    meta_library:
+      # 文章标题
+      title: # 暂无配置
+      # 默认文章作者（可在 front-matter 中覆盖）
+      author:
+        avatar:
+        name: 请设置文章作者
+        url: /
+      # 文章创建日期
+      date:
+        icon: fas fa-calendar-alt
+        title: '发布于：'
+        format: 'll' # 日期格式 http://momentjs.com/docs/
+      # 文章更新日期
+      updated:
+        icon: fas fa-edit
+        title: '更新于：'
+        format: 'll' # 日期格式 http://momentjs.com/docs/
+      # 文章分类
+      category:
+        icon: fas fa-folder-open
+      # 文章浏览计数
+      counter:
+        icon: fas fa-eye
+        unit: '次浏览'
+      # 文章评论数量：只支持 valine
+      valinecount:
+        icon: fas fa-comment-dots
+        desc: '' # 条评论
+      # 文章字数和阅读时长
+      wordcount:
+        icon_wordcount: fas fa-keyboard
+        icon_duration: fas fa-hourglass-half
+      # 文章标签
+      tags:
+        icon: fas fa-hashtag
+      # 分享
+      share:
+        - id: qq
+          img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png
+        - id: qzone
+          img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png
+        - id: weibo
+          img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png
+        - id: # qrcode # 当id为qrcode时需要安装插件  npm i hexo-helper-qrcode
+          img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png
+        - id: # telegram
+          img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png
+
+############################### Article Layout ############################### > end
 
 
+############################### Comments ############################### > start
+comments:
+  path:    # 全局评论地址 仅支持 valine , miniValine , disqus , gitalk
+  placeholder: 快来评论吧~  # 评论占位提示 仅支持 valine & miniValine
+  title: <i class='fas fa-comments'></i> 评论
+  subtitle:
+  service: valine # valine, minivaline, disqus, gitalk, vssue, livere, isso, hashover
+  # Valine
+  # https://valine.js.org/
+  valine:
+    appId: # your appId
+    appKey: # your appKey
+    # js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
+    meta: nick,mail,link # valine comment header info
+    requiredFields: ['nick','mail']
+    enableQQ: true # Unstable avatar link
+    avatar: robohash # gravatar style https://valine.js.org/avatar
+    pageSize: 10 # comment list page size
+    lang: zh-cn
+    highlight: true
+    visitor: true
+    mathJax: false
+  # MiniValine
+  # https://github.com/MiniValine/MiniValine
+  minivaline:
+    appId: # your appId
+    appKey: # your appKey
+    js: https://cdn.jsdelivr.net/npm/minivaline@3/dist/MiniValine.min.js
+    mode: xCss # DesertsP or xCss
+    math: false # Support MathJax.
+    md: true # Support Markdown.
+    enableQQ: false # Enable QQ avatar API.
+    NoRecordIP: true # Do not record commenter IP.
+    closeFlag: false
+    closeUA: false
+    region: false
+    visitor: false # Article reading statistics.
+    maxNest: 6 # Sub-comment maximum nesting depth.
+    pageSize: 6 # Pagination size.
+    barrager: 0
+    role: admin
+    cloudflag: false
+    adminEmailMd5: de8a7aa53d07e6b6bceb45c64027763d # The MD5 of Admin Email to show Admin Flag.[ Just Only DesertsP Style mode]
+    tagMeta: # The String Array of Words to show Flag.[ Just Only xCss Style mode]
+      - 管理员
+      - 小伙伴
+      - 访客
+    master: # The MD5 String Array of master Email to show master Flag.[ Just Only xCss Style mode]
+      - de8a7aa53d07e6b6bceb45c64027763d
+    friends: # The MD5 String Array of friends Email to show friends Flag. [ Just Only xCss Style mode]
+      - b5bd5d836c7a0091aa8473e79ed4c25e
+      - adb7d1cd192658a55c0ad22a3309cecf
+      - 3ce1e6c77b4910f1871106cb30dc62b0
+      - cfce8dc43725cc14ffcd9fb4892d5bfc
+    # MiniValine's display language depends on user's browser or system environment
+    # If you want everyone visiting your site to see a uniform language, you can set a force language value
+    # Available values: en  | zh-CN | (and many more)
+    # More i18n info: https://github.com/MiniValine/minivaline-i18n
+    lang:
+    # Expression Url.
+    # https://github.com/MiniValine/MiniValine/blob/master/.github/FAQ.md#how-to-customize-emoticons
+    emoticonUrl:
+      - https://cdn.jsdelivr.net/npm/alus@latest
+      - https://cdn.jsdelivr.net/gh/MiniValine/qq@latest
+      - https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest
+      - https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest
+      - https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest
+      - https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest
+  # Disqus
+  # https://disqus.com
+  disqus:
+    shortname:
+    # optional
+    autoload: false
+  # Gitalk
+  # https://gitalk.github.io/
+  gitalk:
+    clientID:
+    clientSecret:
+    repo:
+    owner:
+    admin: # []
+  # Vssue
+  # https://vssue.js.org/zh/
+  vssue:
+    owner:
+    repo:
+    clientId:
+    clientSecret:
+  # LiveRe
+  # https://www.livere.com
+  livere:
+    uid:
+  # Isso
+  # https://posativ.org/isso/
+  isso:
+    url: https://example.com/(path/)
+    src: https://example.com/(path/)js/embed.min.js
+  # HashOver
+  # https://www.barkdull.org/software/hashover
+  hashover:
+    src: https://example.com/(path/)comments.php
+############################### Comments ############################### > end
 
-# 不久后将被其它设置替代
-layout:
-  # The following can be written in `blog/source/_data/layout.yml`
-  # 文章列表（主页、自定义的列表）布局
-  on_list:
-    # 列表类页面的侧边栏
-    sidebar: [blogger, category, tagcloud, qrcode]
-  # 页面布局
-  on_page:
-    # 文章页面主体元素，你也可以在页面的Front-matter中设置
-    body: [article, comments]
-    # 文章页面的侧边栏
-    sidebar: [qrcode, toc]
+############################### Sidebar ############################### > start
+sidebar:
+  # 主页、分类、归档等独立页面
+  for_page: [blogger, category, tagcloud, qrcode]
+  # layout: docs/post 这类文章页面
+  for_post: [toc]
+  # 侧边栏组件库
+  widget_library:
+    # ---------------------------------------
+    # blogger info widget
+    blogger:
+      class: blogger
+      display: [desktop, mobile] # [desktop, mobile]
+      avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+      shape: rectangle # circle, rectangle
+      url: /about/
+      title:
+      subtitle:
+      jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
+      social: true
+    # ---------------------------------------
+    # toc widget (valid only in articles)
+    toc:
+      class: toc
+      display: [desktop, mobile] # [desktop, mobile]
+      header:
+        icon: fas fa-list
+        title: 本文目录
+      list_number: false
+      min_depth: 2
+      max_depth: 5
+    # ---------------------------------------
+    # category widget
+    category:
+      class: category
+      display: [desktop] # [desktop, mobile]
+      header:
+        icon: fas fa-folder-open
+        title: 文章分类
+        url: /blog/categories/
+    # ---------------------------------------
+    # tagcloud widget
+    tagcloud:
+      class: tagcloud
+      display: [desktop, mobile] # [desktop, mobile]
+      header:
+        icon: fas fa-tags
+        title: 热门标签
+        url: /blog/tags/
+      min_font: 14
+      max_font: 24
+      color: true
+      start_color: '#999'
+      end_color: '#555'
+
+    # ---------------------------------------
+    # qrcode widget
+    donate:
+      class: qrcode
+      display: [desktop, mobile] # [desktop, mobile]
+      height: 64px  # Automatic height if not set
+      fancybox: true
+      images:
+        - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
+        - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
+    # ---------------------------------------
+    # webinfo widget
+    webinfo:
+      class: webinfo
+      display: [desktop]
+      header:
+        icon: fas fa-award
+        title: 站点信息
+      type:
+        article:
+          enable: true
+          text: '文章数目：'
+          unit: '篇'
+        runtime:
+          enable: true
+          data: '2020/01/01'    # 填写建站日期
+          text: '已运行时间：'
+          unit: '天'
+        wordcount:
+          enable: true
+          text: '本站总字数：'   # 需要启用 wordcount
+          unit: '字'
+        siteuv:
+          enable: true
+          text: '本站访客数：'   # 需要启用 busuanzi
+          unit: '人'
+        sitepv:
+          enable: true
+          text: '本站总访问量：' # 需要启用 busuanzi
+          unit: '次'
+        lastupd:
+          enable: true
+          friendlyShow: true    # 更友好的时间显示
+          text: '最后活动时间：'
+          unit: '日'
+############################### Sidebar ############################### > end
 
 
+############################### Tag Plugins ############################### > start
 # 内置标签插件的配置
 tag_plugins:
-  # 外链卡片
+  # {% note text %}
+  note: # style for default note:
+    icon: '\f054'
+    color: ''
+    iconfont: 'Font Awesome 5 Free'
+  # {% checkbox %}
+  checkbox:
+    interactive: true # enable interactive for user
+    color: '' # color for default checkbox
+  # {% link title, url, img %}
   link:
     placeholder: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/256/safari.png
+############################### Tag Plugins ############################### > end
 
 
-# meta library
-meta:
-  # 文章标题
-  title: # 暂无配置
-  # 默认文章作者（可在 front-matter 中覆盖）
-  author:
-    avatar:
-    name: 请设置文章作者
-    url: /
-  # 文章创建日期
-  date:
-    icon: fal fa-calendar-alt
-    title: '发布于：'
-    format: 'll' # 日期格式 http://momentjs.com/docs/
-  # 文章更新日期
-  updated:
-    icon: fal fa-edit
-    title: '更新于：'
-    format: 'll' # 日期格式 http://momentjs.com/docs/
-  # 文章分类
-  category:
-    icon: fal fa-folder-open
-  # 文章浏览计数
-  counter:
-    icon: fal fa-eye
-    unit: '次浏览'
-  # 文章评论数量：只支持 valine
-  valinecount:
-    icon: fal fa-comment-lines
-    desc: '条评论'
-  # 文章字数和阅读时长
-  wordcount:
-    icon_wordcount: fal fa-keyboard
-    icon_duration: fal fa-hourglass-half
-  # 文章标签
-  tags:
-    icon: fal fa-hashtag
-  # 分享
-  share:
-    - id: qq
-      img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png
-    - id: qzone
-      img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png
-    - id: weibo
-      img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png
-    # - id: qrcode # 当id为qrcode时需要安装插件  npm i hexo-helper-qrcode
-    #   img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png
-    # - id: telegram
-    #   img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png
-  # 链接
-  btns:
-    edit:
-      icon: fal fa-edit
-      title: 在GitHub上编辑此页
-      color: '#888'
-    repo: # 源码链接
-      icon: fal fa-file-code
-      title: 源码
-      color: '#508EF2'
-    bug: # BUG反馈链接
-      icon: fal fa-bug
-      title: BUG
-      color: '#FE5F58'
-    doubt: # 疑问链接
-      icon: fal fa-question-circle
-      title: 疑问
-      color: '#FFBD2B'
-    idea: # 建议链接
-      icon: fal fa-lightbulb
-      title: 建议
-      color: '#3DC550'
-    faq: # FAQ链接
-      icon: fal fa-comments
-      title: FAQ
-      color: '#29B1C9'
-    feedback: # 反馈链接
-      icon: fal fa-comment-dots
-      title: 反馈
-      color: '#1BCDFC'
-
-# widget library
-widget:
-  # The following can be written in `blog/source/_data/widget.yml`
-  # ---------------------------------------
-  # blogger info widget
-  blogger:
-    class: blogger
-    display: [desktop, mobile] # [desktop, mobile]
-    avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
-    shape: rectangle # circle, rectangle
-    url: /about/
-    title:
-    subtitle:
-    jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
-    social: true
-  # ---------------------------------------
-  # toc widget (valid only in articles)
-  toc:
-    class: toc
-    display: [desktop, mobile] # [desktop, mobile]
-    header:
-      icon: fal fa-list
-      title: 本文目录
-    list_number: false
-    min_depth: 2
-    max_depth: 5
-  # ---------------------------------------
-  # category widget
-  category:
-    class: category
-    display: [desktop] # [desktop, mobile]
-    header:
-      icon: fal fa-folder-open
-      title: 文章分类
-      url: /blog/categories/
-  # ---------------------------------------
-  # tagcloud widget
-  tagcloud:
-    class: tagcloud
-    display: [desktop, mobile] # [desktop, mobile]
-    header:
-      icon: fal fa-tags
-      title: 热门标签
-      url: /blog/tags/
-    min_font: 14
-    max_font: 24
-    color: true
-    start_color: '#999'
-    end_color: '#555'
-
-  # ---------------------------------------
-  # qrcode widget
-  donate:
-    class: qrcode
-    display: [desktop, mobile] # [desktop, mobile]
-    height: 64px  # Automatic height if not set
-    fancybox: true
-    images:
-      - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
-      - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
-  # ---------------------------------------
-  # webinfo widget
-  webinfo:
-    class: webinfo
-    display: [desktop]
-    header:
-      icon: fas fa-award
-      title: 站点信息
-    type:
-      article:
-        enable: true
-        text: '文章数目：'
-        unit: '篇'
-      runtime:
-        enable: true
-        data: '2020/01/01'    # 填写建站日期
-        text: '已运行时间：'
-        unit: '天'
-      wordcount:
-        enable: true
-        text: '本站总字数：'   # 需要启用 wordcount
-        unit: '字'
-      siteuv:
-        enable: true
-        text: '本站访客数：'   # 需要启用 busuanzi
-        unit: '人'
-      sitepv:
-        enable: true
-        text: '本站总访问量：' # 需要启用 busuanzi
-        unit: '次'
-      lastupd:
-        enable: true
-        friendlyShow: true    # 更友好的时间显示
-        text: '最后活动时间：'
-        unit: '日'
-
-  # You can add your own widget here or 'blog/source/_data/widget.yml'
-  # class: text, list, grid, qrcode, page, ... see more at https://volantis.js.org/
-
-
-
-footer:
+############################### Site Footer ############################### > start
+site_footer:
   # layout of footer: [aplayer, social, license, info, copyright]
   layout: [aplayer, social, license, analytics, info, copyright]
   social:
@@ -527,16 +436,16 @@ footer:
       url: mailto:me@xxx.com
     - icon: fab fa-github
       url: https://github.com/volantis-x/
-    - icon: fas fa-headphones-alt
-      url: https://music.163.com/#/user/home?id=63035382
-    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qq.png
-    #   url: /
-    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qzone.png
-    #   url: /
-    # - img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/weibo.png
-    #   url: /
-    # - avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/wechat.png
-    #   url: /
+    - icon: # fas fa-headphones-alt
+      url: #
+    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qq.png
+      url: #
+    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/qzone.png
+      url: #
+    - img: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/weibo.png
+      url: #
+    - avatar: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/64/wechat.png
+      url: #
   # site source
   source: https://github.com/volantis-x/volantis-docs/
   # analytics using leancloud
@@ -547,24 +456,9 @@ footer:
   copyright: '[Copyright © 2017-2020 XXX](/)'
   # You can add your own property here. (Support markdown, for example: br: '<br>')
   br: '<br>'
+############################### Site Footer ############################### > end
 
-
-############################### SEO ###############################
-seo:
-  # When there are no keywords in the article's front-matter, use tags as keywords.
-  use_tags_as_keywords: true
-  # When there is no description in the article's front-matter, use excerpt as the description.
-  use_excerpt_as_description: true
-  robots:
-    home_first_page: index,follow
-    home_other_pages: noindex,follow
-    archive: noindex,follow
-    category: noindex,follow
-    tag: noindex,follow
-    # robots can be written in front-matter
-
-
-############################### Plugins ###############################
+############################### Plugins ############################### > start
 plugins:
   ################ required plugins ################
 
@@ -576,7 +470,7 @@ plugins:
   # fontawesome
   fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css
   # fontawesome animation
-  fontawesome_animation: https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css
+  fontawesome_animation: # https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css
   # fancybox
   fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
 
@@ -716,115 +610,12 @@ plugins:
       buttonDark: '#bbb'
       buttonLight: '#444'
     compatible: true # 卡片兼容性处理，如果未发现卡片出现兼容问题设置为false
+############################### Plugins ############################### > end
 
-
-
-############################### Comments ###############################
-comments:
-  path:                    # 全局评论地址 仅支持 valine , miniValine , disqus , gitalk
-  placeholder: 快来评论吧~  # 评论占位提示 仅支持 valine & miniValine
-  title: <i class='fal fa-comments'></i> 评论
-  subtitle:
-  service: valine # valine, minivaline, disqus, gitalk, vssue, livere, isso, hashover
-  # Valine
-  # https://valine.js.org/
-  valine: # 请将 appId appKey 修改为自己的，否则评论数据是共享的。
-    appId: # your appId
-    appKey: # your appKey
-    # js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
-    meta: nick,mail,link # valine comment header info
-    requiredFields: ['nick','mail']
-    enableQQ: true # Unstable avatar link
-    avatar: robohash # gravatar style https://valine.js.org/avatar
-    pageSize: 10 # comment list page size
-    lang: zh-cn
-    highlight: true
-    visitor: true
-    mathJax: false
-  # MiniValine
-  # https://github.com/MiniValine/MiniValine
-  minivaline:
-    appId: # your appId
-    appKey: # your appKey
-    js: https://cdn.jsdelivr.net/npm/minivaline@3/dist/MiniValine.min.js
-    mode: xCss # DesertsP or xCss
-    math: false # Support MathJax.
-    md: true # Support Markdown.
-    enableQQ: false # Enable QQ avatar API.
-    NoRecordIP: true # Do not record commenter IP.
-    closeFlag: false
-    closeUA: false
-    region: false
-    visitor: false # Article reading statistics.
-    maxNest: 6 # Sub-comment maximum nesting depth.
-    pageSize: 6 # Pagination size.
-    barrager: 0
-    role: admin
-    cloudflag: false
-    adminEmailMd5: de8a7aa53d07e6b6bceb45c64027763d # The MD5 of Admin Email to show Admin Flag.[ Just Only DesertsP Style mode]
-    tagMeta: # The String Array of Words to show Flag.[ Just Only xCss Style mode]
-      - 管理员
-      - 小伙伴
-      - 访客
-    master: # The MD5 String Array of master Email to show master Flag.[ Just Only xCss Style mode]
-      - de8a7aa53d07e6b6bceb45c64027763d
-    friends: # The MD5 String Array of friends Email to show friends Flag. [ Just Only xCss Style mode]
-      - b5bd5d836c7a0091aa8473e79ed4c25e
-      - adb7d1cd192658a55c0ad22a3309cecf
-      - 3ce1e6c77b4910f1871106cb30dc62b0
-      - cfce8dc43725cc14ffcd9fb4892d5bfc
-    # MiniValine's display language depends on user's browser or system environment
-    # If you want everyone visiting your site to see a uniform language, you can set a force language value
-    # Available values: en  | zh-CN | (and many more)
-    # More i18n info: https://github.com/MiniValine/minivaline-i18n
-    lang:
-    # Expression Url.
-    # https://github.com/MiniValine/MiniValine/blob/master/.github/FAQ.md#how-to-customize-emoticons
-    emoticonUrl:
-      - https://cdn.jsdelivr.net/npm/alus@latest
-      - https://cdn.jsdelivr.net/gh/MiniValine/qq@latest
-      - https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@latest
-      - https://cdn.jsdelivr.net/gh/MiniValine/tieba@latest
-      - https://cdn.jsdelivr.net/gh/MiniValine/twemoji@latest
-      - https://cdn.jsdelivr.net/gh/MiniValine/weibo@latest
-  # Disqus
-  # https://disqus.com
-  disqus:
-    shortname:
-    # optional
-    autoload: false
-  # Gitalk
-  # https://gitalk.github.io/
-  gitalk:
-    clientID:
-    clientSecret:
-    repo:
-    owner:
-    admin: # []
-  # Vssue
-  # https://vssue.js.org/zh/
-  vssue:
-    owner:
-    repo:
-    clientId:
-    clientSecret:
-  # LiveRe
-  # https://www.livere.com
-  livere:
-    uid:
-  # Isso
-  # https://posativ.org/isso/
-  isso:
-    url: https://example.com/(path/)
-    src: https://example.com/(path/)js/embed.min.js
-  # HashOver
-  # https://www.barkdull.org/software/hashover
-  hashover:
-    src: https://example.com/(path/)comments.php
-
+############################### Rightmenu ############################### > start
 # 自定义右键菜单
 rightmenu:
-  enable: true
+  enable: #true
   # hr: 分割线, music: 音乐控制器
   layout: [home, help, examples, contributors, hr, source_docs, source_theme, hr, print, hr, music]
   # 可选功能项
@@ -853,9 +644,10 @@ rightmenu:
     name: 主题源码
     icon: fa fa-code-branch
     url: https://github.com/volantis-x/hexo-theme-volantis/
+############################### Rightmenu ############################### > end
 
 
-############################### Search ###############################
+############################### Search ############################### > start
 # To use hexo search, you need to install the following plugins:
 # npm i hexo-generator-search hexo-generator-json-content
 search:
@@ -875,21 +667,203 @@ search:
     queryKey:
   baidu:
     apiId:
+############################### Search ############################### > end
+
+############################### Color Scheme ############################### > start
+color_scheme:
+  # ------------
+  # 通用颜色
+  common:
+    # 主题色
+    theme: '#44D7B6'
+    # 链接色
+    link: '#2196f3'
+    # 按钮色
+    button: '#44D7B6'
+    # 鼠标放到交互元素上时的色
+    hover: '#ff5722'
+    # 主题色块内部的文字颜色
+    inner: '#fff'
+    # 选中区域文字的背景颜色
+    selection: 'alpha(#2196f3, 0.2)'
+  # ------------
+  # 亮色主题（默认）
+  light:
+    # 网站背景色
+    site_bg: '#f4f4f4'
+    # 网站背景上的文字
+    site_inner: '#fff'
+    # 网站页脚文字
+    site_footer: '#666'
+
+    # 卡片背景色
+    card: '#fff'
+    # 卡片上的普通文字
+    text: '#444'
+
+    # 区块和代码块背景色
+    block: '#f6f6f6'
+    # 代码块高亮时的背景色
+    codeblock: '#FFF7EA'
+    # 行内代码颜色
+    inlinecode: '#D56D28'
+
+    # 文章部分
+    h1: '#444'
+    h2: '#444'
+    h3: '#444'
+    h4: '#444'
+    h5: '#444'
+    h6: '#444'
+    p: '#444'
+
+    # 列表文字
+    list: '#666'
+    # 列表 hover 时的文字
+    list_hl: 'mix($color-theme, #000, 80)'
+    # 辅助性文字
+    meta: '#888'
+  # ------------
+  # 暗色主题
+  dark:
+    # 网站背景色
+    site_bg: '#222'
+    # 网站背景上的文字
+    site_inner: '#eee'
+    # 网站页脚文字
+    site_footer: '#eee'
+    # 卡片背景色
+    card: '#444'
+    # 卡片上的普通文字
+    text: '#eee'
+
+    # 区块和代码块背景色
+    block: '#3a3a3a'
+    # 代码块高亮时的背景色
+    codeblock: '#343a3c'
+    # 行内代码颜色
+    inlinecode: '#D56D28'
+
+    # 文章部分
+    h1: '#eee'
+    h2: '#eee'
+    h3: '#ddd'
+    h4: '#ddd'
+    h5: '#ddd'
+    h6: '#ddd'
+    p: '#bbb'
+
+    # 列表文字
+    list: '#aaa'
+    # 列表 hover 时的文字
+    list_hl: 'mix($color-theme, #fff, 80)'
+    # 辅助性文字
+    meta: '#888'
+    # 夜间图片亮度
+    brightness: 70%
+############################### Color Scheme ############################### > end
+
+############################### Custom css ############################### > start
+custom_css:
+  cursor:
+    enable: #true
+    text: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/text.png
+    pointer: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png
+    default: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png
+    not-allowed: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png
+    zoom-out: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-out.png
+    zoom-in: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png
+    grab: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/openhand.png
+  font_smoothing: true # font-smoothing for webkit
+  max_width: 1080px # Sum of body width and sidebar width (This limit will be exceeded when the device width is greater than 2000px, reaching 75% of the total width)
+  scrollbar:
+    size: 4px
+    border: 2px
+  navbar:
+    height: 64px
+    width: auto # auto, max
+    effect: [shadow, blur] # [shadow, floatable, blur]
+  sidebar:
+    effect: [shadow] # [shadow, floatable, blur]
+  body:
+    effect: [shadow] # [shadow, floatable, blur]
+    highlight:
+      language: true # show language of codeblock
+      copy_btn: true
+      grayscale: false # Enable grayscale effect
+    text_align: # left, right, justify, center
+      h1: left
+      h2: left
+      h3: left
+      h4: left
+      p: justify
+  gap:
+    h2: 48px # Spacing above H2 (only px unit)
+    h3: 24px # Spacing above H3 (only px unit)
+    h4: 16px # Spacing above H4 (only px unit)
+    paragraph: 1rem # Paragraph spacing between paragraphs
+    row: .5rem # Paragraph spacing between other elements
+    line_height: 1.65 # normal, 1.5, 1.75, 2 ...
+  border_radius:
+    card: 8px
+    codeblock: 4px
+    searchbar: 8px
+    button: 4px
+  fontsize:
+    root: 16px
+    h1: 1.625rem
+    h2: 1.5rem
+    h3: 1.25rem
+    h4: 1.125rem
+    h5: 1rem
+    h6: 1rem
+    body: .9375rem
+    list: .9375rem
+    meta: .875rem
+    code: .8125rem
+    footnote: .75rem
+  fontfamily:
+    logofont:
+      fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      name: 'Varela Round'
+      url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf
+      weight: normal
+      style: normal
+    bodyfont:
+      fontfamily: 'UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      name: 'UbuntuMono'
+      url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf
+      weight: normal
+      style: normal
+    codefont:
+      fontfamily: 'Menlo, UbuntuMono, Monaco'
+      # name: 'Monaco'
+      # url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/Monaco/Monaco.ttf
+      # weight: normal
+      # style: normal
+############################### Custom css ############################### > end
 
 
+############################### Analytics ############################### > start
 analytics:
   busuanzi: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
   leancloud: # 请使用自己的 id & key 以防止数据丢失
     app_id: u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI
     app_key: jfHtEKVE24j0IVCGHbvuFClp
     custom_api_server: # 一般不需要写，除非自定义了 API Server
+############################### Analytics ############################### > end
 
-############################### Theme Information ###############################
-info:
-  name: Volantis # This is theme's name.
-  version: '4.0.0-beta.2' # This is theme's version.
-  docs: https://volantis.js.org/ # This is theme's URL.
-  repo: https://github.com/volantis-x/hexo-theme-volantis
-  cdn:
-    js:
-    css:
+############################### SEO ############################### > start
+seo:
+  # When there are no keywords in the article's front-matter, use tags as keywords.
+  use_tags_as_keywords: true
+  # When there is no description in the article's front-matter, use excerpt as the description.
+  use_excerpt_as_description: true
+  robots:
+    home_first_page: index,follow
+    home_other_pages: noindex,follow
+    archive: noindex,follow
+    category: noindex,follow
+    tag: noindex,follow
+    # robots can be written in front-matter
+############################### SEO ############################### > end

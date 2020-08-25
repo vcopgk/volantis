@@ -1,6 +1,6 @@
 <div class="new-meta-item share -mob-share-list">
   <div class="-mob-share-list share-body">
-    <% (theme.meta.share||[]).forEach(function(item){ %>
+    <% (theme.article.body.meta_library.share||[]).forEach(function(item){ %>
       <% if (item.id == 'qrcode'){ %>
         <% var src = qrcode(url,{margin:1,size:8}); %>
         <div class='hoverbox'>
@@ -9,7 +9,7 @@
             <img src="<%- src %>">
           </div>
         </div>
-      <% } else { %>
+      <% } else if (item.id && item.img) { %>
         <a class="-mob-share-<%- item.id %>" title="<%- item.name %>" rel="external nofollow noopener noreferrer"
           <% if (item.id == 'qzone'){ %>
           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%- post.permalink %>&title=<%- (post.seo_title || post.title) + ' - ' + config.title %><%- (post.thumbnail) ? '&pics=' + (post.thumbnail) : '' %>&summary=<%- strip_html(post.excerpt) %>"
