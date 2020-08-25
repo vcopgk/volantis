@@ -26,7 +26,9 @@
 
 	if hexo-config('plugins.backstretch.position') =='fixed'
 		.backstretch
-			mix-blend-mode: difference  !important
+			background-color: #ccc8c0 !important
+		.backstretch-item
+			display: none !important
 	else
 		.l_body
 			background-color: var(--color-site-bg) !important
