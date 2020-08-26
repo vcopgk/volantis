@@ -468,7 +468,7 @@ plugins:
   ################ optional plugins ################
 
   # fontawesome
-  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css
+  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css
   # fontawesome animation
   fontawesome_animation: # https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css
   # fancybox
@@ -514,9 +514,9 @@ plugins:
 
   ######## Plugins for ...
   # Button Ripple Effect
-  #nodewaves:
-    #css: https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css
-    #js: https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js
+  nodewaves:
+    css: # https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css
+    js: # https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js
 
   # Typing Effects
   comment_typing: #https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js
