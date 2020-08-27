@@ -69,14 +69,14 @@
       }
       setMenulocation();
       setMenuCopy();
-      if (<%= theme.plugins.aplayer.enable %> == true && ('theme.rightmenu.layout'||[]).includes('music')) {
+      if (<%= theme.plugins.aplayer.enable %> == true && ('<%- theme.rightmenu.layout %>'||[]).includes('music')) {
       	try {
           checkAPlayer();
           updateTitle();
       	} catch (error) {console.log(error);}
       }
       return false;
-    };
+    }
 
     document.getElementById('rightmenu-wrapper').oncontextmenu  = function (event) {
       event.stopPropagation();  // 阻止右键上的右键
