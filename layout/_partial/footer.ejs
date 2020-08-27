@@ -35,7 +35,7 @@
       <% } else if (item == 'info') { %>
         <div class="fixuse">
         <%- __('footer.use') %>
-        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/<%- theme.info.theme_version %>" target="_blank" class="codename">Volantis</a>
         <%- __('footer.theme') %>
         <%- __('symbol.comma') %>
         <span>由腾讯云 <a href="https://cloud.tencent.com/product/cdn" target="_blank" class="codename" rel="external nofollow noopener noreferrer" data-pjax-state="">CDN</a> 分发</span>
@@ -49,8 +49,8 @@
         <% } else { %>
           <span><i class="fad fa-fan fa-spin fa-spin fa-fw" aria-hidden="true"></i></span>
         <% } %>
-        <%- __('footer.times') %> -->
-      </div>
+      <% } else if (item == 'source') { %>
+        <%- markdown(__('footer.site_source', '[Volantis](https://github.com/volantis-x/hexo-theme-volantis/tree/'+theme.info.version+')', 'GitHub', 'https://github.com/volantis-x/volantis-docs')) %>
       <% } else if (item == 'copyright') { %>
         <div class='copyright'>
         <%- markdown(theme.site_footer.copyright) %>
