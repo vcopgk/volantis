@@ -28,16 +28,16 @@ function supportCss3(style) {
 };
 //配置信息
 var options = {
-  bottom: '32px',
+  bottom: '<%- theme.plugins.darkmodejs.button.bottom %>',
   right: 'unset',
-  left: '16px',
+  left: '<%- theme.plugins.darkmodejs.button.left %>',
   time: '0s',
   mixColor: '<%- theme.color_scheme.light.site_bg %>',
   backgroundColor: '<%- theme.color_scheme.light.site_bg %>',
   buttonColorDark: '<%- theme.plugins.darkmodejs.button.buttonDark %>',
   buttonColorLight: '<%- theme.plugins.darkmodejs.button.buttonLight %>',
   saveInCookies: true,
-  label: '<%- theme.plugins.darkmodejs.button.label %>',
+  label: '',
   autoMatchOsTheme: true
 };
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
