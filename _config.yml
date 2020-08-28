@@ -757,7 +757,7 @@ color_scheme:
     # 列表 hover 时的文字
     list_hl: 'mix($color-theme, #000, 80)'
     # 辅助性文字
-    meta: '#888'
+    meta: '#734ae6'
   # ------------
   # 暗色主题
   dark:
