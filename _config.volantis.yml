@@ -1,0 +1,397 @@
+info:
+  cdn:
+    js: /js/app.min.js
+    css: /css/style.css
+
+
+navbar:
+  logo:
+    img: 
+    title: <i class="fad fa-cannabis logoColor"></i> INKSS
+  search: 想找些什么~
+  menu:
+    - name: 首页
+      icon: fal fa-helmet-battle
+      url: /
+    - name: 导航
+      icon: fal fa-cube
+      rows:
+        - name: 分类
+          icon: fal fa-folder-open 
+          url: categories/
+        - name: 标签
+          icon: fal fa-tags 
+          url: tags/
+        - name: 归档
+          icon: fal fa-archive 
+          url: archives/
+    - name: 更多
+      icon: fal fa-fist-raised
+      rows:
+        - name: 关于我
+          icon: fal fa-skull
+          url: about/
+        - name: 笔记本
+          icon: fal fa-flower-daffodil
+          url: /notes/index.html
+        - name: hr
+        - name: 十年之约
+          icon: fal fa-glass-cheers
+          url: /foreverblog/index.html
+        - name: 我的朋友们
+          icon: fal fa-cookie-bite
+          url: friends/index.html
+        - name: 来首音乐
+          icon: fal fa-compact-disc
+    - name: 留言
+      icon: fal fa-comet
+      url: info/index.html
+
+
+cover:
+  height_scheme: half
+  layout_scheme: featured   # search (搜索), dock (坞), featured (精选), focus (焦点)
+  background: #/img/bkg/bkg.png
+  title:
+  logo: /img/logo.png
+  display:
+    home: true
+    archive: true
+    others: false
+  search: '想找些什么~'
+  features:
+    - name: Github
+      icon: fad fa-code-branch
+      url: https://github.com/inkss  
+      rel: external nofollow noopener noreferrer
+      color: 20c997
+    - name: Steam
+      icon: fad fa-ghost
+      url: https://steamcommunity.com/id/szyink/
+      rel: external nofollow noopener noreferrer
+      color: 2196f3
+    - name: Email
+      icon: fad fa-envelope
+      url: mailto:me@szyink.com
+      color: E91E63
+    - name: Blog
+      icon: fad fa-blog
+      url: https://szyink.com/
+      rel: external nofollow noopener noreferrer
+      target: _blank
+      color: ff9800
+    - name: About
+      icon: fad fa-gingerbread-man
+      url: /about/
+      color: 734ae6
+
+
+
+article:
+  body:
+    top_meta: [title, author, category, updated, wordcount]
+    bottom_meta: [tags, date]
+    footer_widget:
+      copyright:
+        enable: false
+        permalink: '本文永久链接：'
+        content:
+          - permalink
+    meta_library:
+      author:
+        avatar: https://img.inkss.cn/inkss_cn/static/img/avatar.jpg
+        name: 枋柚梓
+        url: https://inkss.cn
+      date:
+        icon: fal fa-calendar-alt
+      updated:
+        icon: fal fa-edit
+      category:
+        icon: fal fa-folder-open
+      counter:
+        icon: fal fa-eye
+      valinecount:
+        icon: fal fa-comment-dots
+      wordcount:
+        icon_wordcount: fal fa-keyboard
+        icon_duration: fal fa-hourglass-half
+      tags:
+        icon: fal fa-hashtag
+
+
+
+comments:
+  service: valine
+  disqus:
+    shortname: inkss
+  valine:
+    appId: gqkw9h3C8yXm4WsJ3S5vBonP-gzGzoHsz
+    appKey: 2nwrlSMxijhI9x0v8JETCO9D
+    placeholder: 人生在世，错别字在所难免，无需纠正。
+    js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
+  minivaline:
+    appId: gqkw9h3C8yXm4WsJ3S5vBonP-gzGzoHsz
+    appKey: 2nwrlSMxijhI9x0v8JETCO9D
+    placeholder: 人生在世，错别字在所难免，无需纠正。
+
+
+
+
+
+sidebar:
+  # 主页、分类、归档等独立页面
+  for_page: [notice, notice1, category, tagcloud, navigation, showWebsite] 
+  # layout: docs/post 这类文章页面
+  for_post: [notice, tagcloud, toc]
+  # 侧边栏组件库
+  widget_library:
+    category:
+      header:
+        icon: fal fa-folder-open
+        url: /categories/
+    tagcloud:
+      display: [desktop]
+      header:
+        icon: fal fa-tags
+        title: 热门标签
+        url: /tags/
+      max_font: 22
+    notice:
+      class: text
+      display: [desktop]
+      header:
+        icon: fal fa-crow
+        title: 公告
+      content:
+        - '  <i class="fal fa-cactus"></i> 本站默认替换了右键菜单，唤醒原系统菜单： <kbd>Ctrl</kbd> + <kbd>右键</kbd> ~'
+        - '  <i class="fal fa-cactus"></i> 暗黑模式已上线，为夜间阅读的朋友提供最佳环境 ~'
+    notice1:
+      class: text
+      display: [desktop]
+      header:
+        icon: fad fa-gavel
+        title: 重构
+      content:
+        - '  <i class="fad fa-clipboard-list"></i> 本站文章准备开启重构计划，挽救质量啊喂！'
+    showWebsite:
+      class: webinfo
+      display: [desktop]
+      header:
+        icon: fal fa-award
+        title: 站点信息
+      type:
+        article: 
+          enable: true
+          text: '文章数目 :'
+          unit: '篇'
+        runtime:
+          enable: true
+          data: '2018/03/15'
+          text: '已运行时间 :'
+          unit: '天'
+        wordcount:
+          enable: true
+          text: '本站总字数 :'
+          unit: ''
+        siteuv:
+          enable: false
+        sitepv:
+          enable: false
+        lastupd:
+          enable: true
+          friendlyShow: true
+          text: '最后更新时间 :'
+          unit: '日'
+    navigation:
+      class: grid
+      display: [desktop]
+      header:
+        icon: fal fa-map-signs fa-fw
+        title: 站内导航
+      fixed: true # 固定宽度
+      rows:
+        - name: 友链
+          icon: fal fa-users fa-fw
+          url: /friends/
+        - name: 订阅
+          icon: fal fa-rss fa-fw
+          url: /atom.xml
+        - name: 地图
+          icon: fal fa-sitemap fa-fw
+          url: /sitemap.xml
+    wiki-hexo-theme:
+      class: list
+      display: [desktop, mobile]
+      header:
+        icon: fal fa-flower-daffodil
+        title: 笔记本
+        url: /notes/index.html
+      rows:
+        - name: '<i class="fad fa-kerning"></i> App List'
+          url: /notes/app/index.html
+        - name: '<i class="fad fa-kerning"></i> Github Actions'
+          url: /notes/actions/index.html
+        - name: '<i class="fad fa-kerning"></i> Shell command'
+          url: /notes/shell/index.html
+
+
+tag_plugins:
+  # {% note text %}
+  note: # style for default note:
+    icon: '\f054'
+    color: ''
+    iconfont: 'Font Awesome 5 Pro'
+
+
+site_footer:
+  layout: [social, license, info, icp, cpy, me]
+  icp: '<div class="fixuse">辽 ICP 备 <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow" style="cursor:wait;">16006560</a> 号 | 辽公网安备 <a href="https://www.beian.gov.cn/" rel="nofollow" target="_blank" style="cursor:wait;">21021702000331</a> 号</div>'
+  cpy: '<div class="fixuse">Copyright 2018 - 2020 szyink. All Rights Reserved</div>'
+  me: '<a href="/">枋柚梓的猫会发光 <i class="fal fa-spider-black-widow"></i></a> '
+  icon: '<i class="fad fa-cannabis footStyle"></i>'
+  social:
+    - icon: fal fa-code-branch
+      url: https://github.com/inkss
+      rel: external nofollow noopener noreferrer
+    - icon: fal fa-ghost
+      url: https://steamcommunity.com/id/szyink/
+      rel: external nofollow noopener noreferrer
+    - icon: fal fa-envelope
+      url: mailto:me@szyink.com
+    - icon: fal fa-blog
+      url: https://szyink.com/
+      rel: external nofollow noopener noreferrer
+    - icon: fal fa-gingerbread-man
+      url: /about/
+
+
+
+plugins:
+  fontawesome: /fontawesome/css/all.min.css
+  fontawesomeanimation:
+    enable: false
+  wordcount: 
+    enable: true
+  lazyload:
+    enable: true
+    js: https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js
+    onlypost: false
+    loadingImg: #  https://cdn.jsdelivr.net/gh/inkss/common@master/static/img/loading.gif
+    blurIn: true # 模糊加载效果 （loadingImg为空时有效）
+  aplayer:
+    enable: true
+    server: tencent   # netease, tencent, kugou, xiami, baidu
+    type: playlist    # song, playlist, album, search, artist
+    id: 4215247501    # song id / playlist id / album id / search keyword
+    autoplay: true
+  backstretch:
+    enable: true
+    position: fixed   # cover: sticky on the cover.   fixed: Fixed as background for the site.
+    images:
+      - /img/bkg/bkg.png
+  artitalk:
+    enable: true
+    appID: 7VOM4jBwPrtyjKQsCgvpjad7-gzGzoHsz
+    appKEY: VrwcfwPaNIzOVDshSBKY9UDq
+    severurl: https://artitalk.inkss.cn
+    per: 6
+  darkmodejs:
+    enable: true
+    button:
+      enable: true
+
+
+
+rightmenu:
+  enable: true
+  layout: [copy, navigation, hr, info, foreverblog, friends, text, about, hr, music]
+  copy:
+    name: 复制选中内容
+    icon: fal fa-copy
+    id: menu-copy-text
+    onclick: menuCopy()
+  foreverblog:
+    name: 十年之约
+    icon: fal fa-glass-cheers
+    url: /foreverblog/index.html
+  friends:
+    name: 我的朋友们
+    icon: fal fa-flower-daffodil
+    url: /friends/index.html
+  info:
+    name: 留言版
+    icon: fal fa-fish
+    url: /info/index.html
+  text:
+    name: 文章归档
+    icon: fal fa-globe-asia
+    url: /archives/
+  about:
+    name: 关于我
+    icon: fal fa-gingerbread-man
+    url: /about/
+
+
+
+search:
+  enable: true
+  service: hexo
+  js: /js/search.min.js
+
+
+
+
+# 配色方案
+color_scheme:
+  # 暗色主题
+  dark:
+    # 网站背景色
+    site_bg: '#21252b'
+    # 卡片背景色
+    card: '#363b40'
+    # 卡片上的普通文字
+    text: '#dedede'
+    # 代码块高亮时的背景色
+    codeblock: '#343a3c'
+    # 文章部分
+    h1: '#dedede'
+    h2: '#dedede'
+    p: '#b8bfc6'
+
+
+
+
+custom_css:
+  navbar:
+    effext: [shadow]
+  sidebar:
+    effect: [shadow]
+  body:
+    effect: [shadow]
+  fontfamily:
+    logofont:
+      url: /fonts/VarelaRound-Regular.ttf
+    bodyfont:
+      fontfamily: '-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei'
+    codefont:
+      fontfamily: 'SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier'
+  cursor:
+    enable: true
+    text: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFISURBVFiF7dWxTlRREAbgb84uF5I1EhoSG4wFiYGnoESfQCt6X8BOfAlrteAR1hIrn0CICYXRmJhIgWuysi7sHQsRQmV1Fos73Znm/yYnmYntYS6ejtzps5KhD5HOy5nv05mv+zsmKlZ/NrLa47G0VbgNGX60jbdNeh18SbIaAIKSYYD7kOl9qRh6DTCdOO439vR8lJ76I3oRxbveLd9qTg9lf8dkZcGnLI4wxjiLo2U+D7f9qhkOBTYPZbRXk0YrNw/n8wVlHiEdoAN0gH8CDjZEFvG3mUUcbFy9qwIevLE4Yi1a6xhgEK31kzN3t15aqg3oz0ZWk0d4iDWQnijuNUtezeUaZojgZ6QPF4BxhrZW6DXAdOK46dlrFwzbuDzP5zNOmuX61zAyUxCei92L5i48k7XDLwE3Wf/HHugAHaADdIAOcJP1G0/tcEwL0f5fAAAAAElFTkSuQmCC
+    pointer: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPRSURBVFiF7ZZNa11VFIafd59z7kebD/NVQhtIKS21VYsS6MiUSNsEaxWLpIIgCIL+CcF26k9woELRlGQgtNbixAYshmKDipIOTEOpVWraJDdfvefee85eDm4iTUggN00m0jXaB9Y++9nv2vvdS2bG43Ee3I8XyJdTIiAefo+SwcqkLQw9DvDKMGHuPh0Vx4vO0+6N22HK7w1ZJgf7SbcDIFzx9YDWBN7H87rBDjmmUsdXc/AlML0dAG55IKHA0wC8LNgjmJHRKegupTRIaFsBAAKPA/KIeS9+MFgwT0M2WKXUFsZaPzaMRFAAUgnnK9uze1ilwH8AYOZITcig3kfs7b5A+9khMmJrYVYoUAYCMFXJUjNC4JDznMsEXJ81rvQOMHksZfbRIR6OdpE86RVdr7beUooSD03kzNjjxDvecxKxkAkYyY7z9fFxpvuMYnaOqcsfUNwMjMD03CBR8wKNUR0vOM8nZuQwPgJ2S2RNSMabwG4gh0gxJkyYPOMOLjaGjAz2U6xZgVe/JRPP8azL0aeUYwYdgnGJexXjejbAW0hoFW74hL04Dss4A+yTkSL2eyNcrHBb4q5ZbSqEySwtzngXOI0QnjHgknLcHT7DlFXPhPqHKNw1fqsL+FnGnFKcF7EZHzrHkWJKa/8g96A2xwxDka/AQSAj4/NEXKWOO21FZpZramD0U5aodN3kj10TfEYMPk+HE2+Z0eg8OyZmcDUDeIdIiICiAn7JlLj13WkW10pekrdCFw8kdPwiTeYpS6CQYF9T7VfUlUpgwiO8h3I53fgOXIrJVfMFwcL9TQC4CJOqUvvKmsa0/uQIwy8Bi6BYvxmAtGq9CJzIzLduHCIp4kzVfBM+P1+7DzgiEqs+tc5Ee31CZiMTe64RuAwNTjRjJImnUJyuvWdwLiYW3JHhcLyULdH5xjfs0Pm1lRDo1FWy7h86DboxGhF/ZQMKw+dqBwinmlh4ZpFRjD4ZJ1Jw5UWunDzA2IkB5tI8pfqQMn9DspOwN6DRO/YLXsPoNRGb+L6UUKjVhADC0VHiU4e5WU4YQLwN9HjjKAG3MCaimD+LYpI6UhwtEke856igRVDwxpU04VJblplaF4elnvDsEMFsTEsS8rwTvQbdQKOseqolbNkRDQLgEXDDhVy2hF8r7Uxe6yHZNABUa9vzBdkoR7M3Ok0cdNApo8NEmwlzxqx57uD4yVUYm89xf6Sf+EmeZK1uywXq+pRw107yqSdHRNZ7IgAiEhcTz+eYHxmjZB/jN7vwugBrJi01pJs5ZFsCsJ1Rk/U+BXgK8L8E+BehbK1QiZJKywAAAABJRU5ErkJggg==
+    default: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVFiF7dVNaF1FFMDx/5mZe997aZJGWpMgiLioNOlCBCO2RdqoVAxYcfHQ1IJ10W5EFKnFXcleRBREN9qCbUIDVfwKBbURBBGKBKxF0qKmJHHRJBby8d69d2aOi26sNovyXgJCznYGzm+G8yFHLmhy5Tc6E0ts3878mV5y1jHMH9N0S+SVkDN0/SJ9A+9SWldAsUxnUqbPpjynyhuhm90DY+uHMChlBAHaUB6LgdezBR699wTldQGIYDWiKswDU2LY4VJe27aJfQ9+QcuaA6wgxmBsiV9VeD8q51DuFzjascRA/yitawoQRWMkEQhO+ckoH8TI5zHQI3DMBfYPnKJ9zQDe4BUShTS3rBTdTFjPO0b5BLhHhGPB8Ez/p3SsCcBZMjypRlLjKc7vxZ8rcTGHtwRGVemKwlFXp7p/mK1NBxDJNJIQKSWOTATRKmF8kMmizpsinEK4QwyvrgjPPj5MV1MBUlBXxWmgnCd4VRRAIY5PcbVY5G0RToqhYiwviWFw3wh3NQ1QlKgZMLGg7AriPw/1OHF8htkgvKeBE8birOOwKM8/McLdQ0OYhgGtHh8UNOKiRQTk34hvqsy6RT70no+wREk4hOHgeC+d0iDCZAEjEARiKrhV7unYYWbqkZOhYATojMohE3lg7x7ShgBBSQQKBe9zUuVGDfxHoCgrLEpkLioFUDZQufPazT922wAvpGrJgEJ19fm/6wcqm9rZg6GqNwCf+cilHVWyhgBiKRlLhiHD3HoLCkj7Ve4TeFGEHo18G5SPp+f4/Tg3F+7thrNCipCLIeLZMjBG+8IV2NxBmK+RXzhC8eQYbQF2A70a+QXldHmOicsvN/Z6AKeCU/BEulQ4WCzzSFsXNsLs1oQfnx5msnB0itKnAUfku9Qx8VUTkgM4C7WYMQVsV9glnoeBBMFFYammfI1nEss2Iyyp4VIrLDQjOYDLa0wnCafV8DOWClCXQAL0IjyE5SkRxDgSUb7P68ycOUBoFkBQlZ2jlFtqtIQEoYKvLRMrBcaW6DHwgknZaRL+DBlnc8/Z84PMNQ2gesu2B6B/HGf/YjOLbCmVQALXvjzA9dVmRdMB6xENL5MNwAZgA/C/B/wNXhNae2xh8dMAAAAASUVORK5CYII=
+    not-allowed: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAO9SURBVFiF7dVZbxzlEsbxX3W3Z+yxx85i+yT4xBiIQFhcEEDiIFYJxMX5qnwCJBBhCTvBBEgQAsVshmA7trFjTzwz78tFDyQQkGZY7lJSS93qVte/nrfqqcg5uyUiSlRbjGfaFRM9xko6h+zPsYcOkpzTrT8YPuL3AKsR43PM9PhvZrHHfDAblEGnx0bJd/h2j7VF9uTc/UcA1iOmgoWShzMPYQmTiVRQBGnw9W7mk4LzmQvHWJfz9b8FsB4xVXF38GzBmcRCn2vBWrCJfUzjROZk0Cy4lHnzkHPzfCPnw1EBKvgionmEhYrn8Bgmgw9xIfgys5XoT9Dss9DlGTydeKbkyDj9DfZnI9bl3BsNIKI4wUyXMzgTtPFG5twul5bYvkhaJmFys27M6yUFWpnlPlf6fL/B3mzEnj/s7D8BWKUxxWJZy34iuFBwLlhZYkfOaRnfR7SaLASPBQ/kego+xjjur/iyYhXXMDRAcYTx4FTmnsR+l5Xg0swguUHyBndmnsWTmEm8lXgh8WZBVNwfzBkc69AATSYL5kpaWEusTrJ9c/ImdwXP4ylMB+9UvNTn9bIG3i2Yzcys0xgJoMtEYm4wapslV9EHERPtQeWZp3Es817BywUfFvzYZTO41qeROHbAmIhiWIBqYDANRJ/riR6yiNZVlgayPxFMZ94Lzu7z0Ro7MxTH6WUO1T4xdpRyFAWqA3pFLWERtComtplK3JF4PngyatnfLjlbsHKM7ZM590RM7tQ9NFHSz+y16Y1izxX2CjYLusF84lRiDP8reBxHgncTZzusnKz7oyei+IHWeG1K7cReya5ajeEV+ImDeX7A1YJTeBSRuQ/t4O3Mqw1Wjt9IHt/SHOfOxL1oBZ/12LpIb3kUgNN0drnc53KuF9D/M110M69nXmmw0r6p8kHyxaI2rgexlbnYY235lwYeFkDOhyniCl7LLA6W0cke7xdc7nK5Q+cK5X5Ec55Wu6784cxzmbHM+YLzs2zJeUQAzLBzwOeHvFgy3eO+gqMlCwWPYH2Gw7nahhf6nI7auhuZi5mzJV9j5I0YOWcREZ8ytlAfwYO5XkpLRW2zO7mekoRmqg1rGpupTv5an4/n2Ri1+l8B6rsIVOscb7KUas8/nflPZgIp6quT+Cr4DB8UfDPNT6NuwVsBboqNiHbF8cQdwdHMVKYZHJRsd9lq8V2LbXRG2X5DAdRvolqlWqpHtTFN7JA6HG7SXab/VyQfHuAGSPzm+W9U+9cA/uUYemvdBrgNcBvgNsC/FT8DHHmcMO2n8EcAAAAASUVORK5CYII=
+    zoom-out: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAZFSURBVFiFtZd/bJ1VGcc/z3nf+7NbL4X9oPvRdbC4WOSHUsM6g+nNRo0bNWjSK8YYTYxgMJL4hzExTUizGSXZf/oPIeAcgT96EyeQAWJjG4FRZVYS5yYik4lbO9au7e2v2977nq9/3HYr63pbEL/JyXnz5n3O83mf55zznGOSWI3MMK7+1EBa8vZDyaoBGFhrFwFNJONF0i5GejYgwSyYo5iIMR0Vmc4kKeZz+I8CsyxAtosw0UStL9GAY7ugEdgKbJx3NGSOs5E4G4/xzuwE59bXMNHdQfQ/ARhY62ESiRq2RJ7dePbL2Gmw1iCuSipM4A1mgXGMkxjHQs+f1gac7+5g7iMBGFjby6S5xKe80Y5oQ2zDKCLGMUYMhgXOjHUS1wMZQQw4Y/AiMY5Nef7+eo7ialLyAYDsYZJhijsQ3zHj8xI1wDvy9GIM4DhnMBl5XMxY48UWHM2IrIxtTozJ6EE8GbvIqRe+z+yqAbJ9hLHzbPeObxl8FYgDrwiORnAiXuJiJkkx34GnC2sFRxPJlGdjSdyF8RVEC1AQPJXwPF0T4z8rzYkQKktsz6/IEOdzBm2ItOD3LuRx4M31MNl9/6KBHkGAByZzeWYKMBqVGCEgQLQY7CsFvD0KY8D4igCtvQQ2RIOMfXgaBG8ZHBW82ZOjUC2X3R1EBqN7jnKCIr8xxxaJm82zHzhpMKEK7DXlAEpnSJlnh8EnMGaco8eLEz0wuZqJJFBUx7gP6QdeNfAybsFoaMmTqGbrDCyZIi2jUaJWMGYwMF7LReXMYxYutL5KH2AW5Cu9m2/W20pZU1wwMQAUgAxiWy2kzLDlAEKAICTtIxqAuMEwEYPtR7rKw1BvsNkgEOhW8MOgEKJ7QKOV0HoP5chs9NM/6C78bVfHWTwFKrYNiqhBjFYF8J4ksAEwYBhj6usvHso4eNCgXbBm4ReMpQk1mArhuYcef/gXDzV3FOQYM9gawcYwqJ6CEIC5+acFL3HwZgLKgqQqu6DNR8Ix3wSBVawmgHRRKQcgcSXoK+wEIZXRijKGBBKsx1Oz84nC2+rgAHCg+hBXdNfPSTQ6PungOkHZxJAzitVsHAZRyDTi38CcwTrEprYiydU6XtCNN5CW52ZgHUbZwzkfZ3r5KQhOQsUZpgXvYowD10Wi2cVYn8sTrNZ5to8wHbDZOVplbEJknBFGEFVbyg4g9h4zkeOfeE4DCRN7PDRfnKrkfiXn1oWLj3K9L9Mixx0Swkgi7vOwM5cnvqztQi24+xnqEgH78DxsxlagzyKeiBsD6RiF5fb0bBdhqom6SOyS+K7EZzHOISSj3qDfRRzMxPjrtcr0ZYBcnmBymsZygm8K7jdIAa8jjrqIN5zx/vtTzLQPVkCeryeoqyONZ5PEboMvA83AJYyngdPAA4jbDPrN85NrQSwpxy7Obc7xbYOsoNbgXYk/SAw48Z7iFAKPK0VknGOH4G7EZ5xxo2DE4HfOeHKszL9qY9wqTydwu0G/Mw7WOk4uhlh6IHmKdBSnyXnulfEFxHYz5mQUEOPAJQPn4QZgg0E9RoTntAJ+HYpjBcc/jncwkz1MMpbmTnk6Ebeb0S84cFOBk489QGkJAFRK8xdfIF6aYbOKtJixH8dORMYgISorQxAZeEQdjsDEG85xMJ7m+HP3Mr04qoshMHpdic6Xz3BWj+CXPZTm8gSDJWqd2BLGaHRiG54GMzZ4kIkhGYMGtSbu88ZmBz1O/Gy2nrd6WykvhggTNGP8FGhAHErXcPjZLzFR/VhuWEc3brxIci4kFYak5Um6CJmjOCdmUkVsLsmdZvwYscOMHicevRrinjwZPN+Q50cGfxR8r+drXAiX9c7lS0cETJkxjRj5IGGlazvCK1HIAefolGevN0gM8mi27wpEHcyNRFxwDgnq3HwqqwJcA+aql5cjNd12hONRyEEHnVIFIhjkUDbPmVmIUp5NzpEFHOIvLqzUiFUDrAS3BAL24lgXi+gOYNIZexH7gbHAeHb4JiZghavZh5UZ1naEtGLskvFDE7doIU6GMzHqxTNhyGO/zTEqoY8lAgtaiETrL3nNpzifEO0YuwVrHZyQeD4MOdVyirGX5lP6sUZgsXJ5glFYU4ZULMLFPTNDk0z++UHKi+fT/w1gtfovc0jnLE6AQRQAAAAASUVORK5CYII=
+    zoom-in: data:image/png;base64,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
+    grab: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPRSURBVFiF7ZZNa11VFIafd59z7kebD/NVQhtIKS21VYsS6MiUSNsEaxWLpIIgCIL+CcF26k9woELRlGQgtNbixAYshmKDipIOTEOpVWraJDdfvefee85eDm4iTUggN00m0jXaB9Y++9nv2vvdS2bG43Ee3I8XyJdTIiAefo+SwcqkLQw9DvDKMGHuPh0Vx4vO0+6N22HK7w1ZJgf7SbcDIFzx9YDWBN7H87rBDjmmUsdXc/AlML0dAG55IKHA0wC8LNgjmJHRKegupTRIaFsBAAKPA/KIeS9+MFgwT0M2WKXUFsZaPzaMRFAAUgnnK9uze1ilwH8AYOZITcig3kfs7b5A+9khMmJrYVYoUAYCMFXJUjNC4JDznMsEXJ81rvQOMHksZfbRIR6OdpE86RVdr7beUooSD03kzNjjxDvecxKxkAkYyY7z9fFxpvuMYnaOqcsfUNwMjMD03CBR8wKNUR0vOM8nZuQwPgJ2S2RNSMabwG4gh0gxJkyYPOMOLjaGjAz2U6xZgVe/JRPP8azL0aeUYwYdgnGJexXjejbAW0hoFW74hL04Dss4A+yTkSL2eyNcrHBb4q5ZbSqEySwtzngXOI0QnjHgknLcHT7DlFXPhPqHKNw1fqsL+FnGnFKcF7EZHzrHkWJKa/8g96A2xwxDka/AQSAj4/NEXKWOO21FZpZramD0U5aodN3kj10TfEYMPk+HE2+Z0eg8OyZmcDUDeIdIiICiAn7JlLj13WkW10pekrdCFw8kdPwiTeYpS6CQYF9T7VfUlUpgwiO8h3I53fgOXIrJVfMFwcL9TQC4CJOqUvvKmsa0/uQIwy8Bi6BYvxmAtGq9CJzIzLduHCIp4kzVfBM+P1+7DzgiEqs+tc5Ee31CZiMTe64RuAwNTjRjJImnUJyuvWdwLiYW3JHhcLyULdH5xjfs0Pm1lRDo1FWy7h86DboxGhF/ZQMKw+dqBwinmlh4ZpFRjD4ZJ1Jw5UWunDzA2IkB5tI8pfqQMn9DspOwN6DRO/YLXsPoNRGb+L6UUKjVhADC0VHiU4e5WU4YQLwN9HjjKAG3MCaimD+LYpI6UhwtEke856igRVDwxpU04VJblplaF4elnvDsEMFsTEsS8rwTvQbdQKOseqolbNkRDQLgEXDDhVy2hF8r7Uxe6yHZNABUa9vzBdkoR7M3Ok0cdNApo8NEmwlzxqx57uD4yVUYm89xf6Sf+EmeZK1uywXq+pRw107yqSdHRNZ7IgAiEhcTz+eYHxmjZB/jN7vwugBrJi01pJs5ZFsCsJ1Rk/U+BXgK8L8E+BehbK1QiZJKywAAAABJRU5ErkJggg==
+ 
+
+
+
+analytics:
+  busuanzi: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
+  leancloud: # 请使用自己的 id & key 以防止数据丢失
+    app_id:
+    app_key:
+    custom_api_server:
+
