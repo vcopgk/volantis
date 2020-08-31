@@ -53,7 +53,7 @@ function setAPlayerObserver() {
 		APlayerController.player.on('error', function (e) { // 音乐加载失败
 			var index = document.querySelector('meting-js').aplayer.list.index;
 			var title = document.querySelector('meting-js').aplayer.list.audios[index].title;
-			$.message({title: "音乐通知",message: "歌曲：" + title + "加载失败~",type: 'warning'});
+			$.message({title: "音乐通知",message: "歌曲：" + title + "加载失败~ 可能是网络不佳或版权受限。",type: 'warning'});
 		});
 
 		// 监听音量手势
