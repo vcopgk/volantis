@@ -33,14 +33,14 @@
   --color-link: convert(hexo-config('color_scheme.dark.meta'))
 
 
-  if hexo-config('plugins.backstretch.position') == 'fixed'
+  if hexo-config('plugins.backstretch.position') == 'fixed' && hexo-config('plugins.backstretch.enable') == 'true'
     .backstretch
       background-color: #282c34 !important
     .backstretch-item
       display: none !important
   else
     .l_body
-      background-color: var(--color-site-bg) !important
+      background-color: #282c34 !important
   img
     filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
   .lazyload
