@@ -1,4 +1,4 @@
-<% if (theme.rightmenu && theme.rightmenu.enable == true && theme.rightmenu.layout.length > 0) { %>
+<% if (theme.rightmenu.enable == true && theme.rightmenu.layout.length > 0) { %>
   <% function loadmenu(obj) { %>
     <li>
       <a class='vlts-menu fix-cursor-default' <%= obj.url ? 'href='+ url_for(obj.url)+'' : ''%>

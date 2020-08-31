@@ -18,9 +18,6 @@
   </div>
   <div>
     <%- partial('_partial/scripts/index') %>
-    <% if (theme.rightmenu && theme.rightmenu.enable == true) { %>
-      <%- partial('_partial/rightmenu') %>
-    <% } %>
     <% if (theme.plugins.pjax.enable) { %>
       <%- partial('_third-party/pjax/index') %>
     <% } %>
