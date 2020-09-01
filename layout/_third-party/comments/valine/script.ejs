@@ -2,17 +2,17 @@
   function load_valine() {
     var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
   <% if (theme.comments.minivaline.js) { %>
-    var src = '<%- theme.comments.valine.js %>'
+    var src = '<%- theme.comments.valine.js %>';
   <% } else { %>
-    var src = 'https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js'
+    var src = 'https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js';
   <% } %>
-    var script = document.createElement('script')
-    script.setAttribute('type','text/javascript')
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
     script.onload = function() {
-      pjax_valine()
+      pjax_valine();
     }
-    script.setAttribute('src', src)
-    HEAD.appendChild(script)
+    script.setAttribute('src', src);
+    HEAD.appendChild(script);
   };
 
   var GUEST_INFO = ['nick', 'mail', 'link'];
