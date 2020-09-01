@@ -1,9 +1,20 @@
-<% if (theme.comments.valine.js) { %>
-  <%- js(theme.comments.valine.js) %>
-<% } else { %>
-  <%- js(['js/valine.js']) %>
-<% } %>
 <script>
+  function load_valine() {
+    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+  <% if (theme.comments.minivaline.js) { %>
+    var src = '<%- theme.comments.valine.js %>'
+  <% } else { %>
+    var src = 'https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js'
+  <% } %>
+    var script = document.createElement('script')
+    script.setAttribute('type','text/javascript')
+    script.onload = function() {
+      pjax_valine()
+    }
+    script.setAttribute('src', src)
+    HEAD.appendChild(script)
+  };
+
   var GUEST_INFO = ['nick', 'mail', 'link'];
   var meta = '<%= theme.comments.valine.meta %>'.split(',').filter(function (item) {
     return GUEST_INFO.indexOf(item) > -1
@@ -174,6 +185,7 @@
   }
 
   $(function () {
-    pjax_valine();
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    load_valine();
   });
 </script>

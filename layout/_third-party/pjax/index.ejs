@@ -124,7 +124,11 @@
           pjax_initCopyCode();
         <% } %>
         <% if (theme.comments.service == 'valine'){ %>
-          pjax_valine();
+          if (typeof Valine == "undefined") {
+            load_valine();
+          } else {
+            pjax_valine();
+          }
         <% } %>
         <% if (theme.comments.service == 'minivaline'){ %>
           pjax_minivaline();
