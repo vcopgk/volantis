@@ -44,6 +44,7 @@ function lazyProcess(htmlContent, target)  {
                 + "  <span class='image-caption'>" + imgAlt + "</span>"
                 + "</div>";
         } else {
+            if(imgAlt == '') return img;
             return "<div class='fancybox'>"
                 + "  <div class='bg'> "
                 +       img
