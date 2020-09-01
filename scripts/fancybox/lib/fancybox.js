@@ -24,7 +24,7 @@ function lazyProcess(htmlContent, target)  {
             return img;
         }
 
-        if (/inline/gi.test(imgClass)) {
+        if (/inline|avatar/gi.test(imgClass)) {
             return img;
         }
 
