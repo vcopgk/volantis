@@ -1,5 +1,5 @@
-<%- js({src: theme.plugins.darkmodejs.js,aysc:true}) %>
 <script type="text/javascript">
+$('body').prepend('<button class="temp-darkmode-toggle darkmode-toggle" aria-label="Activate dark mode" aria-checked="false"></button>');
 
 function getClientHeight() {
 	var clientHeight = 0;
@@ -73,12 +73,28 @@ function pjax_darkmodejs(){
   <% } %>
 }
 
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  <% if (theme.plugins.darkmodejs.button.enable) { %>
-  window.darkmode.showWidget();
-  <% } %>
-  pjax_darkmodejs();
+
+function initDarkMode() {
+  // mix-blend-mode support?
+  if(supportCss3('mix-blend-mode')){
+    window.darkmode = new Darkmode(options);
+    <% if (theme.plugins.darkmodejs.button.enable) { %>
+    window.darkmode.showWidget();
+    <% } %>
+    pjax_darkmodejs();
+  }
 }
+
+$('.darkmode-toggle').one('focus',function(){
+    $('.darkmode-toggle').remove();
+    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+    var src = '<%- theme.plugins.darkmodejs.js %>';
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    script.onload = function() {
+      initDarkMode();
+    }
+    script.setAttribute('src', src);
+    HEAD.appendChild(script);
+  })
 </script>
