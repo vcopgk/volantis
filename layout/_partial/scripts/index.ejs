@@ -12,8 +12,6 @@
   <%- partial('../rightmenu') %>
 <% } %>
 
-
-
 <% if (theme.plugins.lazyload && theme.plugins.lazyload.enable) { %>
   <%- partial('../../_third-party/lazyload/script') %>
 <% } %>
@@ -59,11 +57,66 @@
 <% if (theme.analytics.busuanzi) { %>
   <script defer src="<%- theme.analytics.busuanzi %>" data-pjax></script>
 <% } %>
-<% if (config.use_cdn && theme.info.cdn && theme.info.cdn.js) { %>
+
+<!-- 2020/9/2 极致优化 -->
+<!-- <% if (config.use_cdn && theme.info.cdn && theme.info.cdn.js) { %>
   <%- js(theme.info.cdn.js) %>
 <% } else { %>
   <%- js(['js/app.js']) %>
-<% } %>
+<% } %> -->
+<script>
+// 处理向上按钮
+window.addEventListener("scroll", function () {
+  let scrollTop = document.body.scrollTop == 0 ? document.documentElement.scrollTop : document.body.scrollTop;
+  if (scrollTop > 240) {
+    document.getElementsByClassName('s-top')[0].classList.add("show");
+  } else {
+    document.getElementsByClassName('s-top')[0].classList.remove("show");
+  }
+})
+
+document.getElementsByClassName('s-top')[0].addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+});
+
+//处理移动端的搜索按钮
+document.getElementsByClassName('s-search')[0].addEventListener("click", function (e) {
+  e.stopPropagation();
+  if (document.getElementsByClassName('l_header')[0].classList.value.indexOf('z_search-open') != -1) {
+    document.getElementsByClassName('l_header')[0].classList.remove('z_search-open');
+  } else {
+    document.getElementsByClassName('l_header')[0].classList.add('z_search-open');
+  }
+
+  if (document.getElementsByClassName('s-search')[0].classList.value.indexOf('active') != -1) {
+    document.getElementsByClassName('s-search')[0].classList.remove('active');
+  } else {
+    document.getElementsByClassName('s-search')[0].classList.add('active');
+  }
+});
+
+document.getElementsByClassName('u-search-input')[0].addEventListener("click", function (e) {
+  e.stopPropagation();  // 阻断搜索输入框的点击事件
+});
+
+//处理移动端的菜单按钮
+document.getElementsByClassName('switcher nav-list-h m-phone')[1].lastChild.addEventListener("click", function (e) {
+  e.stopPropagation();
+  document.getElementsByClassName('menu-phone list-v navigation white-box')[0].style.display='block';
+});
+
+
+// dom 点击时，去掉搜索
+document.addEventListener("click", function (e) {
+  e.stopPropagation();
+  document.getElementsByClassName('l_header')[0].classList.remove('z_search-open');
+  document.getElementsByClassName('s-search')[0].classList.remove('active');
+  document.getElementsByClassName('menu-phone list-v navigation white-box')[0].style.display='none';
+});
+</script>
 
 <!-- optional -->
 <% if (theme.search && theme.search.enable) { %>
