@@ -85,7 +85,7 @@ function initDarkMode() {
   }
 }
 
-$('.darkmode-toggle').one('focus',function(){
+$('.darkmode-toggle').one('click',function(){
     $('.darkmode-toggle').remove();
     var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
     var src = '<%- theme.plugins.darkmodejs.js %>';
@@ -93,6 +93,7 @@ $('.darkmode-toggle').one('focus',function(){
     script.setAttribute('type','text/javascript');
     script.onload = function() {
       initDarkMode();
+      window.darkmode.button.click();
     }
     script.setAttribute('src', src);
     HEAD.appendChild(script);
