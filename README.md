@@ -8,4 +8,4 @@
 自定义配置文件：*_config.volantis.yml*
 
 
-![](https://s1.ax1x.com/2020/09/03/wPbsBT.png)
+![](https://camo.githubusercontent.com/1443ce3aa6d6fe3e113afb6b401b190b6f7099c9/68747470733a2f2f73312e617831782e636f6d2f323032302f30392f30332f7750627342542e706e67)
