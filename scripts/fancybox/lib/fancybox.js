@@ -45,12 +45,10 @@ function lazyProcess(htmlContent, target)  {
                 + "</div>";
         } else {
             if(imgAlt == '') return img;
-            return "<div class='fancybox'>"
-                + "  <div class='bg'> "
+            return "<figure class='image-wrapper'>"
                 +       img
-                + "  </div>"
-                + "  <span class='image-caption'>" + imgAlt + "</span>"
-                + "</div>";
+                + "  <figcaption>" + imgAlt + "</figcaption>"
+                + "</figure>";
         }
     });
 }
