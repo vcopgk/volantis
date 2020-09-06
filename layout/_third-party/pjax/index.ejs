@@ -26,8 +26,44 @@
 			return false;
 		});
   }
+  	// 设置导航栏菜单选中状态
+	function setHeaderMenuSelection() {
+		var $headerMenu = $('body .navigation');
+		// 先把已经激活的取消激活
+		$headerMenu.find('li a.active').removeClass('active');
+		$headerMenu.find('div a.active').removeClass('active');
+		// var $underline = $headerMenu.find('.underline');
+		function setUnderline($item) {
+			// if (!transition) $underline.addClass('disable-trans');
+			if ($item && $item.length) {
+				$item.addClass('active').siblings().removeClass('active');
+			}
+		}
+		//set current active nav
+		var $active_link = null;
+		// replace '%' '/' '.'
+		var idname = location.pathname.replace(/\/|%|\./g, "");
+		if (idname.length == 0) {
+			idname = "home";
+		}
+		var page = idname.match(/page\d{0,}$/g);
+		if (page) {
+			page = page[0];
+			idname = idname.split(page)[0];
+		}
+		var index = idname.match(/index.html/);
+		if (index) {
+			index = index[0];
+			idname = idname.split(index)[0];
+		}
+		if (idname && $headerMenu) {
+			$active_link = $('#' + idname, $headerMenu);
+			setUnderline($active_link);
+		}
+  }
+
   setTabs();
-  
+  setHeaderMenuSelection();
   var pjax;
   document.addEventListener('DOMContentLoaded', function () {
     pjax = new Pjax({
@@ -103,6 +139,7 @@
     });
     try{
       setTabs();
+      setHeaderMenuSelection();
       <% if (theme.rightmenu && theme.rightmenu.enable == true) { %>
         document.querySelectorAll('img').forEach((item) => {  // IMG 放出菜单
           item.oncontextmenu  = function (event) {
