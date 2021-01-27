@@ -23,6 +23,10 @@
   <%- partial('../rightmenu') %>
 <% } %>
 
+<% if(theme.rightmenus.enable == true) { %>
+  <%- partial('../rightmenus') %>
+<% } %>
+
 <%- partial('issues') %>
 
 <% if (theme.plugins.lazyload && theme.plugins.lazyload.enable) { %>

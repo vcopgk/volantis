@@ -1,0 +1,19 @@
+  ///////////////////////
+ //  提前量的强制覆盖  //
+///////////////////////
+
+// 导航栏样式 仅当 2K 分辨率时使用
+.l_header
+  @media screen and (max-width: $device-2k)
+    left: 0 !important
+    border-radius: 0 !important
+    max-width: 100% !important
+
+// 导航栏文字潜在修复
+//.l_header ul.nav-list-h>li>a
+//  overflow: hidden !important
+
+// 修改粗细
+.widget header,
+ul.nav-list-h>li>a
+  font-weight: initial !important

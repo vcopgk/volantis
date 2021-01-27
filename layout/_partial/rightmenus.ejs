@@ -1,0 +1,266 @@
+<% if (theme.rightmenus.enable == true && theme.rightmenus.layout.length > 0) { %>
+
+  <% function loadmenu(obj) { %>
+    <li class="menuLoad-Content">
+      <a class='vlts-menu fix-cursor-default' <%= obj.url ? 'href='+ url_for(obj.url)+'' : ''%>
+        <% if (obj.rel) { %>
+          rel="<%- obj.rel %>"
+        <% } %>
+        <% if (obj.target) { %>
+          target="<%- obj.target %>"
+        <% } %>
+        <% if (obj.onclick) { %>
+          onclick="<%- obj.onclick %>"
+        <% } %>
+        <% if (obj.id) { %>
+          id="<%- obj.id %>"
+        <% } else if (obj.url) { %>
+          id="<%= url_for(obj.url).replace(/\/|%|\./g, "")?url_for(obj.url).replace(/\/|%|\./g, ""):"home" %>"
+        <% } %>
+      >
+        <% if (obj.icon) { %><i class='<%= obj.icon %> fa-fw'></i><% } %> <%- obj.name %>
+      </a>
+    </li>
+  <% } %>
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='navigation menuNavigation-Content'>
+        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fal fa-arrow-left fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fal fa-arrow-right fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fal fa-redo fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' href='/'><i class='fal fa-home fa-fw'></i></a>
+      </li>
+      <li class='option menuOption-Content'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="rightMenu.menuCopyShow()">
+          <i class='fal fa-copy fa-fw'></i><%- __('rightmenu.copy_text') %>
+        </a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'>
+          <i class='fal fa-link fa-fw'></i><%- __('rightmenu.copy_link') %>
+        </a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-tab'>
+          <i class='fal fa-external-link-square-alt fa-fw'></i><%- __('rightmenu.open_in_new_tab') %>
+        </a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'>
+          <i class='fal fa-image fa-fw'></i><%- __('rightmenu.copy_image_src') %>
+        </a>
+      </li>
+      <% theme.rightmenus.layout.forEach(function(item){ %>
+        <% if (item == 'hr') { %>
+          <hr class="menuLoad-Content">
+        <% } else if (item == 'darkmode') { %>
+          <li class='option menuOption-Content'>
+            <a class='vlts-menu fix-cursor-default toggle-mode-btn'>
+              <i id="menuDark-Btn" class='<%= theme.rightmenus.darkmode.dark %> fa-fw'></i> <%- theme.rightmenus.darkmode.name %>
+            </a>
+          </li>
+        <% } else if (item == 'music' && theme.plugins.aplayer.enable == true) { %>
+          <li class='music name menuOption-Content'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        <% } else if (item in theme.rightmenus) { %>
+          <% loadmenu(theme.rightmenus[item]) %>
+        <% } %>
+      <% }) %>
+    </ul>
+  </div>
+
+  <script>
+    $(function () {
+      rightMenu.init();
+
+      document.addEventListener("click", function (event) {
+        rightMenu.hideMenu();
+      });
+    });
+
+
+
+    var rightMenu = (function (model) {
+      const fn = {};
+      const _rightMenuWrapper = document.getElementById('rightmenu-wrapper'),
+            _rightMenuContent = document.getElementById('rightmenu-content'),
+            _menuLoad =  $('.menuLoad-Content'),
+            _menuOption =  $('.menuOption-Content');
+
+      const _copyText = $('#menu-copy-text'),
+            _copyHref = $('#menu-copy-href'),
+            _copyTab = $('#menu-open-tab'),
+            _copySrc = $('#menu-copy-src');
+
+      const darkmodeDark = '<%= theme.rightmenus.darkmode.dark %>'.slice(3),
+            darkmodeWhite = '<%= theme.rightmenus.darkmode.white %>'.slice(3);
+
+      model.init = () => {
+        fn.init();
+        fn.initEvent();
+      }
+
+      model.menuCopyShow = () => {
+        document.execCommand("Copy");
+        $.message({title:'复制成功',message: window.getSelection().toString(),type:'success'});
+        fn.hideMenu();
+      }
+
+      model.hideMenu = () => {
+        fn.hideMenu();
+      }
+
+      fn.init = () => {
+        window.document.oncontextmenu = (event) => {
+          if (event.ctrlKey || $(window).width() <= 500) {
+            fn.hideMenu();
+            return true;
+          }
+          return fn.popMenu(event);
+        }
+
+        _rightMenuWrapper.oncontextmenu = (event) => {
+          event.stopPropagation();  // 阻止右键上的右键
+          event.preventDefault();
+          return false;
+        }
+
+        _copyText.hide();
+        _copyHref.hide();
+        _copyTab.hide();
+        _copySrc.hide();
+      }
+
+      fn.initEvent = () => {
+        const _menuDarkBtn =  $('#menuDark-Btn');
+        _menuDarkBtn.parent().off('click.setMenuDark').on('click.setMenuDark', (event) => {
+          if (_menuDarkBtn.hasClass(darkmodeWhite)) {
+            _menuDarkBtn.toggleClass(darkmodeDark);
+          } else {
+            _menuDarkBtn.toggleClass(darkmodeWhite);
+          }
+        })
+      }
+
+      fn.popMenu = (event) => {
+        let mouseClientX = event.clientX;
+        let mouseClientY = event.clientY;
+        let menuWidth = _rightMenuContent.offsetWidth;
+        let menuHeight = _rightMenuContent.offsetHeight;
+        let screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        let screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        let showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
+        let showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
+        _rightMenuWrapper.style.left = showLeft + "px";
+        _rightMenuWrapper.style.top = showTop + "px";
+        _rightMenuWrapper.style.display = 'block';
+
+        try {
+          fn.setMenuItem(event);
+        } catch (error) {
+          console.error(error);
+        }
+
+        return false;
+      }
+
+      fn.setMenuItem = (event) => {
+        let optionFlag = false;
+        
+        // 判断是不是按钮 选中按钮
+        let href = '';
+        if (event.path) {
+          for (i = 0; i < event.path.length; i++) {
+            if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+              href = event.path[i].href;
+            }
+          }
+        }
+
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('<%= theme.plugins.clipboard.enable %>' == 'true') {
+            optionFlag = true;
+            _copyText.show();
+          }
+        } else {
+          _copyText.hide();
+        }
+
+        // 复制链接
+        if (href.length > 0) {
+          optionFlag = true;
+          _copyHref.show();
+          _copyTab.show();
+          _copyHref.off("click.copyHref").one("click.copyHref", () => {
+            fn.copyString(href);
+          });
+          _copyTab.off("click.copyTab").one("click.copyTab", () => {
+            window.open(href);
+          });
+        } else {
+          _copyHref.hide();
+          _copyTab.hide();
+        }
+        
+        
+        // 复制图片
+        if (_copySrc != undefined) {
+          if (event.target.currentSrc) {
+            optionFlag = true;
+            _copySrc.show();
+            _copySrc.off("click.copySrc").one("click.copySrc", () => {
+              fn.copyString(event.target.currentSrc);
+            });
+          } else {
+            _copySrc.hide();
+          }
+        }
+
+        if(optionFlag) {
+          _menuLoad.hide();
+        } else {
+          _menuLoad.show();
+        }
+
+        // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+        <% if (theme.plugins.aplayer.enable && (theme.rightmenu.layout||[]).includes('music')) { %>
+        if(volantis.APlayerLoaded){ // APlayer加载完成？
+          // 如果有aplayer，初始化一下
+          checkAPlayer();
+        }
+        <% } %>
+      }
+
+      fn.copyString = (str) => {
+        const input = document.createElement('input');
+        input.setAttribute('readonly', 'readonly');
+        document.body.appendChild(input);
+        input.setAttribute('value', str);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        $.message({title:'复制成功',message: str,type:'success'});
+        fn.hideMenu();
+      }
+
+      fn.hideMenu = () => {
+        _rightMenuWrapper.style.display = 'none';
+      }
+
+      return model;
+    }(rightMenu || {}));
+  </script>
+<% } %>

@@ -5,7 +5,7 @@ if hexo-config('plugins.backstretch.position') == 'fixed'
     display: none !important
 else
   #l_body
-    background-color: black !important
+    background-color: #282c34 !important
 img
   filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
 .lazyload
@@ -65,10 +65,10 @@ kbd
   color: var(--color-text) !important
 //highlight
 .gutter
-  background: var(--color-card) !important
-  background-color: var(--color-card) !important
+  background: #1d1f23 !important
+  background-color: #1d1f23 !important
 .highlight figcaption
-  background-color: #21252b
+  background-color: #21252b !important
 .highlight pre .line, .highlight pre .params
   color: rgba(158, 142, 142, 0.9)
 //table
@@ -140,10 +140,28 @@ if hexo-config('plugins.aplayer.enable')
     border-bottom: 1px solid var(--color-block)
 if hexo-config('comments.service')=='valine'
   #valine_container button
-    background-color: var(--color-block) !important
+    background-color: #363b40 !important
   #valine_container .vcards .vcontent.expand:before
     background: none !important
   #valine_container .vcards .vcontent.expand:after
     background:  #393c40 !important
   .v[data-class=v] code, .v[data-class=v] pre
     background-color: #332828 !important
+
+// 自定义修改区域
+.widget.grid .content .grid a,
+.widget>.content ul.entry a .badge, .widget>.content ul.popular-posts a .badge
+  color: #aaa !important
+details[cyan]
+  border: none
+  &>summary
+    background-color: #21252b !important
+details[open]>summary
+  color: var(--color-p)
+.highlight>table,
+.highlight:hover
+  background-color: #1d1f23 !important
+article#comments p[ct]
+  color: var(--color-p) !important
+.highlight pre .comment
+  color: #847a7d!important
