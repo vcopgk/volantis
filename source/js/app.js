@@ -31,7 +31,7 @@ var Debounce = (fn, t) => {
   volantis.$headerMenu = $('body .navigation'); // 导航列表
   volantis.$search = $('#l_header .m_search'); // 搜索框 桌面端
   volantis.$mPhoneList = $('#l_header .m-phone .list-v'); //  手机端 子菜单
-  const isMobile = /mobile/i.test(window.navigator.userAgent);
+  const isMobile = /mobile/i.test(window.navigator.userAgent) || $(window).width() <= 500;
 
   // 校正页面定位（被导航栏挡住的区域）
   var scrollCorrection = 80; // (header height = 64px) + (gap = 16px)
@@ -208,7 +208,7 @@ var Debounce = (fn, t) => {
   function setGlobalHeaderMenuEvent() {
     if (isMobile) {
       // 手机端 点击展开子菜单
-      $('#l_header .m-phone li').click(function(e) {
+      $('.m-phone li:has(.list-v)').click(function(e) {
         e.stopPropagation();
         $($(e.currentTarget).children('ul')).show();
       });
