@@ -44,6 +44,7 @@ rightmenu:
   forward: "前进"
   reload: "刷新"
   copy_text: "复制文本"
+  copy_paste: "粘贴文本"
   copy_image_src: "复制图片地址"
   copy_link: "复制链接"
   open_in_new_tab: "在新标签页打开"
