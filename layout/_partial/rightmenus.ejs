@@ -57,7 +57,7 @@
         <% } else if (item == 'darkmode') { %>
           <li class='option menuOption-Content'>
             <a class='vlts-menu fix-cursor-default toggle-mode-btn menu-Option' data-fn-type='menuDarkBtn'>
-              <i class='<%= theme.rightmenus.darkmode.dark %> fa-fw '></i> <%- theme.rightmenus.darkmode.name %>
+              <i class='<%= theme.rightmenus.darkmode.dark %> fa-fw '></i> <%- trim(theme.rightmenus.darkmode.name) %>
             </a>
           </li>
         <% } else if (item == 'music' && theme.plugins.aplayer.enable == true) { %>
@@ -140,8 +140,8 @@
         }
 
         // 对应更改图标
-        const darkmodeDark = '<%= theme.rightmenus.darkmode.dark %>'.slice(3),
-              darkmodeWhite = '<%= theme.rightmenus.darkmode.white %>'.slice(3);
+        const darkmodeDark = '<%= theme.rightmenus.darkmode.dark %>'.slice(3) || 'moon',
+              darkmodeWhite = '<%= theme.rightmenus.darkmode.white %>'.slice(3) || 'sun';
         $menuDarkBtn.on('click.rightMenu.setMenuDark', (event) => {
           $menuDarkBtn.children().toggleClass(darkmodeDark);
           $menuDarkBtn.children().toggleClass(darkmodeWhite);
@@ -179,47 +179,46 @@
       // 菜单项设置
       fn.setMenuItem = (event) => {
         let optionFlag = false;
+        const eventTarget = event.target;
         const selectText = window.getSelection().toString();
         
-        // 判断是不是按钮 选中按钮
-        let href = '';
-        if (event.path) {
-          for (i = 0; i < event.path.length; i++) {
-            if (event.path[i].href != undefined && event.path[i].href.length > 0) {
-              href = event.path[i].href;
-            }
-          }
-        }
-
         // 判断是否是输入框
-        const $eventZero = $(($(event)[0].path)[0]);
-        if($eventZero.is('input') || $eventZero.is('textarea')) {
-          if($eventZero.val().length > 0) {
+        if($(eventTarget).is('input') || $(eventTarget).is('textarea')) {
+          const inputStr = $(eventTarget).val();
+
+          // 复制
+          if(inputStr.length > 0) {
             $copySelect.show();
             $copySelect.one("click.rightMenu.copySelect", () => {
-              $eventZero.select();
+              $(eventTarget).select();
             })
           } else {
             $copySelect.hide();
           }
 
+          // 剪切
           if(selectText) {
             $copyCut.show();
             $copyCut.one("click.rightMenu.copyCut", () => {
+              const statrPos = eventTarget.selectionStart;
+              const endPos = eventTarget.selectionEnd;
               fn.copyString(selectText);
-              $eventZero.val($eventZero.val().replace(selectText,""));
+              $(eventTarget).val(inputStr.substring(0, statrPos) + inputStr.substring(endPos, inputStr.length));
+              eventTarget.selectionStart = statrPos;
+              eventTarget.selectionEnd = statrPos;
+              $(eventTarget).focus();
             })
           } else {
             $copyCut.hide();
           }
 
+          // 粘贴
           fn.readClipboard().then(text => {
             // 如果剪切板存在内容
             if (!!text) {
               $copyPaste.show();
-              $copyPaste.one("click.rightMenu.cpoyPaste", () => {
-                // 填充至输入框
-                $eventZero.val($eventZero.val() + text);
+              $copyPaste.off("click.rightMenu.cpoyPaste").one("click.rightMenu.cpoyPaste", () => {
+                fn.insertAtCaret($(eventTarget), text);
               })
             } else {
               $copyPaste.hide();
@@ -232,6 +231,35 @@
           $copyPaste.hide();
           $copyCut.hide();
         }
+
+        // 新标签打开
+        const eventHref = eventTarget.href;
+        if (!!eventHref) {
+          optionFlag = true;
+          $copyHref.show();
+          $openTab.show();
+          $copyHref.one("click.rightMenu.copyHref", () => {
+            fn.copyString(eventHref);
+          });
+          $openTab.one("click.rightMenu.openTab", () => {
+            window.open(eventHref);
+          });
+        } else {
+          $copyHref.hide();
+          $openTab.hide();
+        }
+
+        // 复制图片
+        const eventSrc = eventTarget.currentSrc;
+        if (!!eventSrc) {
+            optionFlag = true;
+            $copySrc.show();
+            $copySrc.one("click.rightMenu.copySrc", () => {
+              fn.copyString(eventSrc);
+            });
+          } else {
+            $copySrc.hide();
+          }
 
         // 选中文本
         if (selectText) {
@@ -246,36 +274,6 @@
           $copyText.hide();
         }
 
-        // 复制链接
-        if (href.length > 0) {
-          optionFlag = true;
-          $copyHref.show();
-          $openTab.show();
-          $copyHref.one("click.rightMenu.copyHref", () => {
-            fn.copyString(href);
-          });
-          $openTab.one("click.rightMenu.openTab", () => {
-            window.open(href);
-          });
-        } else {
-          $copyHref.hide();
-          $openTab.hide();
-        }
-        
-        
-        // 复制图片
-        if ($copySrc != undefined) {
-          if (event.target.currentSrc) {
-            optionFlag = true;
-            $copySrc.show();
-            $copySrc.one("click.rightMenu.copySrc", () => {
-              fn.copyString(event.target.currentSrc);
-            });
-          } else {
-            $copySrc.hide();
-          }
-        }
-
         if(optionFlag) {
           $menuLoad.hide();
         } else {
@@ -283,12 +281,17 @@
         }
 
         // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
-        <% if (theme.plugins.aplayer.enable && (theme.rightmenu.layout||[]).includes('music')) { %>
+        <% if (theme.plugins.aplayer.enable && (theme.rightmenus.layout||[]).includes('music')) { %>
         if(volantis.APlayerLoaded){ // APlayer加载完成？
           // 如果有aplayer，初始化一下
           checkAPlayer();
         }
         <% } %>
+      }
+
+      // 隐藏菜单
+      fn.hideMenu = () => {
+        _rightMenuWrapper.style.display = 'none';
       }
 
       // 复制字符串
@@ -304,21 +307,41 @@
         fn.hideMenu();
       }
 
-      // 隐藏菜单
-      fn.hideMenu = () => {
-        _rightMenuWrapper.style.display = 'none';
+      // 粘贴文本
+      fn.insertAtCaret = function($elemt, value) {
+        const elemt = $elemt[0];
+        const startPos = elemt.selectionStart,
+              endPos = elemt.selectionEnd;
+        if (document.selection) { 
+            $elemt.focus(); 
+            var sel = document.selection.createRange(); 
+            sel.text = value; 
+            $elemt.focus(); 
+        } else {
+          if (startPos || startPos == '0') { 
+            var scrollTop = elemt.scrollTop; 
+            elemt.value = elemt.value.substring(0, startPos) + value + elemt.value.substring(endPos, elemt.value.length); 
+            $elemt.focus(); 
+            elemt.selectionStart = startPos + value.length; 
+            elemt.selectionEnd = startPos + value.length; 
+            elemt.scrollTop = scrollTop; 
+          } else { 
+            $elemt.value += value; 
+            $elemt.focus(); 
+          }
+        }
       }
 
       // 请求读取剪切板
       fn.readClipboard = async () => {
-          const result = await navigator.permissions.query({ name: 'clipboard-read' });
-          if (result.state === 'granted' || result.state === 'prompt') {
-              return navigator.clipboard
-                  .readText()
-                  .then(text => text)
-                  .catch(err => Promise.reject(err));
-          }
-          return Promise.reject(result);
+        const result = await navigator.permissions.query({ name: 'clipboard-read' });
+        if (result.state === 'granted' || result.state === 'prompt') {
+          return navigator.clipboard
+            .readText()
+            .then(text => text)
+            .catch(err => Promise.reject(err));
+        }
+        return Promise.reject(result);
       }
 
       return model;
