@@ -125,7 +125,7 @@ var Debounce = (fn, t) => {
     volantis.$comment = $('#s-comment'); // 评论按钮  桌面端 移动端
     volantis.$toc = $('#s-toc'); // 目录按钮  仅移动端
     volantis.$commentTarget = $('#l_body article#comments'); // 评论区域
-    volantis.$wrapper.find('.nav-sub .title').text(window.subData.title); // 二级导航文章标题
+    volantis.$wrapper.find('.nav-sub .title').html(window.subData.title); // 二级导航文章标题
     // 决定一二级导航栏的切换
     let pos = document.body.scrollTop;
     $(document, window).scroll(Debounce(() => {
