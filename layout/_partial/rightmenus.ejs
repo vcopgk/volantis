@@ -108,6 +108,9 @@
             $copyHref = $('.menu-Option[data-fn-type="copyHref"]'),
             $copySrc = $('.menu-Option[data-fn-type="copySrc"]'),
             $openTab = $('.menu-Option[data-fn-type="openTab"]');
+
+      const darkmodeDark = '<%= theme.rightmenus.darkmode.dark %>'.slice(3) || 'moon',
+        darkmodeWhite = '<%= theme.rightmenus.darkmode.white %>'.slice(3) || 'sun';
             
       model.init = () => {
         fn.init();
@@ -138,14 +141,6 @@
           event.preventDefault();
           return false;
         }
-
-        // 对应更改图标
-        const darkmodeDark = '<%= theme.rightmenus.darkmode.dark %>'.slice(3) || 'moon',
-              darkmodeWhite = '<%= theme.rightmenus.darkmode.white %>'.slice(3) || 'sun';
-        $menuDarkBtn.on('click.rightMenu.setMenuDark', (event) => {
-          $menuDarkBtn.children().toggleClass(darkmodeDark);
-          $menuDarkBtn.children().toggleClass(darkmodeWhite);
-        })
 
         document.addEventListener('click', () => {
           fn.hideMenu();
@@ -273,6 +268,12 @@
         } else {
           $copyText.hide();
         }
+
+        // 对应更改图标
+        $menuDarkBtn.one('click.rightMenu.setMenuDark', (event) => {
+          $menuDarkBtn.children().toggleClass(darkmodeDark);
+          $menuDarkBtn.children().toggleClass(darkmodeWhite);
+        })
 
         if(optionFlag) {
           $menuLoad.hide();
