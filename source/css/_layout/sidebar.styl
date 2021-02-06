@@ -1,6 +1,13 @@
-.l_side
+#l_side
   width: $sidebar
   float: right
+  if hexo-config('sidebar.position') =='left'
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+    padding-left: $gap
   position: relative
   display: flex
   flex-direction: column
@@ -320,7 +327,7 @@
         margin-bottom: 4px
 
 
-.l_side>.widget.page
+#l_side>.widget.page
   >.content
     padding-top: 0
     padding-left: $gap - 4px

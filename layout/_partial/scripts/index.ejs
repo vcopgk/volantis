@@ -1,16 +1,16 @@
 <%- partial('global') %>
 <script>
   <% if (theme.plugins.fontawesome) { %>
-  loadCSS("<%- theme.plugins.fontawesome %>", window.volantis.loadcss);
+  loadCSS("<%- theme.plugins.fontawesome %>");
   <% } %>
   <% if (theme.plugins.fontawesome_animation.enable) { %>
-  loadCSS("<%- theme.plugins.fontawesome_animation.css %>", window.volantis.loadcss);
+  loadCSS("<%- theme.plugins.fontawesome_animation.css %>");
   <% } %>
   <% if (theme.plugins.nodewaves.enable) { %>
-  loadCSS("<%- theme.plugins.nodewaves.css %>", window.volantis.loadcss);
+  loadCSS("<%- theme.plugins.nodewaves.css %>");
   <% } %>
   <% if ((theme.plugins.highlightjs.enable == true)&&(theme.plugins.highlightjs.css)) { %>
-  loadCSS("<%- theme.plugins.highlightjs.css %>", window.volantis.loadcss);
+  loadCSS("<%- theme.plugins.highlightjs.css %>");
   <% } %>
 </script>
 <!-- required -->
@@ -18,13 +18,15 @@
 <%- partial('../../_third-party/fancybox/script') %>
 
 <!-- internal -->
+
 <%- partial('cover') %>
+
 <% if (theme.rightmenu.enable == true) { %>
   <%- partial('../rightmenu') %>
 <% } %>
-
-<% if(theme.rightmenus.enable == true) { %>
-  <%- partial('../rightmenus') %>
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+<% if (theme.plugins.darkmodejs.enable) { %>
+  <%- partial('darkmode') %>
 <% } %>
 
 <%- partial('issues') %>
@@ -87,13 +89,13 @@
   <%- partial('counter') %>
 <% } %>
 
-<% if (theme.plugins.darkmodejs.enable) { %>
-  <%- partial('darkmode') %>
-<% } %>
-
 <%- partial('../../_third-party/analytics/script') %>
 
 <%- partial('../../_third-party/tidio/script') %>
+
+<%- partial('../../_third-party/parallax/script') %>
+
+<%- partial('../../_third-party/message/script') %>
 
 <%- partial('toc') %>
 
