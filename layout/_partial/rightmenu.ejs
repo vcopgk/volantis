@@ -315,6 +315,10 @@
               $('#s-top').hide();
               $('footer').hide();
               $('#rightmenu-wrapper').hide();
+              $('details').attr('open', 'true');
+              $('.tab-pane').css({'display': 'block'});
+              $('.tab-content').css({'border-top': 'none'});
+              $('.nav-tabs').hide();
               $(document).click();
               window.print();
               document.body.innerHTML = '';
