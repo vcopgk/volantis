@@ -50,6 +50,9 @@
         <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySrc'>
           <i class='<%= faIcon %> fa-image fa-fw'></i><%- __('rightmenu.copy_image_src') %>
         </a>
+        <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='printHtml'>
+          <i class='<%= faIcon %> fa-print fa-fw'></i>打印页面
+        </a>
       </li>
       <% theme.rightmenu.layout.forEach(function(item){ %>
         <% if (item == 'hr') { %>
@@ -107,7 +110,8 @@
             $copyCut = $('.menu-Option[data-fn-type="copyCut"]'),
             $copyHref = $('.menu-Option[data-fn-type="copyHref"]'),
             $copySrc = $('.menu-Option[data-fn-type="copySrc"]'),
-            $openTab = $('.menu-Option[data-fn-type="openTab"]');
+            $openTab = $('.menu-Option[data-fn-type="openTab"]'),
+            $printHtml = $('.menu-Option[data-fn-type="printHtml"]');
 
       const darkmodeDark = '<%= theme.rightmenu.darkmode.dark %>' || 'fa fa-moon',
             darkmodeWhite = '<%= theme.rightmenu.darkmode.white %>' || 'fa fa-sun';
@@ -125,6 +129,7 @@
         $copyHref.hide();
         $copySrc.hide();
         $openTab.hide();
+        $printHtml.hide();
       }
 
       fn.initEvent = () => {
@@ -276,6 +281,50 @@
           }
         } else {
           $copyText.hide();
+        }
+
+        // 打印
+        const _printArticle = $('.article.post').html();
+        const pathName = window.location.pathname;
+        if(!!_printArticle) {
+          $printHtml.show();
+          $printHtml.one('click.rightMenu.printHtml', (event) => {
+            if(window.location.pathname === pathName) {
+              $('#backgroud-cover-szyink').css({'background': '#fff'});
+              $('#l_header').hide();
+              $('#l_cover').hide();
+              $('#l_side').hide();
+              $('#l_main').css({
+                'width': '100%'
+              });
+              $('#post').css({
+                'box-shadow': 'none', 
+                'background': 'none', 
+                'padding': '0'
+              });
+              $('h1').css({
+                'text-align': 'center', 
+                'font-weight': '600', 
+                'font-size': '2rem', 
+                'margin-bottom': '20px'
+              });
+              $('.footer').hide();
+              $('.prev-next').hide();
+              $('#bottom').hide()
+              $('#comments').hide();
+              $('#s-top').hide();
+              $('footer').hide();
+              $('#rightmenu-wrapper').hide();
+              $(document).click();
+              window.print();
+              document.body.innerHTML = '';
+              window.location.reload()
+            } else {
+              fn.hideMenu();
+            }
+          })
+        } else {
+          $printHtml.hide();
         }
 
         if(optionFlag) {
