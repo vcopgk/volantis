@@ -310,7 +310,9 @@
               });
               $('.footer').hide();
               $('.prev-next').hide();
-              $('#bottom').hide()
+              $('#bottom').css({'margin-top': '15px'});
+              const link = '<div class="new-meta-item"><a class="tag" href="' + window.location.href + '" rel="nofollow" data-pjax-state=""><i class="fal fa-external-link fa-fw" aria-hidden="true"></i><p>本文地址：' + window.location.href+'</p></a></div>';
+              $('#bottom').children().append(link);
               $('#comments').hide();
               $('#s-top').hide();
               $('footer').hide();
@@ -318,6 +320,7 @@
               $('details').attr('open', 'true');
               $('.tab-pane').css({'display': 'block'});
               $('.tab-content').css({'border-top': 'none'});
+              $('.highlight>table pre').css({'white-space': 'pre-wrap', 'word-break': 'break-all'});
               $('.nav-tabs').hide();
               $(document).click();
               window.print();
