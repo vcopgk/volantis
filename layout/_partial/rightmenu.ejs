@@ -290,6 +290,7 @@
           $printHtml.show();
           $printHtml.one('click.rightMenu.printHtml', (event) => {
             if(window.location.pathname === pathName) {
+              $('img.lazyload').removeAttr('srcset data-srcset').removeClass('lazyload');
               $('#backgroud-cover-szyink').css({'background': '#fff'});
               $('#l_header').hide();
               $('#l_cover').hide();
