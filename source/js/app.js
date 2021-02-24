@@ -338,6 +338,34 @@ var Debounce = (fn, t) => {
     });
   }
 
+  // 设定激活/销毁自定义右键
+  window.checkRightMenu = true;
+  function toggleRightMenu() {
+    if (window.checkRightMenu) {
+      $('#destroyRightContent').show();
+      $('#initRightContent').hide();
+    } else {
+      $('#destroyRightContent').hide();
+      $('#initRightContent').show();
+    }
+    
+    $('#destroyRightMenu').off('click').on('click', () => {
+      rightMenu.destroy(true);
+      window.checkRightMenu = false;
+      $('#destroyRightContent').fadeToggle(500, () => {
+        $('#initRightContent').fadeToggle();
+      });
+    })
+
+    $('#initRightMenu').off('click').on('click', () => {
+      rightMenu.init(true);
+      window.checkRightMenu = true;
+      $('#initRightContent').fadeToggle(500, () => {
+        $('#destroyRightContent').fadeToggle();
+      });
+    })
+  }
+
   $(function() {
     setIsMobile()
     setHeader();
@@ -346,6 +374,7 @@ var Debounce = (fn, t) => {
     setHeaderSearch();
     setScrollAnchor();
     setTabs();
+    toggleRightMenu();
 
     // 监听屏幕宽度  【移动端 PC】
     window.onresize=()=>{
@@ -377,6 +406,7 @@ var Debounce = (fn, t) => {
         setPageHeaderMenuEvent();
         setScrollAnchor();
         setTabs();
+        toggleRightMenu();
         // 全屏封面底部箭头  【移动端 PC】
         $('#scroll-down').on('click', function() {
           scrolltoElement(volantis.$.bodyAnchor);
