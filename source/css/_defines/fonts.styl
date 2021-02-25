@@ -1,6 +1,6 @@
 $fontfamily = "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, "Lucida Console", sans-serif
 if hexo-config('custom_css.fontfamily.bodyfont')
-  if hexo-config('custom_css.fontfamily.bodyfont.name')
+  if false
     @font-face
       font-family: hexo-config('custom_css.fontfamily.bodyfont.name')
       src: url(hexo-config('custom_css.fontfamily.bodyfont.url'))
@@ -12,7 +12,7 @@ if hexo-config('custom_css.fontfamily.bodyfont')
 
 $fontfamily-code = Menlo, Monaco, monospace, courier, sans-serif
 if hexo-config('custom_css.fontfamily.codefont')
-  if hexo-config('custom_css.fontfamily.codefont.name')
+  if false
     @font-face
       font-family: hexo-config('custom_css.fontfamily.codefont.name')
       src: url(hexo-config('custom_css.fontfamily.codefont.url'))
@@ -25,7 +25,7 @@ if hexo-config('custom_css.fontfamily.codefont')
 
 $fontfamily-logo = $fontfamily
 if hexo-config('custom_css.fontfamily.logofont')
-  if hexo-config('custom_css.fontfamily.logofont.name')
+  if false
     @font-face
       font-family: hexo-config('custom_css.fontfamily.logofont.name')
       src: url(hexo-config('custom_css.fontfamily.logofont.url'))
@@ -34,7 +34,29 @@ if hexo-config('custom_css.fontfamily.logofont')
   if hexo-config('custom_css.fontfamily.logofont.fontfamily')
     $fontfamily-logo = convert(hexo-config('custom_css.fontfamily.logofont.fontfamily')), Helvetica, monospace
 
+@font-face
+  font-family: 'zhuziH'
+  src: url(/fonts/foundertype/zhuziH400.OTF)
+  font-weight: 400
+  font-style: normal
 
+@font-face
+  font-family: 'zhuziH'
+  src: url(/fonts/foundertype/zhuziH500.OTF)
+  font-weight: 500
+  font-style: normal
+
+@font-face
+  font-family: 'zhuziH'
+  src: url(/fonts/foundertype/zhuziH600.OTF)
+  font-weight: 600
+  font-style: normal
+
+@font-face
+  font-family: 'zhuziH'
+  src: url(/fonts/foundertype/zhuziH700.OTF)
+  font-weight: 700
+  font-style: normal
 
 
 // font size
