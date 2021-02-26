@@ -312,6 +312,7 @@ comments:
     avatar: robohash # gravatar style https://waline.js.org/client/basic.html#avatar
     pageSize: 10 # 评论每页显示数量
     lang: zh-CN
+    visitor: true
   # utterances
   # https://utteranc.es/
   utterances:
@@ -646,6 +647,7 @@ plugins:
     banUrl:              # 被屏蔽的 url 地址将不启用 pjax 跳转，可以在控制台下使用 window.location.pathname 获取
       # - '/artitalk/'     # artitalk 不支持 pjax
       # - '/bb/'           # bbtalk 不支持 pjax
+      # - '/hpp_talk/'     # HexoPlusPlus_Talk 不支持 pjax
 
   # 从 issues 加载动态数据
   # {% issues sites/timeline/friends | api=xxx | group=key:a,b,c %}
@@ -707,6 +709,23 @@ plugins:
   tidio:
     enable: #true
     id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  
+  # HexoPlusPlus
+  # https://github.com/HexoPlusPlus/HexoPlusPlus
+  # https://hexoplusplus.js.org/
+  # 无服务器Hexo后端,支持文章编辑,自带图床功能.目标:解决静态博客所有痛点[文章编辑、图片上传、博主活跃信息统计、博主说说、Twikoo加强版、阅读量统计等
+  hpp:
+    # 说说功能
+    # Set `layout: hpp_talk` to enable in page
+    hpp_talk:
+      css: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@latest/talk.css # 建议锁定版本
+      js: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@latest/talk_user.js # 建议锁定版本
+      limit: 10
+      start: 0
+      # 配置项按照yml格式继续填写即可
+      # domain:
+      # themecss:
+    # HexoPlusPlus其他功能暂未集成
 
 ############################### Plugins ############################### > end
 
@@ -716,12 +735,17 @@ rightmenu:
   enable: true
   faicon: fa
   # hr: 分割线, music: 音乐控制器
-  layout: [home, hr, help, examples, contributors, hr, source_docs, source_theme, hr, darkmode, hr, music]
+  layout: [home, hr, help, examples, contributors, hr, source_docs, source_theme, hr, print, darkmode, hr, music]
   # 可选功能项
-  print:
-    name: 打印页面
+  print:                  # 只有文章页才允许自定义打印，建议打印选项勾选背景图形 & 取消勾选页眉和页脚
+    name: 打印页面        #       👆 class = article.post 的页面
     icon: fa fa-print
-    onclick: document.execCommand('print')
+    defaultStyles: true   # 是否使用预制的打印样式
+    # js:                 # 自定义 js ，可用于修改样式~
+    #  - '$("article#comments").remove();'
+    #  - '$(".backstretch").remove();'
+    #  - '$("article").css({"boxShadow": "none"});'
+    #  - '$("body").css({"backgroundColor": "#fff"});'
   darkmode: # 需开启plugins.darkmodejs
     name: 暗黑模式
     white: fa fa-sun
