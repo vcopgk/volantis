@@ -268,25 +268,28 @@
         // 复制图片
         const eventSrc = eventTarget.currentSrc;
         if (!!eventSrc) {
-            optionFlag = true;
-            $copySrc.show();
-            $openTab.show();
-            $copyImg.show();
-            $copySrc.one("click.rightMenu.copySrc", () => {
-              fn.copyString(eventSrc);
+          optionFlag = true;
+          $copySrc.show();
+          $openTab.show();
+          $copyImg.show();
+          
+          $copySrc.one("click.rightMenu.copySrc", () => {
+            fn.copyString(eventSrc);
+          });
+
+          $copyImg.one("click.rightMenu.copyImg", () => {
+            fn.writeClipImg(eventSrc, (flag, msg) => {
+              if(flag) {
+                volantis.message('操作提示', '复制成功！', 'success');
+              } else {
+                volantis.message('操作提示', '复制失败：' + msg, 'error');
+              }
             });
-            $copyImg.one("click.rightMenu.copyImg", () => {
-              fn.writeClipImg(eventSrc, (flag, msg) => {
-                if(flag) {
-                  volantis.message('操作提示', '复制成功！', 'success');
-                } else {
-                  volantis.message('操作提示', '复制失败：' + msg, 'error');
-                }
-              });
-            });
-            $openTab.off("click.rightMenu.openTab").one("click.rightMenu.openTab", () => {
-              window.open(eventSrc);
-            });
+          });
+
+          $openTab.off("click.rightMenu.openTab").one("click.rightMenu.openTab", () => {
+            window.open(eventSrc);
+          });
           } else {
             $copySrc.hide();
             $copyImg.hide();
