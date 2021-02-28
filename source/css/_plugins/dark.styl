@@ -1,11 +1,11 @@
 if hexo-config('plugins.backstretch.position') == 'fixed'
   .backstretch
-    background-color: #282c34 !important
+    background-color: #21252b !important
   .backstretch-item
     display: none !important
 else
   #l_body
-    background-color: #282c34 !important
+    background-color: #21252b !important
 img
   filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
 .lazyload
@@ -31,10 +31,10 @@ img
 .article-title a
   color: var(--color-h1)
 details>summary
-  color: var(--color-p)
-  background: var(--color-site-bg)
+  color: var(--color-p) !important
+  background: var(--color-site-bg) !important
 details
-  border: 1px solid var(--color-site-bg)
+  border: none !important
   background: var(--color-site-bg)
 //search
 #u-search .modal
@@ -152,16 +152,18 @@ if hexo-config('comments.service')=='valine'
 .widget.grid .content .grid a,
 .widget>.content ul.entry a .badge, .widget>.content ul.popular-posts a .badge
   color: #aaa !important
-details[cyan]
-  border: none
-  &>summary
-    background-color: #21252b !important
-details[open]>summary
-  color: var(--color-p)
 .highlight>table,
 .highlight:hover
   background-color: #1d1f23 !important
 article#comments p[ct]
   color: var(--color-p) !important
 .highlight pre .comment
-  color: #847a7d!important
+  color: #847a7d !important
+.highlight pre .marked
+  background-color: #3d424f !important
+div.note.quote
+  border-color: #555c66 !important
+hr
+  background-color: #555c66 !important
+.tk-comments-container > .tk-expand
+  background: #21252b !important
