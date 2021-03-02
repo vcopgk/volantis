@@ -12,6 +12,13 @@ function postSpan(args) {
   const p1 = args[1].trim();
   return `<span class='p ${p0}'>${p1}</span>`;
 }
+function postSpoiler(args) {
+  args = args.join(' ').split(',') || [];
+  const p0 = args[0].trim();
+  const p1 = args[1].trim();
+  return `<span class="bb_spoiler" title="${p0}">${p1}</span>`;
+}
 
 hexo.extend.tag.register('p', postP);
 hexo.extend.tag.register('span', postSpan);
+hexo.extend.tag.register('bb', postSpoiler);
