@@ -95,3 +95,15 @@ ul.list-v.rightmenu
 #l_main .article .prev-next>a p.content
   max-height: 85px
   overflow: hidden
+
+// 文章页不显示头图
+#l_main .article .headimg-div
+  display: none
+
+// 文章 P 首行缩进 2
+#l_main > article.cus-indent > p
+  text-indent: 2em
+  &.center
+    text-indent: initial
+  i
+    text-indent: initial
