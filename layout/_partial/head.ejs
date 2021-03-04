@@ -141,8 +141,10 @@
       parentElem.classList.remove('fancybox');
     } else if(parentElemClass === 'img-bg' && pParentElemClass === 'img-wrap') {
       parentElem.parentElement.classList.add('hideFancybox');
+    } else if(parentElemClass === 'author') {
+      parentElem.parentElement.classList.add('fix-author-imgError');
     } else if(parentElemClass.indexOf('tk-avatar') != -1 ) {
-      parentElem.parentElement.classList.add('fixImgError');
+      parentElem.parentElement.classList.add('fix-avatar-imgError');
     }
   }, true);
   </script>
