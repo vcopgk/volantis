@@ -26,7 +26,7 @@ if (post.bottom_meta == false) {
         <img class='thumbnail' src='<%- post.thumbnail %>'>
       </a>
     <% } %>
-    <% if (post.title) { %>
+    <% if (post.title && post.seo_title == undefined) { %>
       <h1 class="title">
         <%- post.title %>
       </h1>
