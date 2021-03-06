@@ -78,6 +78,7 @@ volantis.dark.toggle=()=>{
   applyCustomDarkModeSettings(mode);
   // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
   volantis.dark.method.toggle.start();
+  $('#headModeWrapper input').attr("checked",localStorage.getItem("user-color-scheme") === 'dark' ? true : false);
 }
 /**
  * bind event for toggle button
@@ -92,4 +93,5 @@ volantis.pjax.push(bindToggleButton);
 volantis.pjax.send(()=>{
 	btn.unbind('click');
 },'toggle-mode-btn-unbind');
+$('#headModeWrapper input').attr("checked",localStorage.getItem("user-color-scheme") === 'dark' ? true : false);
 </script>
