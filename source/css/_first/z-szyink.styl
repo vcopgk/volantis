@@ -22,3 +22,26 @@
 //.j-china-lantern
 //   @media screen and (max-width: 1400px)
 //    display: none !important
+
+// 调整移动端的显示
+#safearea
+  @media screen and (max-width: $device-mobile)
+    margin: 16px 0 0 !important
+    box-shadow: none !important
+    #l_main
+      article#comments,
+      article#friends,
+      article#post,
+      article#page,
+      article#arc      
+        border-radius: 0 !important
+        margin-top: -16px !important
+      article#cat,
+      article#tag
+        margin: -16px -16px 0 !important
+        border-radius: 0 !important
+      .post-wrapper
+        margin: 0 16px !important
+    #l_side
+      .widget.mobile
+        border-radius: 0 !important
