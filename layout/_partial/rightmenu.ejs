@@ -473,6 +473,13 @@
       fn.printHtml = () => {
         <% if(theme.rightmenu.print.defaultStyles) { %>
         // 加载默认的打印样式
+        $('body').css({
+          'backgroundColor': 'unset'
+        });
+        $('.fancybox img').css({
+          'height': 'auto',
+          'weight': 'auto'
+        });
         $('img.lazyload').removeAttr('srcset data-srcset').removeClass('lazyload');
         $('#l_header').hide();
         $('#l_cover').hide();
