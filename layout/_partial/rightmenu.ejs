@@ -553,7 +553,9 @@
         $('#l_header').fadeToggle();
         $('footer').fadeToggle();
         $('#s-top').fadeToggle();
-        $('#l_side').fadeToggle();
+        $('.article-meta#bottom').fadeToggle();
+        $('.prev-next').fadeToggle();
+        $('.widget').not(".toc-wrapper").fadeToggle();
         $('#comments').fadeToggle();
         $('#l_main').toggleClass('common_read common_read_main');
         $('#l_body').toggleClass('common_read');
@@ -562,6 +564,7 @@
         $('#read_bkg').toggleClass('common_read_hide');
         $('h1').toggleClass('common_read_h1');
         $('#post').toggleClass('post_read');
+        $('.widget.toc-wrapper').toggleClass('post_read');
         volantis.isReadModel = volantis.isReadModel === undefined ? true : !volantis.isReadModel;
       }
 
