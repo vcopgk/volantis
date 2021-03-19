@@ -69,6 +69,12 @@
               <i class='<%= theme.rightmenu.print.icon %> fa-fw '></i> <%- trim(theme.rightmenu.print.name) %>
             </a>
           </li>  
+        <% } else if (item == 'reading') { %>
+          <li class='option menuOption-Content'>
+            <a class='vlts-menu fix-cursor-default' id='readingModel'>
+              <i class='<%= theme.rightmenu.reading.icon %> fa-fw '></i> <%- trim(theme.rightmenu.reading.name) %>
+            </a>
+          </li>  
         <% } else if (item == 'music' && theme.plugins.aplayer.enable == true) { %>
           <li class='music name menuOption-Content'>
             <p class='nav music-title fix-cursor-default'></p>
@@ -107,7 +113,8 @@
             _rightMenuContent = document.getElementById('rightmenu-content');
 
       const $printHtml =  $('#printHtml'),
-            $menuDarkBtn =  $('#menuDarkBtn')
+            $menuDarkBtn =  $('#menuDarkBtn'),
+            $readingModel = $('#readingModel'),
             $menuLoad =  $('.menuLoad-Content'),
             $menuOption =  $('.menuOption-Content');
 
@@ -311,6 +318,7 @@
         const pathName = window.location.pathname;
         if(!!_printArticle) {
           $printHtml.show();
+          $readingModel.show();
           $printHtml.off("click.rightMenu").one('click.rightMenu', (event) => {
             if(window.location.pathname === pathName) {
               fn.printHtml();
@@ -318,8 +326,16 @@
               fn.hideMenu();
             }
           })
+          $readingModel.off("click.readingModel").one('click.readingModel', (event) => {
+            if(window.location.pathname === pathName) {
+              fn.readingModel();
+            } else {
+              fn.readingModel();
+            }
+          })
         } else {
           $printHtml.hide();
+          $readingModel.hide();
         }
 
         if(optionFlag) {
@@ -471,6 +487,7 @@
 
       // 执行打印页面
       fn.printHtml = () => {
+        if (volantis.isReadModel) fn.readingModel();
         <% if(theme.rightmenu.print.defaultStyles) { %>
         // 加载默认的打印样式
         $('body').css({
@@ -531,6 +548,23 @@
         }, 50);
       }
 
+      // 阅读模式
+      fn.readingModel = () => {
+        $('#l_header').fadeToggle();
+        $('footer').fadeToggle();
+        $('#s-top').fadeToggle();
+        $('#l_side').fadeToggle();
+        $('#comments').fadeToggle();
+        $('#l_main').toggleClass('common_read common_read_main');
+        $('#l_body').toggleClass('common_read');
+        $('#safearea').toggleClass('common_read');
+        $('#pjax-container').toggleClass('common_read');
+        $('#read_bkg').toggleClass('common_read_hide');
+        $('h1').toggleClass('common_read_h1');
+        $('#post').toggleClass('post_read');
+        volantis.isReadModel = volantis.isReadModel === undefined ? true : !volantis.isReadModel;
+      }
+
       return {
         init: (notice = false) => {
           fn.init();
@@ -544,6 +578,9 @@
           $(_rightMenuWrapper).off('blur.rightMenu');
           window.document.oncontextmenu = () => {return true};
           if(notice) volantis.message('操作提示', '自定义右键注销成功。', 'success');
+        },
+        readModel: () => {
+          fn.readingModel();
         }
       }
     })()
