@@ -105,6 +105,12 @@
   <script>
     $(function () {
       rightMenu.init();
+
+      volantis.pjax.send(() => {
+        if (volantis.isReadModel) {
+          rightMenu.readModel();
+        }
+      })
     });
 
     const rightMenu = (function(){
@@ -314,7 +320,7 @@
         }
 
         // 打印
-        const _printArticle = $('.article.post').html();
+        const _printArticle = $('#post.article').html() || null;
         const pathName = window.location.pathname;
         if(!!_printArticle) {
           $printHtml.show();
