@@ -35,29 +35,28 @@ if hexo-config('custom_css.fontfamily.logofont')
     $fontfamily-logo = convert(hexo-config('custom_css.fontfamily.logofont.fontfamily')), Helvetica, monospace
 
 @font-face
-  font-family: 'zhuziH'
-  src: url(/fonts/foundertype/zhuziH400.OTF)
-  font-weight: 400
+  font-family: 'fwzc'
+  src: url(/fonts/foundertype/fwzcD.OTF)
+  font-weight: normal
   font-style: normal
 
 @font-face
-  font-family: 'zhuziH'
-  src: url(/fonts/foundertype/zhuziH500.OTF)
-  font-weight: 500
+  font-family: 'sxls'
+  src: url(/fonts/foundertype/sxls.OTF)
+  font-weight: normal
   font-style: normal
 
-@font-face
-  font-family: 'zhuziH'
-  src: url(https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/fonts/foundertype/zhuziH600.OTF)
+h1.title
+  font-size: 3rem
   font-weight: 600
-  font-style: normal
+  font-family: $fontfamily-logo
 
-@font-face
-  font-family: 'zhuziH'
-  src: url(https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/fonts/foundertype/zhuziH700.OTF)
-  font-weight: 700
-  font-style: normal
-
+.new-meta-box,
+.article-title,
+.post-v3 .md,
+.prev-next,
+.meta-v3
+  font-family: $fontfamily-logo
 
 // font size
 $fontsize-root = convert(hexo-config('custom_css.fontsize.root')) || 16px
