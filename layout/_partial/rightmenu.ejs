@@ -264,7 +264,7 @@
 
         // 新标签打开
         const eventHref = eventTarget.href;
-        if (!!eventHref) {
+        if (!!eventHref && eventTarget.tagName !== 'use') {
           optionFlag = true;
           $copyHref.show();
           $openTab.show();

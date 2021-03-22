@@ -19,3 +19,6 @@ hexo.extend.tag.register('kbd', function(args) {
 hexo.extend.tag.register('psw', function(args) {
   return `<psw>${args.join(' ')}</psw>`;
 });
+hexo.extend.tag.register('b', function(args) {
+  return `<strong>${args.join(' ')}</strong>`;
+});
