@@ -32,48 +32,48 @@
         <a class='nav icon-only fix-cursor-default' href='/'><i class='<%= faIcon %> fa-home fa-fw'></i></a>
       </li>
       <li class='option menuOption-Content'>
-        <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyText'>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyText'>
           <i class='<%= faIcon %> fa-copy fa-fw'></i><%- __('rightmenu.copy_text') %>
-        </a>
-        <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyPaste'>
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyPaste'>
           <i class='<%= faIcon %> fa-paste fa-fw'></i><%- __('rightmenu.copy_paste') %>
-        </a>
-        <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySelect'>
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySelect'>
           <i class='<%= faIcon %> fa-object-ungroup fa-fw'></i><%- __('rightmenu.copy_select') %>
-        </a>
-        <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyCut'>
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyCut'>
           <i class='<%= faIcon %> fa-cut fa-fw'></i><%- __('rightmenu.copy_cut') %>
-        </a>
-        <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
           <i class='<%= faIcon %> fa-external-link-square-alt fa-fw'></i><%- __('rightmenu.open_in_new_tab') %>
-        </a>
-        <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySrc'>
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySrc'>
           <i class='<%= faIcon %> fa-image fa-fw'></i><%- __('rightmenu.copy_image_src') %>
-        </a>
-        <a class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyImg'>
+        </span>
+        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyImg'>
           <i class='<%= faIcon %> fa-images fa-fw'></i><%- __('rightmenu.copy_image_file') %>
-        </a>
+        </span>
       </li>
       <% theme.rightmenu.layout.forEach(function(item){ %>
         <% if (item == 'hr') { %>
           <hr class="menuLoad-Content">
         <% } else if (item == 'darkmode') { %>
           <li class='option menuOption-Content'>
-            <a class='vlts-menu fix-cursor-default toggle-mode-btn' id='menuDarkBtn'>
+            <span class='vlts-menu opt fix-cursor-default toggle-mode-btn' id='menuDarkBtn'>
               <i class='<%= theme.rightmenu.darkmode.dark %> fa-fw '></i> <%- trim(theme.rightmenu.darkmode.name) %>
-            </a>
+            </span>
           </li>
         <% } else if (item == 'print') { %>
           <li class='option menuOption-Content'>
-            <a class='vlts-menu fix-cursor-default' id='printHtml'>
+            <span class='vlts-menu opt fix-cursor-default' id='printHtml'>
               <i class='<%= theme.rightmenu.print.icon %> fa-fw '></i> <%- trim(theme.rightmenu.print.name) %>
-            </a>
+            </span>
           </li>  
         <% } else if (item == 'reading') { %>
           <li class='option menuOption-Content'>
-            <a class='vlts-menu fix-cursor-default' id='readingModel'>
+            <span class='vlts-menu opt fix-cursor-default' id='readingModel'>
               <i class='<%= theme.rightmenu.reading.icon %> fa-fw '></i> <%- trim(theme.rightmenu.reading.name) %>
-            </a>
+            </span>
           </li>  
         <% } else if (item == 'music' && theme.plugins.aplayer.enable == true) { %>
           <li class='music name menuOption-Content'>
