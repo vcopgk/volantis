@@ -6,12 +6,15 @@ if hexo-config('plugins.backstretch.position') == 'fixed'
 else
   #l_body
     background-color: #21252b !important
-img
-  filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
-.lazyload
-  filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
+fal,
+fad,
+fa,
+svg.iconfont,    
+img,
+.lazyload,
 .pdf
   filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
+
 //header
 #wrapper .title
   color: var(--color-meta)
@@ -186,3 +189,7 @@ a,
 // 向上
 #l_body #s-top.show.hl
   background: #5c5e63 
+
+// 干掉评论背景
+textarea.el-textarea__inner
+  background: none !important
