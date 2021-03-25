@@ -78,6 +78,13 @@ volantis.dark.toggle=()=>{
   applyCustomDarkModeSettings(mode);
   // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
   volantis.dark.method.toggle.start();
+  if (localStorage.getItem("user-color-scheme") === 'dark') {
+    $('#desktopNavTitle').hide();
+    $('#githubEmoji').show();
+  } else {
+    $('#githubEmoji').hide();
+    $('#desktopNavTitle').show();
+  }
 }
 /**
  * bind event for toggle button
