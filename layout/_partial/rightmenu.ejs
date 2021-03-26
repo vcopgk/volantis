@@ -33,25 +33,25 @@
       </li>
       <li class='option menuOption-Content'>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyText'>
-          <i class='<%= faIcon %> fa-copy fa-fw'></i><%- __('rightmenu.copy_text') %>
+          <i class='<%= faIcon %> fa-copy fa-fw mR12'></i><%- __('rightmenu.copy_text') %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyPaste'>
-          <i class='<%= faIcon %> fa-paste fa-fw'></i><%- __('rightmenu.copy_paste') %>
+          <i class='<%= faIcon %> fa-paste fa-fw mR12'></i><%- __('rightmenu.copy_paste') %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySelect'>
-          <i class='<%= faIcon %> fa-object-ungroup fa-fw'></i><%- __('rightmenu.copy_select') %>
+          <i class='<%= faIcon %> fa-object-ungroup fa-fw mR12'></i><%- __('rightmenu.copy_select') %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyCut'>
-          <i class='<%= faIcon %> fa-cut fa-fw'></i><%- __('rightmenu.copy_cut') %>
+          <i class='<%= faIcon %> fa-cut fa-fw mR12'></i><%- __('rightmenu.copy_cut') %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
-          <i class='<%= faIcon %> fa-external-link-square-alt fa-fw'></i><%- __('rightmenu.open_in_new_tab') %>
+          <i class='<%= faIcon %> fa-external-link-square-alt fa-fw mR12'></i><%- __('rightmenu.open_in_new_tab') %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySrc'>
-          <i class='<%= faIcon %> fa-image fa-fw'></i><%- __('rightmenu.copy_image_src') %>
+          <i class='<%= faIcon %> fa-image fa-fw mR12'></i><%- __('rightmenu.copy_image_src') %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyImg'>
-          <i class='<%= faIcon %> fa-images fa-fw'></i><%- __('rightmenu.copy_image_file') %>
+          <i class='<%= faIcon %> fa-images fa-fw mR12'></i><%- __('rightmenu.copy_image_file') %>
         </span>
       </li>
       <% theme.rightmenu.layout.forEach(function(item){ %>
@@ -80,17 +80,17 @@
             <p class='nav music-title fix-cursor-default'></p>
           </li>
           <li class='music ctrl'>
-            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
-            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
-            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fad fa-step-backward fa-fw WISTERIA'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fad fa-play fa-fw WISTERIA'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fad fa-step-forward fa-fw WISTERIA'></i></a>
           </li>
           <li class='music volume'>
             <a class='nav volume'>
               <div class="aplayer-volume-bar-wrap">
                 <div class="aplayer-volume-bar fix-cursor-pointer">
                   <div class="aplayer-volume"></div>
-                  <i class='left fa fa-volume-off fa-fw'></i>
-                  <i class='right fa fa-volume-up fa-fw'></i>
+                  <i class='left fad fa-volume-off fa-fw PETERRIVE'></i>
+                  <i class='right fad fa-volume-up fa-fw PETERRIVE'></i>
                 </div>
               </div>
             </a>
@@ -299,7 +299,7 @@
           $openTab.hide();
         }
 
-        // 复制文本
+        // 复制图片
         if(!!eventSrc && urlRegx.test(eventSrc) && eventSrc.trimEnd().endsWith('.png')) {
           optionFlag = true;
           $copyImg.show();
