@@ -34,7 +34,7 @@
       Metings.forEach((item, index) => {
         var thisAplayer =Metings[index].aplayer;
         thisAplayer.on('play', function(e) {
-        $('#aplayerHeaderIcon').toggleClass('music');
+        $('#aplayerHeaderIcon').removeClass('music').addClass('music')
         var index = thisAplayer.list.index;
         var title = thisAplayer.list.audios[index].title;
         var artist = thisAplayer.list.audios[index].artist;
@@ -45,7 +45,7 @@
           )
         });
         thisAplayer.on('pause', function(e) {
-          $('#aplayerHeaderIcon').toggleClass('music');
+          $('#aplayerHeaderIcon').removeClass('music')
           var index =thisAplayer.list.index;
           var title = thisAplayer.list.audios[index].title;
           var artist = thisAplayer.list.audios[index].artist;
@@ -56,6 +56,7 @@
           )
         });
         thisAplayer.on('error', function (e) {
+          $('#aplayerHeaderIcon').removeClass('music')
           var index = thisAplayer.list.index;
           var title = thisAplayer.list.audios[index].title;
           volantis.message(
