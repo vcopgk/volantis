@@ -350,7 +350,7 @@ var Debounce = (fn, t) => {
     }
     
     $('#destroyRightMenu').off('click').on('click', () => {
-      rightMenu.destroy(true);
+      RightMenu.destroy(true);
       window.checkRightMenu = false;
       $('#destroyRightContent').fadeToggle(500, () => {
         $('#initRightContent').fadeToggle();
@@ -358,7 +358,7 @@ var Debounce = (fn, t) => {
     })
 
     $('#initRightMenu').off('click').on('click', () => {
-      rightMenu.init(true);
+      RightMenu.init(true);
       window.checkRightMenu = true;
       $('#initRightContent').fadeToggle(500, () => {
         $('#destroyRightContent').fadeToggle();

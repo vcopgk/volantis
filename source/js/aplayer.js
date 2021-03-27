@@ -30,16 +30,18 @@ function setAPlayerObject() {
 // 事件监听
 function setAPlayerObserver() {
   try {
-    APlayerController.player.on('play', function(e) {
+    APlayerController.player.on('play', function (e) {
+      APlayerController.status = 'play';
       updateAPlayerControllerStatus();
     });
-    APlayerController.player.on('pause', function(e) {
+    APlayerController.player.on('pause', function (e) {
+      APlayerController.status = 'pause';
       updateAPlayerControllerStatus();
     });
-    APlayerController.player.on('volumechange', function(e) {
+    APlayerController.player.on('volumechange', function (e) {
       onUpdateAPlayerVolume();
     });
-    APlayerController.player.on('loadstart', function(e) {
+    APlayerController.player.on('loadstart', function (e) {
       // 跳到下一曲时更新标题
       updateTitle();
     });
@@ -47,6 +49,7 @@ function setAPlayerObserver() {
     // 监听音量手势
     APlayerController.volumeBarWrap = document.getElementsByClassName('nav volume')[0].children[0];
     APlayerController.volumeBar = APlayerController.volumeBarWrap.children[0];
+
     function updateAPlayerVolume(e) {
       let percentage = ((e.clientX || e.changedTouches[0].clientX) - APlayerController.volumeBar.getBoundingClientRect().left) / APlayerController.volumeBar.clientWidth;
       percentage = Math.max(percentage, 0);
@@ -95,6 +98,7 @@ function updateAPlayerControllerStatus() {
     console.log(error);
   }
 }
+
 function onUpdateAPlayerVolume() {
   try {
     APlayerController.volumeBar.children[0].style.width = APlayerController.player.audio.volume * 100 + '%';
@@ -156,7 +160,7 @@ function updateTitle() {
     console.log(error);
   }
 }
-var checkrightmenu = setInterval(function() {
+var checkrightmenu = setInterval(function () {
   if (!volantis.APlayerLoaded) return; // APlayer加载完成？
   if ($('#safearea').css('display') != 'block') return; // 文章内容加载完成？ see: source/css/first.styl
   if (!document.querySelectorAll('meting-js')[0].meta) return; // meting-js 加载完成？
@@ -164,4 +168,3 @@ var checkrightmenu = setInterval(function() {
   clearInterval(checkrightmenu);
   checkAPlayer();
 }, 1000);
-

@@ -76,25 +76,27 @@
             </span>
           </li>  
         <% } else if (item == 'music' && theme.plugins.aplayer.enable == true) { %>
-          <li class='music name menuOption-Content'>
-            <p class='nav music-title fix-cursor-default'></p>
-          </li>
-          <li class='music ctrl'>
-            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fad fa-step-backward fa-fw WISTERIA'></i></a>
-            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fad fa-play fa-fw WISTERIA'></i></a>
-            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fad fa-step-forward fa-fw WISTERIA'></i></a>
-          </li>
-          <li class='music volume'>
-            <a class='nav volume'>
-              <div class="aplayer-volume-bar-wrap">
-                <div class="aplayer-volume-bar fix-cursor-pointer">
-                  <div class="aplayer-volume"></div>
-                  <i class='left fad fa-volume-off fa-fw PETERRIVE'></i>
-                  <i class='right fad fa-volume-up fa-fw PETERRIVE'></i>
+          <div id="menuMusic">
+            <li class='music name menuOption-Content'>
+              <p class='nav music-title fix-cursor-default'></p>
+            </li>
+            <li class='music ctrl'>
+              <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fad fa-step-backward fa-fw WISTERIA'></i></a>
+              <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fad fa-play fa-fw WISTERIA'></i></a>
+              <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fad fa-step-forward fa-fw WISTERIA'></i></a>
+            </li>
+            <li class='music volume'>
+              <a class='nav volume'>
+                <div class="aplayer-volume-bar-wrap">
+                  <div class="aplayer-volume-bar fix-cursor-pointer">
+                    <div class="aplayer-volume"></div>
+                    <i class='left fad fa-volume-off fa-fw PETERRIVE'></i>
+                    <i class='right fad fa-volume-up fa-fw PETERRIVE'></i>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </li>
+              </a>
+            </li>
+          </div>
         <% } else if (item in theme.rightmenu) { %>
           <% loadmenu(theme.rightmenu[item]) %>
         <% } %>
@@ -104,25 +106,25 @@
 
   <script>
     $(function () {
-      rightMenu.init();
+      RightMenu.init();
 
       volantis.pjax.send(() => {
         if (volantis.isReadModel) {
-          rightMenu.readModel();
+          RightMenu.readModel();
         }
       })
     });
 
-    const rightMenu = (function(){
+    const RightMenu = (() => {
       const fn = {},
-            _rightMenuWrapper = document.getElementById('rightmenu-wrapper'),
-            _rightMenuContent = document.getElementById('rightmenu-content');
-
-      const $printHtml =  $('#printHtml'),
+            $printHtml =  $('#printHtml'),
+            $menuMusic = $('#menuMusic'),
             $menuDarkBtn =  $('#menuDarkBtn'),
             $readingModel = $('#readingModel'),
             $menuLoad =  $('.menuLoad-Content'),
-            $menuOption =  $('.menuOption-Content');
+            $menuOption =  $('.menuOption-Content'),
+            _rightMenuWrapper = $('#rightmenu-wrapper')[0],
+            _rightMenuContent = $('#rightmenu-content')[0];
 
       const $copyText = $('.menu-Option[data-fn-type="copyText"]'),
             $copyPaste = $('.menu-Option[data-fn-type="copyPaste"]'),
@@ -134,11 +136,11 @@
             $openTab = $('.menu-Option[data-fn-type="openTab"]');
 
       const darkmodeDark = '<%= theme.rightmenu.darkmode.dark %>' || 'fa fa-moon',
-            darkmodeWhite = '<%= theme.rightmenu.darkmode.white %>' || 'fa fa-sun';
-
-      const urlRegx = /^((https|http)?:\/\/)+[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/;
+            darkmodeWhite = '<%= theme.rightmenu.darkmode.white %>' || 'fa fa-sun',
+            urlRegx = /^((https|http)?:\/\/)+[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/;
 
       fn.init = () => {
+        $menuMusic.hide();
         $('.menu-Option').hide();
       }
 
@@ -296,7 +298,6 @@
           });
         } else {
           $copySrc.hide();
-          $openTab.hide();
         }
 
         // 复制图片
@@ -351,6 +352,14 @@
         } else {
           $printHtml.hide();
           $readingModel.hide();
+        }
+
+        // 只有音乐播放时才放出音乐菜单
+        if (APlayerController.status === 'play') {
+          optionFlag = true;
+          $menuMusic.show();
+        } else {
+          $menuMusic.hide();
         }
 
         if(optionFlag) {

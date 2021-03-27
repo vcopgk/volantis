@@ -41,7 +41,7 @@
           volantis.message(
             '音乐通知',
             '正在播放：' + title + ' - ' + artist,
-            'success'
+            'info'
           )
         });
         thisAplayer.on('pause', function(e) {
@@ -52,7 +52,7 @@
           volantis.message(
             '音乐通知',
             '暂停播放：' + title + ' - ' + artist,
-            'success'
+            'info'
           )
         });
         thisAplayer.on('error', function (e) {
