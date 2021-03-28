@@ -598,6 +598,19 @@
         $('#l_cover').toggleClass('read_cover');
         $('.widget.toc-wrapper').toggleClass('post_read');
         volantis.isReadModel = volantis.isReadModel === undefined ? true : !volantis.isReadModel;
+        if (volantis.isReadModel) {
+          $('#l_body').off('click.rightMenu').one('click.rightMenu', (event) => {
+            fn.readingModel();
+          })
+          $('#post').off('click.rightMenu').on('click.rightMenu', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            fn.hideMenu();
+          })
+        } else {
+          $('#l_body').off('click.rightMenu');
+          $('#post').off('click.rightMenu');
+        }
       }
 
       return {

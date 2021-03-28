@@ -9,8 +9,19 @@
 .body-wrapper.common_read
   display: block
 
+#safearea.common_read
+  padding-bottom: 16px
+  @media screen and (max-width: 900px)
+    padding: 0
+    margin: 0
+
+#l_body.common_read
+  z-index: 2147483646 !important;
+
 .read_cover
   min-height: 10px !important
+  @media screen and (max-width: 900px)
+    min-height: 0 !important
 
 .common_read_bkg
   background-color: #e0d8c8 !important
@@ -33,6 +44,8 @@
   padding: 0 !important;
   margin: 0 auto;
   float: initial !important;
+  @media screen and (max-width: 900px)
+    width: auto !important;
 
 .post_read
   background-color: #f8f1e2 !important
