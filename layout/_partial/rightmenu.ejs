@@ -33,25 +33,32 @@
       </li>
       <li class='option menuOption-Content'>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyText'>
-          <i class='<%= faIcon %> fa-copy fa-fw mR12'></i><%- __('rightmenu.copy_text') %>
+          <% let copy_text = __('rightmenu.copy_text') %>
+          <i class='<%= faIcon %> fa-copy fa-fw'></i> <%- trim(copy_text) %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyPaste'>
-          <i class='<%= faIcon %> fa-paste fa-fw mR12'></i><%- __('rightmenu.copy_paste') %>
+          <% let copy_paste = __('rightmenu.copy_paste') %>
+          <i class='<%= faIcon %> fa-paste fa-fw mR12'></i> <%- trim(copy_paste) %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySelect'>
-          <i class='<%= faIcon %> fa-object-ungroup fa-fw mR12'></i><%- __('rightmenu.copy_select') %>
+          <% let copy_select = __('rightmenu.copy_select') %>
+          <i class='<%= faIcon %> fa-object-ungroup fa-fw mR12'></i> <%- trim(copy_select) %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyCut'>
-          <i class='<%= faIcon %> fa-cut fa-fw mR12'></i><%- __('rightmenu.copy_cut') %>
+          <% let copy_cut = __('rightmenu.copy_cut') %>
+          <i class='<%= faIcon %> fa-cut fa-fw mR12'></i> <%- trim(copy_cut) %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
-          <i class='<%= faIcon %> fa-external-link-square-alt fa-fw mR12'></i><%- __('rightmenu.open_in_new_tab') %>
+          <% let open_in_new_tab = __('rightmenu.open_in_new_tab') %>
+          <i class='<%= faIcon %> fa-external-link-square-alt fa-fw mR12'></i> <%- trim(open_in_new_tab) %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySrc'>
-          <i class='<%= faIcon %> fa-image fa-fw mR12'></i><%- __('rightmenu.copy_image_src') %>
+          <% let copy_image_src = __('rightmenu.copy_image_src') %>
+          <i class='<%= faIcon %> fa-image fa-fw mR12'></i> <%- trim(copy_image_src) %>
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyImg'>
-          <i class='<%= faIcon %> fa-images fa-fw mR12'></i><%- __('rightmenu.copy_image_file') %>
+          <% let copy_image_file = __('rightmenu.copy_image_file') %>
+          <i class='<%= faIcon %> fa-images fa-fw mR12'></i> <%- trim(copy_image_file) %>
         </span>
       </li>
       <% theme.rightmenu.layout.forEach(function(item){ %>
@@ -164,7 +171,7 @@
         })
 
         $(window).off('blur.rightMenu').on('blur.rightMenu', () => {
-          fn.hideMenu();
+          // fn.hideMenu();
         })
 
         $(_rightMenuWrapper).off('blur.rightMenu').on('blur.rightMenu', () => {
@@ -579,7 +586,7 @@
         $('#s-top').fadeToggle();
         $('.article-meta#bottom').fadeToggle();
         $('.prev-next').fadeToggle();
-        $('.widget').not(".toc-wrapper").fadeToggle();
+        $('.widget').fadeToggle();
         $('#comments').fadeToggle();
         $('#l_main').toggleClass('common_read common_read_main');
         $('#l_body').toggleClass('common_read');
@@ -588,6 +595,7 @@
         $('#read_bkg').toggleClass('common_read_hide');
         $('h1').toggleClass('common_read_h1');
         $('#post').toggleClass('post_read');
+        $('#l_cover').toggleClass('read_cover');
         $('.widget.toc-wrapper').toggleClass('post_read');
         volantis.isReadModel = volantis.isReadModel === undefined ? true : !volantis.isReadModel;
       }
