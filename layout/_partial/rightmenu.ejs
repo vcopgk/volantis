@@ -171,7 +171,7 @@
         })
 
         $(window).off('blur.rightMenu').on('blur.rightMenu', () => {
-          // fn.hideMenu();
+          fn.hideMenu();
         })
 
         $(_rightMenuWrapper).off('blur.rightMenu').on('blur.rightMenu', () => {
@@ -599,13 +599,10 @@
         $('.widget.toc-wrapper').toggleClass('post_read');
         volantis.isReadModel = volantis.isReadModel === undefined ? true : !volantis.isReadModel;
         if (volantis.isReadModel) {
-          $('#l_body').off('click.rightMenu').one('click.rightMenu', (event) => {
-            fn.readingModel();
-          })
-          $('#post').off('click.rightMenu').on('click.rightMenu', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            fn.hideMenu();
+          $('#l_body').off('click.rightMenu').on('click.rightMenu', (event) => {
+            if ($(event.target).hasClass('common_read')) {
+              fn.readingModel();
+            }
           })
         } else {
           $('#l_body').off('click.rightMenu');
