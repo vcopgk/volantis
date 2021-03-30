@@ -89,6 +89,11 @@
   <%- partial('counter') %>
 <% } %>
 
+<% if (theme.plugins.slider.enable) { %>
+  <%- js(theme.plugins.slider.js) %>
+  <%- partial('../../_third-party/slider/script') %>
+<% } %>
+
 <%- partial('../../_third-party/analytics/script') %>
 
 <%- partial('../../_third-party/tidio/script') %>
