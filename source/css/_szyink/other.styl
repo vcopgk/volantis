@@ -162,6 +162,7 @@ div.el-input-group__prepend
 
 //===========================
 // link-effects
+// 阅读更多的样式
 //===========================
 .link-fx-1 {
   position: relative;
@@ -308,3 +309,11 @@ img.error
   margin: 0 2px
   span
     display: none !important
+
+// hover 时才显示评论框
+.tk-action
+  display: none !important
+
+.tk-main:hover
+  &>.tk-row>.tk-action
+    display: flex !important
