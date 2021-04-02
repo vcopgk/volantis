@@ -10,7 +10,9 @@ $(function () {
 const RightMenu = (() => {
   const fn = {},
         $printHtml = $('#printHtml'),
+        $menuMusic = $('#menuMusic'),
         $menuDarkBtn = $('#menuDarkBtn'),
+        $readingModel = $('#readingModel'),
         $menuLoad = $('.menuLoad-Content'),
         _rightMenuWrapper = $('#rightmenu-wrapper')[0],
         _rightMenuContent = $('#rightmenu-content')[0];
@@ -29,6 +31,7 @@ const RightMenu = (() => {
         urlRegx = /^((https|http)?:\/\/)+[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/;
 
   fn.init = () => {
+    $menuMusic.hide();
     $('.menu-Option').hide();
   }
 
@@ -220,6 +223,7 @@ const RightMenu = (() => {
     const pathName = window.location.pathname;
     if (!!_printArticle) {
       $printHtml.show();
+      $readingModel.show();
       $printHtml.off("click.rightMenu").one('click.rightMenu', (event) => {
         if (window.location.pathname === pathName) {
           fn.printHtml();
@@ -227,8 +231,23 @@ const RightMenu = (() => {
           fn.hideMenu();
         }
       })
+      $readingModel.off("click.readingModel").one('click.readingModel', (event) => {
+        if (window.location.pathname === pathName) {
+          fn.readingModel();
+        } else {
+          fn.readingModel();
+        }
+      })
     } else {
       $printHtml.hide();
+      $readingModel.hide();
+    }
+
+    if (volantis.APlayerController.status === 'play') {
+      optionFlag = true;
+      $menuMusic.show();
+    } else {
+      $menuMusic.hide();
     }
 
     if (optionFlag) {
@@ -437,6 +456,37 @@ const RightMenu = (() => {
       document.body.innerHTML = '';
       window.location.reload();
     }, 50);
+  }
+
+  // 阅读模式
+  fn.readingModel = () => {
+    $('#l_header').fadeToggle();
+    $('footer').fadeToggle();
+    $('#s-top').fadeToggle();
+    $('.article-meta#bottom').fadeToggle();
+    $('.prev-next').fadeToggle();
+    $('.widget').fadeToggle();
+    $('#comments').fadeToggle();
+    $('#l_main').toggleClass('common_read common_read_main');
+    $('#l_body').toggleClass('common_read');
+    $('#safearea').toggleClass('common_read');
+    $('#pjax-container').toggleClass('common_read');
+    $('#read_bkg').toggleClass('common_read_hide');
+    $('h1').toggleClass('common_read_h1');
+    $('#post').toggleClass('post_read');
+    $('#l_cover').toggleClass('read_cover');
+    $('.widget.toc-wrapper').toggleClass('post_read');
+    volantis.isReadModel = volantis.isReadModel === undefined ? true : !volantis.isReadModel;
+    if (volantis.isReadModel) {
+      $('#l_body').off('click.rightMenu').on('click.rightMenu', (event) => {
+        if ($(event.target).hasClass('common_read')) {
+          fn.readingModel();
+        }
+      })
+    } else {
+      $('#l_body').off('click.rightMenu');
+      $('#post').off('click.rightMenu');
+    }
   }
 
   return {
