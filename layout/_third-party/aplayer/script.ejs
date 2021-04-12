@@ -11,6 +11,7 @@
       <% if (theme.rightmenu.enable && theme.rightmenu.layout.includes('music')) { %>
         // 右键 music 需要在 APlayer  MetingJS 之后加载
         await volantis.js('<%- theme.cdn.addJS("aplayer") %>')
+        volantis.APlayerController.music = true;
       <% } %>
     })();
   // message see: /layout/_third-party/message/script.ejs
@@ -22,6 +23,8 @@
     try {
       var Metings = document.querySelectorAll('meting-js');
       Metings.forEach((item, index) => {
+        var rightMenuAplayer = $(item)[0].meta.id === volantis.APlayerController.id && volantis.APlayerController.music;
+        if(rightMenuAplayer)  MainAPlayer.checkAPlayer();
         var thisAplayer =Metings[index].aplayer;
         thisAplayer.on('play', function(e) {
         $('#aplayerHeaderIcon').removeClass('music').addClass('music')
@@ -33,7 +36,7 @@
             '正在播放：' + title + ' - ' + artist,
             'info'
           )
-          volantis.APlayerController.status = 'play';
+          if(rightMenuAplayer) volantis.APlayerController.status = 'play';
         });
         thisAplayer.on('pause', function(e) {
           $('#aplayerHeaderIcon').removeClass('music')
@@ -45,7 +48,7 @@
             '暂停播放：' + title + ' - ' + artist,
             'info'
           )
-          volantis.APlayerController.status = 'pause';
+          if(rightMenuAplayer) volantis.APlayerController.status = 'pause';
         });
         thisAplayer.on('error', function (e) {
           $('#aplayerHeaderIcon').removeClass('music')
@@ -56,7 +59,7 @@
             "歌曲：" + title + "加载失败~",
             'warning'
           )
-          volantis.APlayerController.status = 'error';
+          if(rightMenuAplayer) volantis.APlayerController.status = 'error';
         });
       });
 
