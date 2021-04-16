@@ -44,17 +44,10 @@ if hexo-config('custom_css.fontfamily.logofont')
   font-style: normal
   font-display: swap
 
-//@font-face
-//  font-family: 'fwzc'
-//  src: url(cdn.jsdelivr.net/gh/inkss/common@master/hexo/fonts/foundertype/fwzcB.OTF)
-//  font-weight: bold
-//  font-style: normal
-//  font-display: swap
-
 @font-face
   font-family: 'sxls'
   src: url(https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/fonts/foundertype/sxls.OTF)
-  font-weight: normal
+  font-weight: 300
   font-style: normal
   font-display: swap
 
@@ -62,7 +55,9 @@ if hexo-config('custom_css.fontfamily.logofont')
 .article-title,
 .prev-next,
 .meta-v3,
-b, strong
+.md .footer .header,
+.widget header,
+details summary
   font-family: $fontfamily-logo
 
 // font size

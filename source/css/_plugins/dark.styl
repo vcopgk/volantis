@@ -10,15 +10,17 @@ else
 body
   background-color: #21252b !important
 
+svg.iconfont,    
+.lazyload,
+.pdf,
+img,
+  filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
+
 .fal,
 .fad,
 .fas,
-.fa,
-svg.iconfont,    
-img,
-.lazyload,
-.pdf
-  filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
+.fa
+  filter: brightness(90%) !important
 
 //header
 #wrapper .title

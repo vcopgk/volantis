@@ -33,6 +33,12 @@ const RightMenu = (() => {
   fn.init = () => {
     $menuMusic.hide();
     $('.menu-Option').hide();
+    $('#read_bkg').remove();
+    
+    const readBkg = document.createElement("div");
+    readBkg.className = "common_read_bkg common_read_hide";
+    readBkg.id= "read_bkg";
+    window.document.body.appendChild(readBkg);
   }
 
   fn.initEvent = () => {
@@ -514,3 +520,4 @@ const RightMenu = (() => {
 })()
 
 Object.freeze(RightMenu);
+
