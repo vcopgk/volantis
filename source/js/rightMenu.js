@@ -450,7 +450,7 @@ const RightMenu = (() => {
         'height': 'auto',
         'weight': 'auto'
       });
-      $('#common_bkg').hide();
+      $('#BKG').hide();
       $('img').removeAttr('srcset data-srcset').removeClass('img lazyload loaded');
     }
 
