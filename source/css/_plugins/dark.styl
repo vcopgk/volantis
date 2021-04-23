@@ -7,13 +7,10 @@ else
   #l_body
     background-color: #21252b !important
 
-body
-  background-color: #21252b !important
-
 svg.iconfont,    
 .lazyload,
 .pdf,
-img,
+img
   filter: brightness(convert(hexo-config('color_scheme.dark.brightness'))) !important
 
 .fal,
@@ -98,6 +95,7 @@ blockquote p
 #archive-page .archive .all-tags ul li span
   color: var(--color-text)
   background: #6f6f72
+
 if hexo-config('comments.service')=='gitalk'
   .gt-container .gt-header-textarea
     background-color: var(--color-card)
@@ -109,6 +107,7 @@ if hexo-config('comments.service')=='gitalk'
       box-shadow: none
   .gt-container .gt-comment-admin .gt-comment-content
     background-color: var(--color-card)
+
 if hexo-config('comments.service')=='minivaline'
   .MiniValine .vpage .more
     background: var(--color-site-bg)
@@ -129,6 +128,7 @@ if hexo-config('comments.service')=='minivaline'
       background: var(--color-block)
   .MiniValine .vpage .more:hover
     background: var(--color-card)
+
 if hexo-config('plugins.aplayer.enable')
   .aplayer
     background: var(--color-site-bg)
@@ -148,6 +148,7 @@ if hexo-config('plugins.aplayer.enable')
     border-top: 1px solid var(--color-card)
   .aplayer.aplayer-withlist .aplayer-info
     border-bottom: 1px solid var(--color-block)
+
 if hexo-config('comments.service')=='valine'
   #valine_container button
     background-color: #363b40 !important
