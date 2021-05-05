@@ -25,7 +25,7 @@
   <% if (post.headimg) { %>
     <div class='headimg-div'>
       <a class='headimg-a' href="<%- url_for(post.link || post.path) %>">
-        <img class='headimg' alt="<%- post.title %> || 'image'" src='<%- post.headimg %>'/>
+        <img class='headimg' alt="<%- post.title || 'image' %> " src='<%- post.headimg %>'/>
       </a>
     </div>
   <% } %>
