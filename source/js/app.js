@@ -189,7 +189,7 @@ const VolantisApp = (() => {
       volantis.$.comment.click(e => { // 评论按钮点击后 跳转到评论区域
         e.preventDefault();
         e.stopPropagation();
-        scrolltoElement(volantis.$.commentTarget);
+        fn.scrolltoElement(volantis.$.commentTarget);
         e.stopImmediatePropagation();
       });
     } else volantis.$.comment.remove(); // 关闭了评论，则隐藏评论按钮
