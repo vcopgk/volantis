@@ -251,7 +251,7 @@ const RightMenu = (() => {
       $readingModel.hide();
     }
 
-    if (volantis.APlayerController.status === 'play') {
+    if (volantis.APlayerController && volantis.APlayerController.status === "play") {
       optionFlag = true;
       $menuMusic.show();
     } else {
@@ -428,7 +428,7 @@ const RightMenu = (() => {
         'margin-bottom': '20px'
       });
       $('.prev-next').hide();
-      $('#bottom').children().append('<div class="new-meta-item"><a class="tag" href="' + window.location.href + '" rel="nofollow" data-pjax-state=""><i class="fad fa-external-link fa-fw" aria-hidden="true"></i><p>本文地址：' + window.location.href + '</p></a></div>');
+      $('#bottom').children().append('<div class="new-meta-item"><a class="tag" href="' + window.location.href + '" rel="nofollow" data-pjax-state=""><i class="fas fa-external-link fa-fw" aria-hidden="true"></i><p>本文地址：' + window.location.href + '</p></a></div>');
       $('#comments').hide();
       $('#s-top').hide();
       $('footer').hide();

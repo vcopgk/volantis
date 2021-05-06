@@ -60,4 +60,8 @@ module.exports = hexo => {
       mergeLang(language);
     }
   }
+
+  if (data.menu) {
+    hexo.theme.config.navbar.menu = data.menu;
+  }
 };

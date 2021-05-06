@@ -48,7 +48,7 @@
                       <% if (item.keywords) { %>
                         <div class='friend-tags-wrapper'>
                         <% (item.keywords||[]).forEach(function(keyword){ %>
-                          <p class="tags"><i class="fad fa-hashtag fa-fw" aria-hidden="true"></i><%= keyword %></p>
+                          <p class="tags"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><%= keyword %></p>
                         <% }) %>
                         </div>
                       <% } %>
@@ -82,7 +82,8 @@
     <%- partial('_partial/meta',{post: page, position: 'bottom'}) %>
   </article>
 
-  <%- partial('_third-party/comments/index') %>
-
+  <% if (page.comments == undefined || page.comments != false) { %>
+    <%- partial('_third-party/comments/index') %>
+  <% } %>
 </div>
 <%- partial('_partial/side') %>
